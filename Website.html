@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mechanical Engineering — A Career Drafting Sheet</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --navy:#0B2545;
+  --navy-deep:#081b35;
+  --paper:#F6F3EA;
+  --paper-line:#e3ddc9;
+  --orange:#FF6B35;
+  --graphite:#22262B;
+  --steel:#7C8B9C;
+  --cyan:#5FB3D9;
+  --grid:rgba(95,179,217,.16);
+  --grid-strong:rgba(95,179,217,.32);
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--paper);
+  color:var(--graphite);
+  font-family:'Inter', sans-serif;
+  line-height:1.6;
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.001ms !important; transition-duration:.001ms !important;}
+}
+
+h1,h2,h3{font-family:'Space Grotesk', sans-serif; font-weight:700; letter-spacing:-0.01em;}
+.mono{font-family:'IBM Plex Mono', monospace;}
+a{color:inherit;}
+
+::selection{background:var(--orange); color:white;}
+
+/* ---------- shared blueprint grid background ---------- */
+.gridbg{
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size:32px 32px;
+}
+.gridbg-navy{
+  background-color:var(--navy);
+  background-image:
+    linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+  background-size:32px 32px;
+}
+
+/* ---------- eyebrow / label tags ---------- */
+.tag{
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:'IBM Plex Mono', monospace;
+  font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--orange); font-weight:600;
+}
+.tag::before{
+  content:""; width:18px; height:1px; background:var(--orange);
+}
+
+/* ---------- header / nav ---------- */
+header{
+  position:sticky; top:0; z-index:50;
+  background:rgba(11,37,69,.96);
+  backdrop-filter:blur(6px);
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+.nav-wrap{
+  max-width:1180px; margin:0 auto; padding:14px 24px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.brand{
+  display:flex; align-items:center; gap:10px;
+  color:#fff; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px;
+}
+.brand .gear{width:20px; height:20px; flex-shrink:0;}
+.navlinks{display:flex; gap:22px; font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.06em; text-transform:uppercase;}
+.navlinks a{color:#cfe0ee; text-decoration:none; opacity:.85; transition:opacity .15s, color .15s;}
+.navlinks a:hover{opacity:1; color:var(--orange);}
+.navlinks a:focus-visible, a:focus-visible, button:focus-visible{outline:2px solid var(--orange); outline-offset:3px;}
+@media (max-width:820px){ .navlinks{display:none;} }
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative; overflow:hidden;
+  color:#fff;
+  padding:96px 24px 64px;
+}
+.hero-inner{max-width:1180px; margin:0 auto; position:relative; z-index:2;}
+.hero-kicker{
+  font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.18em;
+  color:var(--cyan); text-transform:uppercase; margin-bottom:18px;
+  display:flex; align-items:center; gap:10px;
+}
+.dim-line{flex:0 0 60px; height:1px; background:var(--cyan); position:relative;}
+.dim-line::before,.dim-line::after{content:""; position:absolute; top:-3px; width:1px; height:7px; background:var(--cyan);}
+.dim-line::before{left:0;} .dim-line::after{right:0;}
+
+.hero h1{
+  font-size:clamp(40px,7vw,84px);
+  line-height:.96;
+  text-transform:uppercase;
+  max-width:900px;
+}
+.hero h1 span{color:var(--orange);}
+.hero-sub{
+  margin-top:22px; max-width:560px; font-size:17px; color:#cfe0ee;
+}
+.hero-meta{
+  display:flex; flex-wrap:wrap; gap:28px; margin-top:42px;
+  font-family:'IBM Plex Mono',monospace; font-size:12px; color:#9fb6cc;
+}
+.hero-meta div{border-left:2px solid var(--orange); padding-left:12px;}
+.hero-meta b{display:block; color:#fff; font-size:14px; margin-bottom:2px;}
+
+.gearfield{position:absolute; inset:0; z-index:1; opacity:.5; pointer-events:none;}
+.gear-svg{position:absolute; animation:spin linear infinite;}
+@keyframes spin{from{transform:rotate(0deg);} to{transform:rotate(360deg);}}
+.gear-svg.rev{animation-direction:reverse;}
+
+/* ---------- title block (signature element, used at top of each section AND footer) ---------- */
+.titleblock{
+  border:1.5px solid var(--navy);
+  background:#fff;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10.5px;
+  display:flex; flex-wrap:wrap;
+  max-width:560px;
+  margin-top:36px;
+}
+.titleblock div{
+  padding:8px 14px; border-right:1px solid var(--navy);
+  border-bottom:1px solid var(--navy);
+  flex:1 1 auto; min-width:110px;
+}
+.titleblock div:last-child{border-right:none;}
+.titleblock b{display:block; color:var(--orange); text-transform:uppercase; letter-spacing:.08em; font-size:9px; margin-bottom:3px;}
+
+/* ---------- section shell ---------- */
+section{padding:84px 24px; position:relative;}
+.section-inner{max-width:1180px; margin:0 auto;}
+.sheet-no{
+  position:absolute; top:24px; right:24px;
+  font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--steel);
+  writing-mode:vertical-rl;
+}
+.section-head{margin-bottom:48px; max-width:720px;}
+.section-head h2{font-size:clamp(28px,4vw,42px); margin-top:14px; text-transform:uppercase;}
+.section-head p{margin-top:14px; color:#46505a; font-size:15.5px; max-width:600px;}
+
+/* ---------- alt sections ---------- */
+.alt{background:var(--navy); color:#fff;}
+.alt .section-head p{color:#bcd0e2;}
+.alt .tag{color:var(--orange);}
+
+/* ---------- card grid: where MEs work ---------- */
+.industry-grid{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1px;
+  background:var(--paper-line); border:1px solid var(--paper-line);
+}
+.industry-card{
+  background:var(--paper); padding:26px 22px; position:relative;
+}
+.industry-card .ico{font-size:26px; display:block; margin-bottom:14px;}
+.industry-card h3{font-size:15px; text-transform:uppercase; letter-spacing:.02em;}
+.industry-card p{font-size:13.5px; color:#5a6470; margin-top:8px;}
+
+/* ---------- skills ---------- */
+.skills-list{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px; margin-top:10px;}
+.skill-item{
+  display:flex; gap:16px; padding:18px 0; border-top:1px solid var(--paper-line);
+}
+.skill-num{font-family:'IBM Plex Mono',monospace; color:var(--orange); font-weight:600; font-size:13px;}
+.skill-item h4{font-size:15px; margin-bottom:4px;}
+.skill-item p{font-size:13.5px; color:#5a6470;}
+
+/* ---------- pathway flow ---------- */
+.flow{
+  display:flex; flex-direction:column; gap:0; margin-top:20px;
+  border-left:2px dashed var(--cyan);
+  padding-left:32px; max-width:680px;
+}
+.flow-step{position:relative; padding:18px 0;}
+.flow-step::before{
+  content:""; position:absolute; left:-39px; top:24px;
+  width:14px; height:14px; border-radius:50%;
+  background:var(--orange); border:3px solid var(--navy);
+}
+.flow-step .mono{font-size:11px; color:var(--cyan); letter-spacing:.08em;}
+.flow-step h4{color:#fff; font-size:17px; margin-top:4px;}
+.flow-step p{color:#aec3d6; font-size:13.5px; margin-top:4px;}
+
+/* ---------- tabs: courses / universities ---------- */
+.tabbar{display:flex; gap:0; border-bottom:2px solid var(--navy); margin-bottom:0; flex-wrap:wrap;}
+.tabbtn{
+  font-family:'IBM Plex Mono',monospace; font-size:12.5px; text-transform:uppercase; letter-spacing:.06em;
+  background:none; border:none; cursor:pointer;
+  padding:14px 22px; color:var(--steel); border-bottom:3px solid transparent; margin-bottom:-2px;
+  transition:color .15s, border-color .15s;
+}
+.tabbtn.active{color:var(--navy); border-color:var(--orange); font-weight:600;}
+.tabbtn:hover{color:var(--navy);}
+
+.tabpanel{display:none; padding-top:30px;}
+.tabpanel.active{display:block;}
+
+.specsheet{width:100%; border-collapse:collapse; font-size:13.5px; margin-top:6px;}
+.specsheet caption{text-align:left; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--steel); margin-bottom:10px; text-transform:uppercase; letter-spacing:.06em;}
+.specsheet th{
+  text-align:left; font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.05em;
+  color:#fff; background:var(--navy); padding:11px 14px; position:sticky; top:0;
+}
+.specsheet td{padding:13px 14px; border-bottom:1px solid var(--paper-line); vertical-align:top;}
+.specsheet tr:nth-child(even) td{background:#fbf9f2;}
+.specsheet td.figure{font-family:'IBM Plex Mono',monospace; color:var(--navy); font-weight:600; white-space:nowrap;}
+.specsheet .uniname{font-weight:600;}
+.specsheet .note{display:block; font-size:11.5px; color:#8a93a0; margin-top:3px; font-weight:400;}
+.tablewrap{overflow-x:auto; border:1px solid var(--paper-line);}
+
+.fee-callout{
+  margin-top:18px; padding:16px 18px; border-left:3px solid var(--orange);
+  background:#fff8f0; font-size:13px; color:#5a4632;
+}
+.fee-callout b{color:var(--orange);}
+
+/* ---------- exams ---------- */
+.examgrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1px; background:var(--paper-line); border:1px solid var(--paper-line); margin-top:10px;}
+.examcard{background:var(--paper); padding:22px;}
+.examcard .mono{color:var(--orange); font-size:11px; letter-spacing:.08em;}
+.examcard h4{margin-top:6px; font-size:16px;}
+.examcard p{font-size:13.5px; color:#5a6470; margin-top:6px;}
+
+/* ---------- careers / salary ---------- */
+.career-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:16px; margin-top:24px;}
+.career-card{
+  background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.16);
+  padding:20px; position:relative;
+}
+.career-card h4{color:#fff; font-size:16px;}
+.career-card p{color:#aec3d6; font-size:13px; margin-top:8px;}
+
+.salary-board{margin-top:50px;}
+.salary-board h3{color:#fff; font-size:18px; text-transform:uppercase; margin-bottom:18px;}
+.salary-cols{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
+@media (max-width:700px){.salary-cols{grid-template-columns:1fr;}}
+.salary-card{border:1px solid rgba(255,255,255,.18); padding:22px;}
+.salary-card .country{font-family:'IBM Plex Mono',monospace; color:var(--orange); font-size:12px; letter-spacing:.1em; text-transform:uppercase;}
+.salary-row{display:flex; justify-content:space-between; padding:10px 0; border-top:1px dotted rgba(255,255,255,.22); font-size:14px;}
+.salary-row:first-of-type{border-top:none;}
+.salary-row span:last-child{font-family:'IBM Plex Mono',monospace; color:#fff; font-weight:600;}
+
+/* ---------- future scope ---------- */
+.future-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:18px; margin-top:10px;}
+.future-card{padding:20px; border:1px solid var(--paper-line); background:#fff; position:relative;}
+.future-card .mono{font-size:10.5px; color:var(--cyan); letter-spacing:.08em;}
+.future-card h4{margin-top:8px; font-size:15.5px;}
+.future-card p{font-size:13px; color:#5a6470; margin-top:8px;}
+
+/* ---------- fun facts ---------- */
+.facts{display:flex; flex-direction:column; gap:0; margin-top:10px;}
+.fact{
+  display:flex; gap:20px; padding:22px 0; border-top:1px solid var(--paper-line);
+  align-items:flex-start;
+}
+.fact:last-child{border-bottom:1px solid var(--paper-line);}
+.fact .mono{flex:0 0 50px; color:var(--orange); font-size:13px;}
+.fact p{font-size:15px; color:var(--graphite);}
+
+/* ---------- footer / title block sheet ---------- */
+footer{background:var(--navy-deep); color:#9fb6cc; padding:60px 24px 30px;}
+.footer-inner{max-width:1180px; margin:0 auto;}
+.footer-top{display:flex; justify-content:space-between; flex-wrap:wrap; gap:30px; align-items:flex-end; margin-bottom:30px;}
+.footer-top h3{color:#fff; font-size:22px; text-transform:uppercase;}
+.footer-titleblock{
+  border:1px solid rgba(255,255,255,.25);
+  font-family:'IBM Plex Mono',monospace; font-size:10.5px;
+  display:grid; grid-template-columns:repeat(4,1fr);
+}
+.footer-titleblock div{padding:10px 14px; border-right:1px solid rgba(255,255,255,.25); border-bottom:1px solid rgba(255,255,255,.25);}
+.footer-titleblock div:nth-child(4n){border-right:none;}
+.footer-titleblock b{display:block; color:var(--orange); text-transform:uppercase; font-size:9px; letter-spacing:.08em; margin-bottom:3px;}
+.footer-bottom{font-size:12px; color:#5e7691; border-top:1px solid rgba(255,255,255,.12); padding-top:18px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
+
+/* ---------- scroll reveal ---------- */
+.reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+.reveal.show{opacity:1; transform:translateY(0);}
+
+@media (max-width:600px){
+  .hero{padding:80px 18px 48px;}
+  section{padding:60px 18px;}
+  .titleblock div{min-width:90px;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-wrap">
+    <div class="brand">
+      <svg class="gear" viewBox="0 0 24 24" fill="none"><path d="M12 8a4 4 0 100 8 4 4 0 000-8z" stroke="#FF6B35" stroke-width="1.6"/><path d="M12 2v2.4M12 19.6V22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M2 12h2.4M19.6 12H22M4.9 19.1l1.7-1.7M17.4 6.6l1.7-1.7" stroke="#FF6B35" stroke-width="1.6" stroke-linecap="round"/></svg>
+      ME / CAREER SHEET
+    </div>
+    <nav class="navlinks">
+      <a href="#what">What</a>
+      <a href="#where">Where</a>
+      <a href="#pathway">Pathway</a>
+      <a href="#programs">Programs</a>
+      <a href="#exams">Exams</a>
+      <a href="#careers">Careers</a>
+      <a href="#future">Future</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero gridbg-navy" style="padding-top:96px;">
+  <div class="gearfield" aria-hidden="true" id="gearfield"></div>
+  <div class="hero-inner">
+    <div class="hero-kicker"><span class="dim-line"></span> DESIGN · BUILD · INNOVATE</div>
+    <h1>Mechanical<br>Engineer<span>ing.</span></h1>
+    <p class="hero-sub">If it moves — or has a part that moves — a mechanical engineer drew it first. This sheet lays out the discipline, the courses, the universities, and what each one costs, so you can plan your build.</p>
+    <div class="titleblock" role="img" aria-label="Drawing title block">
+      <div><b>Discipline</b>Mechanical Eng.</div>
+      <div><b>Duration</b>4 Years (B.E./B.Tech)</div>
+      <div><b>Scale</b>Global Industry</div>
+      <div><b>Sheet</b>01 of 11</div>
+    </div>
+    <div class="hero-meta">
+      <div><b>Physics</b>Forces & Thermo</div>
+      <div><b>Maths</b>Kinematics & Stress</div>
+      <div><b>Tools</b>SolidWorks · AutoCAD</div>
+      <div><b>Outcome</b>Real, moving things</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT IS ME ============ -->
+<section id="what" class="gridbg">
+  <div class="sheet-no">SHEET 02</div>
+  <div class="section-inner reveal">
+    <div class="section-head">
+      <span class="tag">01 — Definition</span>
+      <h2>What is mechanical engineering?</h2>
+      <p>A diverse, fundamental discipline that blends physics, mathematics, and material science to design and analyse physical systems. Mechanical engineers design, manufacture, test, and maintain machines — turning an idea on paper into functioning, real-world technology.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHERE THEY WORK ============ -->
+<section id="where" class="gridbg" style="padding-top:0;">
+  <div class="section-inner reveal">
+    <div class="section-head">
+      <span class="tag">02 — Industries</span>
+      <h2>Where mechanical engineers work</h2>
+      <p>Every industry that builds, moves, or powers something needs a mechanical engineer on the drawing board.</p>
+    </div>
+    <div class="industry-grid">
+      <div class="industry-card"><span class="ico">🚗</span><h3>Automobile</h3><p>Designing safer, faster, more efficient vehicles.</p></div>
+      <div class="industry-card"><span class="ico">✈️</span><h3>Aerospace</h3><p>Structural and mechanical components for aircraft and spacecraft.</p></div>
+      <div class="industry-card"><span class="ico">🤖</span><h3>Robotics</h3><p>Building automated systems and smart machinery.</p></div>
+      <div class="industry-card"><span class="ico">🏭</span><h3>Manufacturing</h3><p>Optimising production lines and heavy plant machinery.</p></div>
+      <div class="industry-card"><span class="ico">⚡</span><h3>Energy</h3><p>Power generation, nuclear reactors, wind turbines.</p></div>
+      <div class="industry-card"><span class="ico">🚄</span><h3>Railways</h3><p>High-speed locomotives and transit networks.</p></div>
+      <div class="industry-card"><span class="ico">🏥</span><h3>Medical Equipment</h3><p>Biomechanical prosthetics and diagnostic scanners.</p></div>
+      <div class="industry-card"><span class="ico">🛠️</span><h3>Construction</h3><p>HVAC and structural systems for buildings.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section class="gridbg">
+  <div class="sheet-no">SHEET 03</div>
+  <div class="section-inner reveal">
+    <div class="section-head">
+      <span class="tag">03 — Skill Set</span>
+      <h2>What it takes</h2>
+    </div>
+    <div class="skills-list">
+      <div class="skill-item"><span class="skill-num">01</span><div><h4>Physics</h4><p>Forces, thermodynamics, and fluid dynamics.</p></div></div>
+      <div class="skill-item"><span class="skill-num">02</span><div><h4>Mathematics</h4><p>Solving structural and kinematic equations.</p></div></div>
+      <div class="skill-item"><span class="skill-num">03</span><div><h4>Creativity</h4><p>Conceiving fresh solutions for mechanical bottlenecks.</p></div></div>
+      <div class="skill-item"><span class="skill-num">04</span><div><h4>Problem-solving</h4><p>Diagnosing system failures and materials stress.</p></div></div>
+      <div class="skill-item"><span class="skill-num">05</span><div><h4>CAD</h4><p>Blueprinting models in SolidWorks or AutoCAD.</p></div></div>
+      <div class="skill-item"><span class="skill-num">06</span><div><h4>Teamwork</h4><p>Co-authoring complex builds across project teams.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PATHWAY ============ -->
+<section id="pathway" class="alt gridbg-navy">
+  <div class="section-inner reveal">
+    <div class="section-head">
+      <span class="tag">04 — Roadmap</span>
+      <h2>Educational pathway</h2>
+      <p>The route from school to your first job title, step by step.</p>
+    </div>
+    <div class="flow">
+      <div class="flow-step"><span class="mono">STEP 01</span><h4>Grade 11–12, PCM stream</h4><p>Physics, Chemistry, Mathematics.</p></div>
+      <div class="flow-step"><span class="mono">STEP 02</span><h4>Entrance exams</h4><p>JEE Main / Advanced, BITSAT, VITEEE, or grade-based UAE admission.</p></div>
+      <div class="flow-step"><span class="mono">STEP 03</span><h4>B.E. / B.Tech in Mechanical Engineering</h4><p>4-year undergraduate degree.</p></div>
+      <div class="flow-step"><span class="mono">STEP 04</span><h4>Internships & hands-on projects</h4><p>Applied experience alongside coursework.</p></div>
+      <div class="flow-step"><span class="mono">STEP 05</span><h4>Mechanical Engineer</h4><p>Enter the workforce, or continue to a Master's.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROGRAMS / UNIVERSITIES / FEES ============ -->
+<section id="programs" class="gridbg">
+  <div class="sheet-no">SHEET 05</div>
+  <div class="section-inner reveal">
+    <div class="section-head">
+      <span class="tag">05 — Programs & Cost</span>
+      <h2>Universities & fee structures</h2>
+      <p>Approximate costs for a 4-year mechanical engineering degree. Fees are revised yearly and vary by category, scholarship, and campus — treat these as planning ranges, and confirm on each university's official site before applying.</p>
+    </div>
+
+    <div class="tabbar" role="tablist">
+      <button class="tabbtn active" data-tab="india" role="tab" aria-selected="true">India</button>
+      <button class="tabbtn" data-tab="uae" role="tab" aria-selected="false">UAE</button>
+    </div>
+
+    <div class="tabpanel active" id="india" role="tabpanel">
+      <div class="tablewrap">
+        <table class="specsheet">
+          <caption>Approx. total cost — 4-year B.Tech / B.E. Mechanical Engineering</caption>
+          <thead>
+            <tr><th>Institute</th><th>Entry route</th><th>Approx. fee (4 yrs)</th><th>Per year</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="uniname">IITs (23 campuses)<span class="note">Govt., tuition same across branches at a given IIT</span></td>
+              <td>JEE Main + JEE Advanced</td>
+              <td class="figure">₹8.6L – ₹11.2L</td>
+              <td class="figure">≈ ₹2.2L – ₹2.8L</td>
+            </tr>
+            <tr>
+              <td class="uniname">NITs<span class="note">Home-state quota is cheapest</span></td>
+              <td>JEE Main</td>
+              <td class="figure">₹4.5L – ₹7L (home state)</td>
+              <td class="figure">≈ ₹1.1L – ₹1.8L</td>
+            </tr>
+            <tr>
+              <td class="uniname">BITS Pilani<span class="note">Private, no govt. subsidy or category waivers</span></td>
+              <td>BITSAT</td>
+              <td class="figure">₹18L – ₹22L</td>
+              <td class="figure">≈ ₹4.5L – ₹5.5L</td>
+            </tr>
+            <tr>
+              <td class="uniname">VIT University<span class="note">Fee depends on VITEEE-rank category (1–5)</span></td>
+              <td>VITEEE</td>
+              <td class="figure">₹7L – ₹20L</td>
+              <td class="figure">≈ ₹1.7L – ₹5L</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="fee-callout"><b>Note —</b> IIT/NIT figures include tuition, hostel, mess, and miscellaneous charges for general-category students; SC/ST/EWS candidates receive substantial fee waivers, and merit-cum-means scholarships are widely available.</div>
+    </div>
+
+    <div class="tabpanel" id="uae" role="tabpanel">
+      <div class="tablewrap">
+        <table class="specsheet">
+          <caption>Approx. total cost — 4-year B.Sc. Mechanical Engineering (international student rates)</caption>
+          <thead>
+            <tr><th>Institute</th><th>Fee basis</th><th>Approx. fee (4 yrs)</th><th>Per year</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="uniname">Khalifa University<span class="note">Public, research-intensive — Abu Dhabi</span></td>
+              <td>Per credit (~AED 2,500/credit)</td>
+              <td class="figure">AED 260,000 – 325,000</td>
+              <td class="figure">≈ AED 65,000 – 75,000</td>
+            </tr>
+            <tr>
+              <td class="uniname">American University of Sharjah (AUS)<span class="note">Private, ABET-accredited</span></td>
+              <td>Per semester, 12–16 credits</td>
+              <td class="figure">AED 430,000 – 444,000</td>
+              <td class="figure">≈ AED 107,600 – 111,000</td>
+            </tr>
+            <tr>
+              <td class="uniname">University of Sharjah<span class="note">Semi-government</span></td>
+              <td>Program-based</td>
+              <td class="figure">AED 124,000 – 280,000</td>
+              <td class="figure">≈ AED 31,000 – 70,000</td>
+            </tr>
+            <tr>
+              <td class="uniname">UAE University<span class="note">Federal university — primarily UAE nationals; expat seats limited</span></td>
+              <td>Program-based</td>
+              <td class="figure" colspan="2">Check official site — tuition is largely subsidised for nationals</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="fee-callout"><b>Note —</b> UAE tuition is charged per credit hour, so totals shift with course load, electives, and any repeated modules. Figures exclude housing, insurance, and VAT where applicable.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ENTRANCE EXAMS ============ -->
+<section class="gridbg">
+  <div class="sheet-no">SHEET 06</div>
+  <div class="section-inner reveal">
+    <div class="section-head">
+      <span class="tag">06 — Admissions</span>
+      <h2>Entrance exams</h2>
+    </div>
+    <div class="examgrid">
+      <div class="examcard"><span class="mono">INDIA</span><h4>JEE Main &amp; Advanced</h4><p>For admission into IITs, NITs, and GFTIs.</p></div>
+      <div class="examcard"><span class="mono">INDIA</span><h4>BITSAT</h4><p>Mandatory for BITS Pilani campuses.</p></div>
+      <div class="examcard"><span class="mono">INDIA</span><h4>VITEEE</h4><p>Dedicated exam for VIT University admissions.</p></div>
+      <div class="examcard"><span class="mono">UAE</span><h4>High school grades + EmSAT</h4><p>Primary route for local public universities.</p></div>
+      <div class="examcard"><span class="mono">UAE</span><h4>IELTS / TOEFL</h4><p>Mandatory English proficiency for non-native speakers at most institutions.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CAREERS + SALARY ============ -->
+<section id="careers" class="alt gridbg-navy">
+  <div class="section-inner reveal">
+    <div class="section-head">
+      <span class="tag">07 — Outcomes</span>
+      <h2>Career opportunities</h2>
+      <p>Where a mechanical engineering degree actually leads.</p>
+    </div>
+    <div class="career-grid">
+      <div class="career-card"><h4>Design Engineer</h4><p>Builds digital prototypes using CAD tools.</p></div>
+      <div class="career-card"><h4>Automotive Engineer</h4><p>Works on powertrain architectures and aerodynamics.</p></div>
+      <div class="career-card"><h4>Robotics Engineer</h4><p>Implements kinematics and programming into automation.</p></div>
+      <div class="career-card"><h4>Aerospace Engineer</h4><p>Specialises in flight systems and propulsion dynamics.</p></div>
+      <div class="career-card"><h4>Manufacturing Engineer</h4><p>Streamlines plant operations and assembly lines.</p></div>
+      <div class="career-card"><h4>HVAC Engineer</h4><p>Oversees climate control systems in large buildings.</p></div>
+      <div class="career-card"><h4>Project Engineer</h4><p>Manages budgets, timelines, and execution phases.</p></div>
+    </div>
+
+    <div class="salary-board">
+      <h3>Indicative salary ranges</h3>
+      <div class="salary-cols">
+        <div class="salary-card">
+          <div class="country">India</div>
+          <div class="salary-row"><span>Fresh graduate</span><span>₹4 – 10 LPA</span></div>
+          <div class="salary-row"><span>Experienced professional</span><span>₹15 – 40+ LPA</span></div>
+        </div>
+        <div class="salary-card">
+          <div class="country">UAE</div>
+          <div class="salary-row"><span>Entry level</span><span>AED 8,000 – 18,000 /mo</span></div>
+          <div class="salary-row"><span>Experienced professional</span><span>AED 20,000+ /mo</span></div>
+        </div>
+      </div>
+      <div class="fee-callout" style="margin-top:24px; border-color:var(--cyan); background:rgba(95,179,217,.08); color:#cfe0ee;"><b style="color:var(--cyan)">Note —</b> Pay depends heavily on institute tier, specialisation, and sector — these are general planning ranges, not guarantees.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FUTURE SCOPE ============ -->
+<section id="future" class="gridbg">
+  <div class="sheet-no">SHEET 08</div>
+  <div class="section-inner reveal">
+    <div class="section-head">
+      <span class="tag">08 — Outlook</span>
+      <h2>Future scope</h2>
+      <p>Mechanical engineering is moving well beyond heavy machinery.</p>
+    </div>
+    <div class="future-grid">
+      <div class="future-card"><span class="mono">01</span><h4>Electric Vehicles</h4><p>Battery thermal management and lightweight chassis architectures.</p></div>
+      <div class="future-card"><span class="mono">02</span><h4>AI in Manufacturing</h4><p>Predictive maintenance and algorithmic defect detection.</p></div>
+      <div class="future-card"><span class="mono">03</span><h4>Robotics & Automation</h4><p>Autonomous warehouse systems and surgical robots.</p></div>
+      <div class="future-card"><span class="mono">04</span><h4>Renewable Energy</h4><p>Wind turbine blades and solar tracking arrays.</p></div>
+      <div class="future-card"><span class="mono">05</span><h4>3D Printing & Smart Factories</h4><p>Additive manufacturing and interconnected IoT infrastructure.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FUN FACTS ============ -->
+<section class="gridbg">
+  <div class="sheet-no">SHEET 09</div>
+  <div class="section-inner reveal">
+    <div class="section-head">
+      <span class="tag">09 — Trivia</span>
+      <h2>Fun facts</h2>
+    </div>
+    <div class="facts">
+      <div class="fact"><span class="mono">01</span><p>Mechanical engineering is one of the oldest and broadest branches of engineering.</p></div>
+      <div class="fact"><span class="mono">02</span><p>From Formula 1 aerodynamic packages to structural deployments on Mars rovers, mechanical engineers are at the heart of humanity's biggest adventures.</p></div>
+      <div class="fact"><span class="mono">03</span><p>Every industry uses mechanical engineers — if an object moves, or has moving parts, one built it.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER / TITLE BLOCK ============ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <h3>Mechanical Engineering<br>Career Sheet</h3>
+      <div class="footer-titleblock" role="img" aria-label="Drawing title block">
+        <div><b>Drawn for</b>Career Guidance Stall</div>
+        <div><b>Region</b>India / UAE</div>
+        <div><b>Scale</b>Not to scale</div>
+        <div><b>Sheet</b>11 of 11</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Fee figures are approximate planning ranges, sourced from public university fee schedules — always confirm current numbers on the official admissions site.</span>
+      <span class="mono">DESIGN · BUILD · INNOVATE</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// tabs
+document.querySelectorAll('.tabbtn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.tabbtn').forEach(b=>{b.classList.remove('active'); b.setAttribute('aria-selected','false');});
+    document.querySelectorAll('.tabpanel').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active'); btn.setAttribute('aria-selected','true');
+    document.getElementById(btn.dataset.tab).classList.add('active');
+  });
+});
+
+// scroll reveal
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); observer.unobserve(e.target); } });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+// faint rotating gear field in hero (decorative, respects reduced motion)
+(function(){
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(prefersReduced) return;
+  const field = document.getElementById('gearfield');
+  if(!field) return;
+  function gearPath(teeth, rOuter, rInner){
+    const pts = [];
+    const step = Math.PI*2/(teeth*2);
+    for(let i=0;i<teeth*2;i++){
+      const r = i%2===0 ? rOuter : rInner;
+      const a = i*step;
+      pts.push(`${(r*Math.cos(a)).toFixed(1)},${(r*Math.sin(a)).toFixed(1)}`);
+    }
+    return 'M'+pts.join('L')+'Z';
+  }
+  const specs = [
+    {x:'78%', y:'10%', size:220, teeth:12, dur:'46s', rev:false, op:.5},
+    {x:'4%', y:'58%', size:140, teeth:9, dur:'34s', rev:true, op:.4},
+    {x:'58%', y:'68%', size:90, teeth:8, dur:'22s', rev:false, op:.4}
+  ];
+  specs.forEach(s=>{
+    const svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
+    svg.setAttribute('viewBox','-110 -110 220 220');
+    svg.classList.add('gear-svg');
+    if(s.rev) svg.classList.add('rev');
+    svg.style.left = s.x; svg.style.top = s.y;
+    svg.style.width = s.size+'px'; svg.style.height = s.size+'px';
+    svg.style.animationDuration = s.dur;
+    svg.style.opacity = s.op;
+    const path = document.createElementNS('http://www.w3.org/2000/svg','path');
+    path.setAttribute('d', gearPath(s.teeth, 92, 74));
+    path.setAttribute('fill','none');
+    path.setAttribute('stroke','#5FB3D9');
+    path.setAttribute('stroke-width','1.4');
+    const hole = document.createElementNS('http://www.w3.org/2000/svg','circle');
+    hole.setAttribute('r','30'); hole.setAttribute('fill','none');
+    hole.setAttribute('stroke','#5FB3D9'); hole.setAttribute('stroke-width','1.4');
+    svg.appendChild(path); svg.appendChild(hole);
+    field.appendChild(svg);
+  });
+})();
+</script>
+</body>
+</html>
