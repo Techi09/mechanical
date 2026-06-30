@@ -143,12 +143,6 @@ header{
 .btn-ghost{border-color: rgba(255,255,255,0.3); color:#fff; background:transparent;}
 .btn-ghost:hover{background: rgba(255,255,255,0.08); border-color:#fff;}
 
-/* Stats Strip */
-.stats-strip { background: var(--bg-card); border-bottom: 1px solid var(--border); padding: 24px 20px; transition: background 0.3s, border-color 0.3s; }
-.stats-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
-.stat-box { font-size: 14px; color: var(--text-muted); }
-.stat-box span { display: block; font-size: 32px; font-family: 'Plus Jakarta Sans', sans-serif; color: var(--text-main); font-weight: 700; margin-bottom: 4px; }
-
 /* Sections */
 section{padding:80px 20px; position:relative;}
 .section-inner{max-width:1200px; margin:0 auto;}
@@ -158,18 +152,6 @@ section{padding:80px 20px; position:relative;}
 
 .alt{background: #F0F4F8; transition: background 0.3s;}
 [data-theme="dark"] .alt { background: #0E1322; }
-
-/* Cards Grid Layouts */
-.interactive-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-.blueprint-card {
-  background: var(--bg-card); border: 1px solid var(--border); padding: 28px; border-radius: 12px;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); position: relative;
-}
-.blueprint-card:hover {
-  transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 12px 30px rgba(0,0,0,0.06); background: var(--card-hover-bg);
-}
-.blueprint-card h3, .blueprint-card h4 { font-size: 19px; color: var(--text-main); margin: 12px 0 8px; }
-.blueprint-card p { font-size: 14px; color: var(--text-muted); }
 
 /* Tabs system */
 .tab-container { margin-top: 24px; }
@@ -290,7 +272,7 @@ footer{background: var(--primary-dark); color: #AEB9E1; padding: 60px 20px 30px;
     <p class="hero-sub">Explore an expanded database of elite public, state, and private institutions across India, the United Arab Emirates, and global tech landscapes. Filter options, estimate parameters, and discover dynamic fits.</p>
     <div class="hero-ctas">
       <a href="#pathfinder" class="btn btn-primary">Start Smart Filter Quiz →</a>
-      <a href="#institutions" class="btn btn-ghost">View All 40+ Core Colleges</a>
+      <a href="#institutions" class="btn btn-ghost">View All 44 Database Colleges</a>
     </div>
   </div>
 </section>
@@ -325,23 +307,20 @@ footer{background: var(--primary-dark); color: #AEB9E1; padding: 60px 20px 30px;
               </tr>
             </thead>
             <tbody>
-              <!-- Tier 1 Public -->
               <tr><td><span class="uniname">IIT Bombay</span></td><td>JEE Advanced</td><td class="figure">₹2,20,000</td><td>Premium Public (Tier 1)</td></tr>
               <tr><td><span class="uniname">IIT Delhi</span></td><td>JEE Advanced</td><td class="figure">₹2,25,000</td><td>Premium Public (Tier 1)</td></tr>
               <tr><td><span class="uniname">IIT Madras</span></td><td>JEE Advanced</td><td class="figure">₹2,15,000</td><td>Premium Public (Tier 1)</td></tr>
               <tr><td><span class="uniname">IIT Kharagpur</span></td><td>JEE Advanced</td><td class="figure">₹2,10,000</td><td>Premium Public (Tier 1)</td></tr>
               <tr><td><span class="uniname">IIT Roorkee</span></td><td>JEE Advanced</td><td class="figure">₹2,30,000</td><td>Premium Public (Tier 1)</td></tr>
               <tr><td><span class="uniname">IIT Kanpur</span></td><td>JEE Advanced</td><td class="figure">₹2,20,000</td><td>Premium Public (Tier 1)</td></tr>
-              <!-- National Institutes -->
               <tr><td><span class="uniname">NIT Trichy</span></td><td>JEE Main</td><td class="figure">₹1,45,000</td><td>National Public (Tier 1)</td></tr>
               <tr><td><span class="uniname">NIT Surathkal</span></td><td>JEE Main</td><td class="figure">₹1,50,000</td><td>National Public (Tier 1)</td></tr>
               <tr><td><span class="uniname">NIT Warangal</span></td><td>JEE Main</td><td class="figure">₹1,40,000</td><td>National Public (Tier 1)</td></tr>
               <tr><td><span class="uniname">VNIT Nagpur</span></td><td>JEE Main</td><td class="figure">₹1,35,000</td><td>National Public (Tier 2)</td></tr>
               <tr><td><span class="uniname">MNNIT Allahabad</span></td><td>JEE Main</td><td class="figure">₹1,42,000</td><td>National Public (Tier 2)</td></tr>
-              <!-- Top State & Elite Autonomous -->
-              <tr><td><span class="uniname">BITS Pilani (Main Campus)</span></td><td>BITSAT</td><td class="figure">₹5,20,000</td><td>Elite Private Private</td></tr>
-              <tr><td><span class="uniname">BITS Pilani (Goa Campus)</span></td><td>BITSAT</td><td class="figure">₹5,00,000</td><td>Elite Private Private</td></tr>
-              <tr><td><span class="uniname">BITS Pilani (Hyderabad Campus)</span></td><td>BITSAT</td><td class="figure">₹5,00,000</td><td>Elite Private Private</td></tr>
+              <tr><td><span class="uniname">BITS Pilani (Main Campus)</span></td><td>BITSAT</td><td class="figure">₹5,20,000</td><td>Elite Private</td></tr>
+              <tr><td><span class="uniname">BITS Pilani (Goa Campus)</span></td><td>BITSAT</td><td class="figure">₹5,00,000</td><td>Elite Private</td></tr>
+              <tr><td><span class="uniname">BITS Pilani (Hyderabad Campus)</span></td><td>BITSAT</td><td class="figure">₹5,00,000</td><td>Elite Private</td></tr>
               <tr><td><span class="uniname">Delhi Technological University (DTU)</span></td><td>JEE Main / JAC</td><td class="figure">₹2,10,000</td><td>Premier State University</td></tr>
               <tr><td><span class="uniname">Netaji Subhas Univ of Technology (NSUT)</span></td><td>JEE Main / JAC</td><td class="figure">₹2,05,000</td><td>Premier State University</td></tr>
               <tr><td><span class="uniname">COEP Technological University (Pune)</span></td><td>MHT-CET / JEE</td><td class="figure">₹1,35,000</td><td>Top State Government</td></tr>
@@ -423,7 +402,7 @@ footer{background: var(--primary-dark); color: #AEB9E1; padding: 60px 20px 30px;
     <!-- COST ESTIMATOR CONTAINER -->
     <div id="estimator" class="calculator-box">
       <h3 style="margin-bottom: 10px; font-size: 21px;">Dynamic Budgeting Estimator</h3>
-      <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 20px;">Review estimated costs across our expanded structural lists instantly.</p>
+      <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 20px;">Review customized pricing parameter mappings using individual institutional fees synchronized explicitly from the database tabs above.</p>
       
       <div class="calc-field">
         <label for="calc-region">1. Target Region Focus</label>
@@ -434,7 +413,7 @@ footer{background: var(--primary-dark); color: #AEB9E1; padding: 60px 20px 30px;
         </select>
       </div>
       <div class="calc-field">
-        <label for="calc-tier">2. Selected Institution Tier</label>
+        <label for="calc-tier">2. Selected Institution (Complete Registry Listing)</label>
         <select id="calc-tier" onchange="calculateProjectedFees()"></select>
       </div>
       <div class="calc-field">
@@ -480,7 +459,7 @@ footer{background: var(--primary-dark); color: #AEB9E1; padding: 60px 20px 30px;
         </div>
       </div>
 
-      <!-- Step 2: NEW DYNAMIC BUDGET RANGE SELECTOR -->
+      <!-- Step 2 -->
       <div class="quiz-step" id="q-step-2">
         <h3>Question 2: Identify Your Annual Tuition Budget Threshold</h3>
         <div class="options-list" id="budget-options-container">
@@ -488,7 +467,7 @@ footer{background: var(--primary-dark); color: #AEB9E1; padding: 60px 20px 30px;
         </div>
       </div>
 
-      <!-- Step 3: MULTI-SELECT INTERESTS MODULE -->
+      <!-- Step 3 -->
       <div class="quiz-step" id="q-step-3">
         <h3>Question 3: Select All Engineering Topic Interests (Choose one or more)</h3>
         <div class="options-list">
@@ -535,7 +514,7 @@ footer{background: var(--primary-dark); color: #AEB9E1; padding: 60px 20px 30px;
       <h4 style="color:#fff; margin-bottom:8px;">Unified Engineering Academic Registry</h4>
       <p style="color:#AEB9E1; max-width:600px; font-size:13px;">Advanced structural planning directory for mechanical engineering candidates. Cross-referenced across primary regional matrices.</p>
     </div>
-    <div class="mono" style="color:#64748B;">[ Matrix Ver 2.4 ]</div>
+    <div class="mono" style="color:#64748B;">[ Matrix Ver 2.5 ]</div>
   </div>
 </footer>
 
@@ -587,28 +566,57 @@ function filterTable(tableId, query) {
   });
 }
 
-// Global Cost Matrices 
+// Comprehensive Global Cost Matrix (Synchronized with 100% of Database Colleges)
 const budgetMatrix = {
   in: [
-    { name: "IIT Elite Public Tier (Subsidized)", base: 220000, hostel: 40000 },
-    { name: "NIT Public Framework Grid", base: 145000, hostel: 35000 },
-    { name: "BITS Pilani Ecosystem (Private)", base: 510000, hostel: 60000 },
-    { name: "DTU / NSUT Premier State Public", base: 205000, hostel: 45000 },
-    { name: "VIT / Manipal Elite Corporate Private", base: 395000, hostel: 75000 }
+    { name: "IIT Bombay", base: 220000, hostel: 40000 },
+    { name: "IIT Delhi", base: 225000, hostel: 40000 },
+    { name: "IIT Madras", base: 215000, hostel: 38000 },
+    { name: "IIT Kharagpur", base: 210000, hostel: 35000 },
+    { name: "IIT Roorkee", base: 230000, hostel: 42000 },
+    { name: "IIT Kanpur", base: 220000, hostel: 39000 },
+    { name: "NIT Trichy", base: 145000, hostel: 35000 },
+    { name: "NIT Surathkal", base: 150000, hostel: 35000 },
+    { name: "NIT Warangal", base: 140000, hostel: 32000 },
+    { name: "VNIT Nagpur", base: 135000, hostel: 30000 },
+    { name: "MNNIT Allahabad", base: 142000, hostel: 34000 },
+    { name: "BITS Pilani (Main Campus)", base: 520000, hostel: 65000 },
+    { name: "BITS Pilani (Goa Campus)", base: 500000, hostel: 60000 },
+    { name: "BITS Pilani (Hyderabad Campus)", base: 500000, hostel: 60000 },
+    { name: "Delhi Technological University (DTU)", base: 210000, hostel: 45000 },
+    { name: "Netaji Subhas Univ of Technology (NSUT)", base: 205000, hostel: 45000 },
+    { name: "COEP Technological University (Pune)", base: 135000, hostel: 28000 },
+    { name: "Jadavpur University (Kolkata)", base: 10000, hostel: 5000 },
+    { name: "VIT University (Vellore Main)", base: 340000, hostel: 80000 },
+    { name: "Manipal Institute of Technology (MIT)", base: 450000, hostel: 85000 }
   ],
   ae: [
-    { name: "Khalifa University Research Matrix", base: 76000, hostel: 15000 },
-    { name: "American University of Sharjah (AUS)", base: 98000, hostel: 20000 },
-    { name: "UAE University National Public System", base: 65000, hostel: 14000 },
-    { name: "Heriot-Watt / Birmingham UK Branches", base: 83000, hostel: 16000 },
-    { name: "BITS Pilani / Amity Regional Branches", base: 45000, hostel: 12000 }
+    { name: "Khalifa University (Abu Dhabi)", base: 76000, hostel: 15000 },
+    { name: "American University of Sharjah (AUS)", base: 98000, hostel: 22000 },
+    { name: "United Arab Emirates University (UAEU)", base: 65000, hostel: 12000 },
+    { name: "University of Sharjah (UOS)", base: 58000, hostel: 11000 },
+    { name: "Heriot-Watt University Dubai", base: 72000, hostel: 15000 },
+    { name: "University of Birmingham Dubai", base: 94000, hostel: 18000 },
+    { name: "BITS Pilani Dubai Campus", base: 48000, hostel: 12000 },
+    { name: "Amity University Dubai", base: 45000, hostel: 10000 },
+    { name: "Manipal Academy of Higher Ed Dubai", base: 42000, hostel: 10000 },
+    { name: "Abu Dhabi University (ADU)", base: 62000, hostel: 13000 },
+    { name: "Rochester Institute of Tech (RIT Dubai)", base: 68000, hostel: 14000 },
+    { name: "Middlesex University Dubai", base: 56000, hostel: 12000 }
   ],
   intl: [
-    { name: "Elite Private US (MIT / Stanford Matrix)", base: 63000, hostel: 16000 },
-    { name: "US Public Flagships (Berkeley / Purdue)", base: 36000, hostel: 14000 },
-    { name: "UK Premium Research (Imperial / Cambridge)", base: 41500, hostel: 12000 },
-    { name: "German Low-Cost Public Infrastructure", base: 1500, hostel: 11000 },
-    { name: "Singapore Ivy Systems (NUS / NTU)", base: 38000, hostel: 9000 }
+    { name: "MIT (Massachusetts Inst of Tech)", base: 62000, hostel: 18000 },
+    { name: "Stanford University", base: 64000, hostel: 18500 },
+    { name: "UC Berkeley", base: 44000, hostel: 16000 },
+    { name: "Purdue University (West Lafayette)", base: 31000, hostel: 12000 },
+    { name: "Georgia Institute of Technology", base: 33000, hostel: 12500 },
+    { name: "University of Michigan (Ann Arbor)", base: 49000, hostel: 14000 },
+    { name: "Imperial College London", base: 39000, hostel: 11000 },
+    { name: "University of Cambridge", base: 44000, hostel: 12000 },
+    { name: "TU Munich (Technical Univ of Munich)", base: 3000, hostel: 10000 },
+    { name: "RWTH Aachen University", base: 0, hostel: 9500 },
+    { name: "National University of Singapore (NUS)", base: 39000, hostel: 8000 },
+    { name: "Nanyang Technological Univ (NTU)", base: 37000, hostel: 7500 }
   ]
 };
 
@@ -637,7 +645,12 @@ function calculateProjectedFees() {
   
   let pfx = '₹ ';
   if(reg === 'ae') pfx = 'AED ';
-  if(reg === 'intl') pfx = '$ ';
+  if(reg === 'intl') {
+    if(record.name.includes("London") || record.name.includes("Cambridge")) pfx = '£ ';
+    else if(record.name.includes("Munich") || record.name.includes("Aachen")) pfx = '€ ';
+    else if(record.name.includes("Singapore") || record.name.includes("NUS") || record.name.includes("NTU")) pfx = 'S$ ';
+    else pfx = '$ ';
+  }
   out.innerHTML = `<span>${pfx}${total.toLocaleString()}</span>`;
 }
 updateEstimatorOptions();
@@ -666,21 +679,21 @@ function buildDynamicBudgetOptions(region) {
   let ranges = [];
   if (region === 'in') {
     ranges = [
-      { id: 'low', label: 'Low-Cost / High Subsidy (Under ₹1.5 Lakhs)', desc: 'Matches Jadavpur and core NIT options if ranked highly.' },
-      { id: 'mid', label: 'Standard Public Tiers (₹1.5 Lakhs - ₹3 Lakhs)', desc: 'Matches IITs, DTU, and NSUT standard structural pricing parameters.' },
-      { id: 'high', label: 'High-Scale Private Frameworks (Above ₹3 Lakhs)', desc: 'Matches BITS Pilani, VIT, and Manipal institutional structures.' }
+      { id: 'low', label: 'Low-Cost / High Subsidy (Under ₹1.5 Lakhs)', desc: 'Matches Jadavpur, COEP, VNIT, NIT Warangal, MNNIT Allahabad.' },
+      { id: 'mid', label: 'Standard Public Tiers (₹1.5 Lakhs - ₹3 Lakhs)', desc: 'Matches all Core IITs (Bombay, Delhi, etc.), NIT Trichy, Surathkal, DTU, and NSUT.' },
+      { id: 'high', label: 'High-Scale Private Frameworks (Above ₹3 Lakhs)', desc: 'Matches BITS Pilani (All Campuses), VIT, and Manipal.' }
     ];
   } else if (region === 'ae') {
     ranges = [
-      { id: 'low', label: 'Adaptive Baseline (Under AED 55,000)', desc: 'Matches BITS Dubai, Amity, and Manipal regional structures.' },
-      { id: 'mid', label: 'Mid-Scale Structural Tiers (AED 55,000 - AED 80,000)', desc: 'Matches Khalifa University, UAEU, UOS, and RIT systems.' },
-      { id: 'high', label: 'Premium Elite Tier (Above AED 80,000)', desc: 'Matches American University of Sharjah (AUS) and Birmingham structures.' }
+      { id: 'low', label: 'Adaptive Baseline (Under AED 55,000)', desc: 'Matches BITS Dubai, Amity, and Manipal Dubai.' },
+      { id: 'mid', label: 'Mid-Scale Structural Tiers (AED 55,000 - AED 80,000)', desc: 'Matches Khalifa University, UAEU, UOS, Abu Dhabi University, RIT, and Middlesex.' },
+      { id: 'high', label: 'Premium Elite Tier (Above AED 80,000)', desc: 'Matches American University of Sharjah (AUS) and University of Birmingham Dubai.' }
     ];
   } else {
     ranges = [
-      { id: 'low', label: 'Minimal Tuition Infrastructure (Under $10,000)', desc: 'Perfect alignment with top-tier Public German Universities.' },
-      { id: 'mid', label: 'Mid-Range Flagship Systems ($10,000 - $40,000)', desc: 'Matches top public tracks like Purdue, Georgia Tech, and Singapore networks.' },
-      { id: 'high', label: 'Elite Tier Global Funding (Above $40,000)', desc: 'Matches premium institutions like MIT, Stanford, Berkeley, Imperial, and Cambridge.' }
+      { id: 'low', label: 'Minimal Tuition Infrastructure (Under $10,000 / Approx.)', desc: 'Matches premium tuition-free or ultra-low cost public tracks like TU Munich and RWTH Aachen.' },
+      { id: 'mid', label: 'Mid-Range Flagship Systems ($10,000 - $40,000 / Approx.)', desc: 'Matches top global public hubs: Purdue, Georgia Tech, Imperial College, NUS, and NTU.' },
+      { id: 'high', label: 'Elite Tier Global Funding (Above $40,000 / Approx.)', desc: 'Matches elite heavyweights: MIT, Stanford, UC Berkeley, University of Michigan, and Cambridge.' }
     ];
   }
 
@@ -730,17 +743,17 @@ function generateQuizRecommendation() {
   
   let list = [];
   if(quizData.region === 'in') {
-    if(quizData.budgetRange === 'low') list = ["Jadavpur University", "NIT Warangal", "NIT Trichy / Surathkal (With State Subsidies)"];
-    if(quizData.budgetRange === 'mid') list = ["IIT Bombay", "IIT Delhi", "IIT Madras / Kharagpur / Roorkee", "DTU Delhi", "NSUT Delhi"];
-    if(quizData.budgetRange === 'high') list = ["BITS Pilani (Pilani/Goa/Hyderabad)", "VIT University Vellore", "Manipal Institute of Technology"];
+    if(quizData.budgetRange === 'low') list = ["Jadavpur University", "COEP Pune", "VNIT Nagpur", "NIT Warangal", "MNNIT Allahabad"];
+    if(quizData.budgetRange === 'mid') list = ["IIT Bombay", "IIT Delhi", "IIT Madras", "IIT Kharagpur", "IIT Roorkee", "IIT Kanpur", "NIT Trichy", "NIT Surathkal", "DTU", "NSUT"];
+    if(quizData.budgetRange === 'high') list = ["BITS Pilani (Pilani/Goa/Hyderabad)", "VIT Vellore", "Manipal Institute of Technology"];
   } else if(quizData.region === 'ae') {
-    if(quizData.budgetRange === 'low') list = ["BITS Pilani Dubai Campus", "Amity University Dubai", "Manipal Academy Dubai"];
-    if(quizData.budgetRange === 'mid') list = ["Khalifa University", "UAE University (Al Ain)", "University of Sharjah", "RIT Dubai"];
-    if(quizData.budgetRange === 'high') list = ["American University of Sharjah (AUS)", "University of Birmingham Dubai", "Heriot-Watt University Dubai"];
+    if(quizData.budgetRange === 'low') list = ["BITS Pilani Dubai", "Amity University Dubai", "Manipal Academy Dubai"];
+    if(quizData.budgetRange === 'mid') list = ["Khalifa University", "UAE University", "University of Sharjah", "Abu Dhabi University", "RIT Dubai", "Middlesex Dubai"];
+    if(quizData.budgetRange === 'high') list = ["American University of Sharjah (AUS)", "University of Birmingham Dubai", "Heriot-Watt Dubai"];
   } else {
-    if(quizData.budgetRange === 'low') list = ["TU Munich (Germany)", "RWTH Aachen University (Germany)"];
-    if(quizData.budgetRange === 'mid') list = ["Purdue University", "Georgia Tech", "National University of Singapore (NUS)", "Nanyang Technological University (NTU)"];
-    if(quizData.budgetRange === 'high') list = ["MIT", "Stanford University", "UC Berkeley", "Imperial College London", "University of Cambridge"];
+    if(quizData.budgetRange === 'low') list = ["TU Munich (Germany)", "RWTH Aachen (Germany)"];
+    if(quizData.budgetRange === 'mid') list = ["Purdue University", "Georgia Tech", "Imperial College London", "NUS Singapore", "NTU Singapore"];
+    if(quizData.budgetRange === 'high') list = ["MIT", "Stanford University", "UC Berkeley", "University of Michigan", "University of Cambridge"];
   }
   
   let tracks = "";
@@ -752,7 +765,7 @@ function generateQuizRecommendation() {
   });
 
   rTxt.innerText = `Optimal Matrix Match: Explore [ ${list.join(" | ")} ]`;
-  rMeta.innerText = `Configured Parameters:\n• Targeted Cost Bracket: ${quizData.budgetRange.toUpperCase()} Range Profile Setup\n• Active Structural Trajectories:${tracks}\n\nAction Item: Search these institutions in the data tables above to map your admissions criteria.`;
+  rMeta.innerText = `Configured Parameters:\n• Targeted Cost Bracket: ${quizData.budgetRange.toUpperCase()} Range Profile Setup\n• Active Structural Trajectories:${tracks}\n\nAction Item: Run the budgeting estimator or check the table tabs above to evaluate complete admission criteria loops for these entries.`;
   rBox.style.display = 'block';
 }
 </script>
