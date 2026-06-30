@@ -18,6 +18,21 @@
   --text-main: #2D3748;
   --text-muted: #64748B;
   --cyan: #0EA5E9;
+  --card-hover-bg: #FFFFFF;
+}
+
+[data-theme="dark"] {
+  --primary: #1E293B;
+  --primary-dark: #0F172A;
+  --accent: #FF6B35;
+  --accent-hover: #F85010;
+  --bg-light: #0B0F19;
+  --bg-card: #131C2E;
+  --border: #22314D;
+  --text-main: #E2E8F0;
+  --text-muted: #94A3B8;
+  --cyan: #38BDF8;
+  --card-hover-bg: #1A263E;
 }
 
 *{box-sizing:border-box; margin:0; padding:0;}
@@ -29,6 +44,7 @@ body{
   line-height: 1.6;
   overflow-x: hidden;
   font-size: 16px;
+  transition: background 0.3s, color 0.3s;
 }
 img,svg{max-width:100%;}
 
@@ -54,6 +70,10 @@ header{
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter:blur(12px);
   border-bottom:1px solid var(--border);
+  transition: background 0.3s, border-color 0.3s;
+}
+[data-theme="dark"] header {
+  background: rgba(19, 28, 46, 0.85);
 }
 .nav-wrap{
   max-width:1200px; margin:0 auto; padding:16px 20px;
@@ -63,6 +83,7 @@ header{
   display:flex; align-items:center; gap:10px;
   color: var(--primary); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 18px;
 }
+[data-theme="dark"] .brand { color: #FFF; }
 .brand .gear{width:24px; height:24px; animation: spin 12s linear infinite;}
 .navlinks{display:flex; gap:24px; font-weight: 500; font-size:14px; align-items:center;}
 .navlinks a{color: var(--text-muted); transition: color .2s;}
@@ -72,26 +93,35 @@ header{
 }
 .navlinks a.cta:hover{background: var(--accent-hover); transform:translateY(-1px);}
 
+/* Theme Toggle Button */
+.theme-btn {
+  background: none; border: 1px solid var(--border); padding: 8px 12px; border-radius: 6px;
+  cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--text-main);
+  transition: all 0.2s;
+}
+.theme-btn:hover { border-color: var(--accent); color: var(--accent); }
+
 .menu-toggle{
   display:none; background:none; border:1px solid var(--border); border-radius:6px;
   width:40px; height:40px; cursor:pointer; align-items:center; justify-content:center;
 }
-.menu-toggle svg{width:24px; height:24px; stroke: var(--primary);}
+.menu-toggle svg{width:24px; height:24px; stroke: var(--text-main);}
 
 @media (max-width:960px){
   .navlinks{
     display:none; position:absolute; top:100%; left:0; right:0;
-    background: #fff; flex-direction:column; align-items:stretch; gap:0;
+    background: var(--bg-card); flex-direction:column; align-items:stretch; gap:0;
     padding:12px 0; border-bottom:1px solid var(--border); box-shadow: 0 4px 12px rgba(0,0,0,0.05);
   }
   .navlinks.open{display:flex;}
-  .navlinks a{padding:14px 24px; border-top:1px solid var(--border);}
+  .navlinks a, .theme-btn-container { padding:14px 24px; border-top:1px solid var(--border); }
   .navlinks a.cta{margin:12px 24px; text-align:center;}
   .menu-toggle{display:flex;}
 }
 
 /* Hero Section */
-.hero{ position:relative; background: var(--primary); color:#fff; padding:120px 20px 80px; }
+.hero{ position:relative; background: #0A2540; color:#fff; padding:120px 20px 80px; transition: background 0.3s; }
+[data-theme="dark"] .hero { background: #0F172A; }
 .hero-inner{max-width:1200px; margin:0 auto; position:relative; z-index:2;}
 .hero-kicker{
   font-family: 'JetBrains Mono', monospace; font-size:13px; letter-spacing:.05em;
@@ -123,19 +153,22 @@ header{
 .titleblock b{display:block; color: var(--accent); text-transform:uppercase; font-size:10px; font-family: 'JetBrains Mono', monospace; margin-bottom:4px;}
 
 /* Stats Strip */
-.stats-strip { background: #fff; border-bottom: 1px solid var(--border); padding: 24px 20px; }
+.stats-strip { background: var(--bg-card); border-bottom: 1px solid var(--border); padding: 24px 20px; transition: background 0.3s, border-color 0.3s; }
 .stats-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
 .stat-box { font-size: 14px; color: var(--text-muted); }
-.stat-box span { display: block; font-size: 32px; font-family: 'Plus Jakarta Sans', sans-serif; color: var(--primary); font-weight: 700; margin-bottom: 4px; }
+.stat-box span { display: block; font-size: 32px; font-family: 'Plus Jakarta Sans', sans-serif; color: var(--text-main); font-weight: 700; margin-bottom: 4px; }
+[data-theme="light"] .stat-box span { color: var(--primary); }
 
 /* Sections */
 section{padding:90px 20px; position:relative;}
 .section-inner{max-width:1200px; margin:0 auto;}
 .section-head{margin-bottom:48px; max-width:800px;}
-.section-head h2{font-size: clamp(28px, 4vw, 36px); color: var(--primary); line-height: 1.2; margin-top: 8px;}
+.section-head h2{font-size: clamp(28px, 4vw, 36px); color: var(--text-main); line-height: 1.2; margin-top: 8px;}
+[data-theme="light"] .section-head h2 { color: var(--primary); }
 .section-head p{margin-top:14px; color: var(--text-muted); font-size:16px;}
 
-.alt{background: #F0F4F8;}
+.alt{background: #F0F4F8; transition: background 0.3s;}
+[data-theme="dark"] .alt { background: #0E1322; }
 
 /* Cards Grid Layouts */
 .interactive-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
@@ -144,9 +177,10 @@ section{padding:90px 20px; position:relative;}
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); position: relative;
 }
 .blueprint-card:hover {
-  transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+  transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 12px 30px rgba(0,0,0,0.06); background: var(--card-hover-bg);
 }
-.blueprint-card h3, .blueprint-card h4 { font-size: 20px; color: var(--primary); margin: 16px 0 10px; }
+.blueprint-card h3, .blueprint-card h4 { font-size: 20px; color: var(--text-main); margin: 16px 0 10px; }
+[data-theme="light"] .blueprint-card h3, [data-theme="light"] .blueprint-card h4 { color: var(--primary); }
 .blueprint-card p { font-size: 15px; color: var(--text-muted); }
 .blueprint-card .ico { font-size: 32px; display: inline-block; }
 .blueprint-card ul { margin-top: 14px; padding-left: 20px; color: var(--text-main); font-size: 14px; }
@@ -157,10 +191,10 @@ section{padding:90px 20px; position:relative;}
 .flow-node { position: relative; padding-bottom: 40px; }
 .flow-node:last-child { padding-bottom: 0; }
 .flow-node::before {
-  content: ""; position: absolute; left: -39px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 3px solid #fff;
+  content: ""; position: absolute; left: -39px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 3px solid var(--bg-light);
 }
 .flow-node .step-tag { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent); font-weight: 600; }
-.flow-node h4 { font-size: 18px; margin: 6px 0; color: var(--primary); }
+.flow-node h4 { font-size: 18px; margin: 6px 0; color: var(--text-main); }
 .flow-node p { font-size: 15px; color: var(--text-muted); }
 
 /* Tabs system */
@@ -175,14 +209,14 @@ section{padding:90px 20px; position:relative;}
 .tabpanel.active{display:block;}
 
 /* Tables and Responsive Cards Layout */
-.tablewrap { width: 100%; overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
+.tablewrap { width: 100%; overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card); box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
 .specsheet{width:100%; border-collapse:collapse; font-size:15px; text-align: left; }
-.specsheet th{ font-weight: 600; color:var(--primary); background: #F8FAFC; padding:16px; border-bottom: 2px solid var(--border); }
+.specsheet th{ font-weight: 600; color:var(--text-main); background: var(--bg-light); padding:16px; border-bottom: 2px solid var(--border); }
 .specsheet td{padding:18px 16px; border-bottom:1px solid var(--border); vertical-align:middle;}
 .specsheet tr:last-child td { border-bottom: none; }
-.specsheet tr:hover td { background: #F8FAFC; }
-.specsheet td.figure{font-family:'JetBrains Mono', monospace; color:var(--primary); font-weight:600;}
-.uniname { font-weight: 600; color: var(--primary); }
+.specsheet tr:hover td { background: var(--bg-light); }
+.specsheet td.figure{font-family:'JetBrains Mono', monospace; color:var(--accent); font-weight:600;}
+.uniname { font-weight: 600; color: var(--text-main); }
 
 @media (max-width:850px){
   .specsheet thead { display: none; }
@@ -194,50 +228,65 @@ section{padding:90px 20px; position:relative;}
 }
 
 /* Interactive Cost Estimator Tool */
-.calculator-box { background: #fff; border: 1px solid var(--border); padding: 36px; margin-top: 40px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.03); }
+.calculator-box { background: var(--bg-card); border: 1px solid var(--border); padding: 36px; margin-top: 40px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.03); }
 .calc-field { margin-bottom: 24px; }
-.calc-field label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 10px; color: var(--primary); }
+.calc-field label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 10px; color: var(--text-main); }
 .calc-field select {
   width: 100%; padding: 14px; border: 1px solid var(--border); border-radius: 8px;
-  font-size: 15px; background: #FFF; color: var(--text-main); outline: none; transition: border 0.2s;
+  font-size: 15px; background: var(--bg-light); color: var(--text-main); outline: none; transition: border 0.2s;
 }
 .calc-field select:focus { border-color: var(--accent); }
 .calc-result {
-  background: var(--primary); color: #fff; padding: 24px; border-radius: 8px;
+  background: #0A2540; color: #fff; padding: 24px; border-radius: 8px;
   display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
 }
+[data-theme="dark"] .calc-result { background: #0F172A; border: 1px solid var(--border); }
 .calc-result span { font-size: 28px; font-family: 'Plus Jakarta Sans', sans-serif; color: #FFF; font-weight: 700; }
 
 /* Interactive Finder Quiz System */
-.quiz-box { background: #fff; border: 1px solid var(--border); padding: 36px; margin-top: 32px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.03); }
+.quiz-box { background: var(--bg-card); border: 1px solid var(--border); padding: 36px; margin-top: 32px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.03); }
 .quiz-step { display: none; }
 .quiz-step.active { display: block; }
-.quiz-step h3 { font-size: 22px; color: var(--primary); margin-bottom: 24px; }
+.quiz-step h3 { font-size: 22px; color: var(--text-main); margin-bottom: 24px; }
 .options-list { display: grid; grid-template-columns: 1fr; gap: 16px; }
 @media(min-width: 650px) { .options-list { grid-template-columns: 1fr 1fr; } }
+
 .opt-card {
-  background: #FFF; border: 2px solid var(--border); padding: 20px; border-radius: 8px; color: var(--text-main); text-align: left; cursor: pointer; transition: all 0.2s;
+  background: var(--bg-light); border: 2px solid var(--border); padding: 20px; border-radius: 8px; color: var(--text-main); text-align: left; cursor: pointer; transition: all 0.2s;
 }
-.opt-card:hover { border-color: var(--accent); background: #FFFDFB; }
-.opt-card.selected { border-color: var(--accent); background: #FFF6F2; box-shadow: inset 0 0 0 1px var(--accent); }
-.opt-card b { display: block; font-size: 16px; margin-bottom: 6px; color: var(--primary); }
+.opt-card:hover { border-color: var(--accent); }
+.opt-card.selected { border-color: var(--accent); background: rgba(255, 90, 31, 0.08); box-shadow: inset 0 0 0 1px var(--accent); }
+.opt-card b { display: block; font-size: 16px; margin-bottom: 6px; color: var(--text-main); }
 .opt-card span { font-size: 14px; color: var(--text-muted); }
 
+/* Checkbox specific styles */
+.opt-card-check { position: relative; padding-left: 48px; }
+.opt-card-check .checkbox-indicator {
+  position: absolute; left: 18px; top: 22px; width: 18px; height: 18px; border: 2px solid var(--text-muted); border-radius: 4px;
+  display: flex; align-items: center; justify-content: center; transition: all 0.2s;
+}
+.opt-card.selected .checkbox-indicator {
+  background: var(--accent); border-color: var(--accent);
+}
+.opt-card.selected .checkbox-indicator::after {
+  content: "✓"; color: #fff; font-size: 12px; font-weight: bold;
+}
+
 .quiz-footer { display: flex; justify-content: space-between; margin-top: 32px; }
-.quiz-result-view { display: none; background: #F0FDF4; border: 2px dashed #22C55E; padding: 28px; border-radius: 8px; margin-top: 24px; }
+.quiz-result-view { display: none; background: rgba(34, 197, 94, 0.1); border: 2px dashed #22C55E; padding: 28px; border-radius: 8px; margin-top: 24px; }
 
 /* Accordion FAQs */
 .faq-wrap { max-width: 900px; margin-top: 32px; display: flex; flex-direction: column; gap: 16px; }
-.faq-item { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 20px; transition: border 0.2s; }
+.faq-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; transition: border 0.2s; }
 .faq-item[open] { border-color: var(--accent); }
-.faq-item summary { font-weight: 600; font-size: 16px; color: var(--primary); cursor: pointer; display: flex; justify-content: space-between; align-items: center; list-style: none; }
+.faq-item summary { font-weight: 600; font-size: 16px; color: var(--text-main); cursor: pointer; display: flex; justify-content: space-between; align-items: center; list-style: none; }
 .faq-item summary::-webkit-details-marker { display: none; }
 .faq-item summary::after { content: "+"; color: var(--accent); font-size: 22px; font-weight: 400; transition: transform 0.2s; }
 .faq-item[open] summary::after { transform: rotate(45deg); }
 .faq-item p { margin-top: 12px; font-size: 15px; color: var(--text-muted); border-top: 1px solid var(--border); padding-top: 12px; }
 
 /* Footer Design */
-footer{background: var(--primary-dark); color: #AEB9E1; padding: 80px 20px 40px; border-top: 4px solid var(--accent);}
+footer{background: var(--primary-dark); color: #AEB9E1; padding: 80px 20px 40px; border-top: 4px solid var(--accent); transition: background 0.3s;}
 .footer-wrap{max-width:1200px; margin:0 auto;}
 .footer-top{display:flex; justify-content:space-between; flex-wrap:wrap; gap:40px; margin-bottom:48px; align-items:flex-start;}
 .footer-bottom{border-top:1px solid rgba(255,255,255,0.1); padding-top:24px; font-size:13px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px;}
@@ -256,7 +305,7 @@ footer{background: var(--primary-dark); color: #AEB9E1; padding: 80px 20px 40px;
         <path d="M12 8a4 4 0 100 8 4 4 0 000-8z" stroke="#FF5A1F" stroke-width="2"/>
         <path d="M12 2v2.4M12 19.6V22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M2 12h2.4M19.6 12H22M4.9 19.1l1.7-1.7M17.4 6.6l1.7-1.7" stroke="#FF5A1F" stroke-width="2" stroke-linecap="round"/>
       </svg>
-      <span>Mechanical Engineering Career Hub</span>
+      <span>Mechanical Engineering Hub</span>
     </div>
     <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
@@ -269,6 +318,9 @@ footer{background: var(--primary-dark); color: #AEB9E1; padding: 80px 20px 40px;
       <a href="#estimator">Cost Estimator</a>
       <a href="#pathfinder">Find Your Path</a>
       <a href="#faqs">FAQs</a>
+      <div class="theme-btn-container">
+        <button class="theme-btn" id="themeBtn" onclick="toggleTheme()">☀️ Light</button>
+      </div>
       <a href="#pathfinder" class="cta">Take the Quiz</a>
     </nav>
   </div>
@@ -282,7 +334,7 @@ footer{background: var(--primary-dark); color: #AEB9E1; padding: 80px 20px 40px;
     
     <div class="hero-ctas">
       <a href="#pathfinder" class="btn btn-primary">Take the Career Pathfinder Quiz →</a>
-      <a href="#institutions" class="btn btn-ghost">Compare College Fees</a>
+      <a href="#institutions" class="btn btn-ghost">Compare Global Colleges</a>
     </div>
 
     <div class="titleblock">
@@ -295,10 +347,10 @@ footer{background: var(--primary-dark); color: #AEB9E1; padding: 80px 20px 40px;
 
 <div class="stats-strip">
   <div class="stats-grid">
-    <div class="stat-box"><span>15+</span>Growing Industries</div>
-    <div class="stat-box"><span>100%</span>Real-World Practical Application</div>
-    <div class="stat-box"><span>AED 150K</span>Average Entry Salary Goal</div>
-    <div class="stat-box"><span>6+</span>Major Engineering Specializations</div>
+    <div class="stat-box"><span>20+</span>Growing Sectors</div>
+    <div class="stat-box"><span>100%</span>Practical Application</div>
+    <div class="stat-box"><span>Global</span>Career Flexibility</div>
+    <div class="stat-box"><span>8+</span>Major Specializations</div>
   </div>
 </div>
 
@@ -317,7 +369,7 @@ footer{background: var(--primary-dark); color: #AEB9E1; padding: 80px 20px 40px;
         <ul>
           <li>Autonomous assembly robots</li>
           <li>Drone mechanics and flight controls</li>
-          <li>Sensors &amp; intelligent control frameworks</li>
+          <li>Sensors &amp; intelligent frameworks</li>
         </ul>
       </div>
       <div class="blueprint-card">
@@ -346,8 +398,8 @@ footer{background: var(--primary-dark); color: #AEB9E1; padding: 80px 20px 40px;
         <p>Create eco-friendly energy generation systems, focusing closely on advanced heat transfer tracking and fluid dynamics physics.</p>
         <ul>
           <li>Wind turbine blade dynamics</li>
-          <li>Solar plant thermodynamic thermal efficiency</li>
-          <li>Hydrogen fuel storage &amp; distribution infrastructure</li>
+          <li>Solar plant thermodynamic efficiencies</li>
+          <li>Hydrogen fuel distribution infrastructure</li>
         </ul>
       </div>
     </div>
@@ -397,8 +449,8 @@ footer{background: var(--primary-dark); color: #AEB9E1; padding: 80px 20px 40px;
       </div>
       <div class="flow-node">
         <div class="step-tag">Step 02</div>
-        <h4>Entrance Examinations</h4>
-        <p>Prepare for and clear the required selection exams, such as JEE Main and Advanced inside India, or EmSAT evaluations within the UAE ecosystem.</p>
+        <h4>Entrance &amp; Language Tests</h4>
+        <p>Prepare for and clear the required selection tests, such as JEE in India, EmSAT within the UAE, or SAT/ACT/IELTS for western applications abroad.</p>
       </div>
       <div class="flow-node">
         <div class="step-tag">Step 03</div>
@@ -417,14 +469,15 @@ footer{background: var(--primary-dark); color: #AEB9E1; padding: 80px 20px 40px;
 <section id="institutions" class="alt">
   <div class="section-inner">
     <div class="section-head">
-      <h2>Top Engineering Universities &amp; Costs</h2>
-      <p>A clear look at prominent engineering institutions located across both India and the United Arab Emirates.</p>
+      <h2>Top Global Engineering Universities &amp; Costs</h2>
+      <p>A comprehensive overview of prominent engineering institutions located across India, the UAE, and premier international destinations.</p>
     </div>
 
     <div class="tab-container">
       <div class="tabbar">
         <button class="tabbtn active" onclick="switchTab(event, 'india-panel')">Colleges in India</button>
         <button class="tabbtn" onclick="switchTab(event, 'uae-panel')">Colleges in the UAE</button>
+        <button class="tabbtn" onclick="switchTab(event, 'abroad-panel')">Colleges Abroad (US, UK, Germany)</button>
       </div>
 
       <div id="india-panel" class="tabpanel active">
@@ -528,6 +581,59 @@ footer{background: var(--primary-dark); color: #AEB9E1; padding: 80px 20px 40px;
                 <td class="figure" data-label="Avg. Annual Tuition">AED 40,000 - AED 50,000</td>
                 <td data-label="Key Features">Offers useful hybrid pathways spanning regional business connections and practical design tasks.</td>
               </tr>
+              <tr>
+                <td data-label="University Name"><span class="uniname">BITS Pilani Dubai Campus</span></td>
+                <td data-label="Admission Pathway">12th Board Marks (PCM)</td>
+                <td class="figure" data-label="Avg. Annual Tuition">AED 45,000 - AED 52,000</td>
+                <td data-label="Key Features">Replicates the strong academic framework of its parent Indian campus with regional UAE internship connections.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="abroad-panel" class="tabpanel">
+        <div class="tablewrap">
+          <table class="specsheet">
+            <thead>
+              <tr>
+                <th>University Name</th>
+                <th>Admission Pathway</th>
+                <th>Avg. Annual Tuition</th>
+                <th>Key Features</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="University Name"><span class="uniname">MIT / Stanford / UC Berkeley (USA)</span></td>
+                <td data-label="Admission Pathway">SAT/ACT + Portfolio + TOEFL</td>
+                <td class="figure" data-label="Avg. Annual Tuition">$55,000 - $65,000</td>
+                <td data-label="Key Features">Global pioneers in breakthrough tech research, immense innovation funding, and tech startups.</td>
+              </tr>
+              <tr>
+                <td data-label="University Name"><span class="uniname">Purdue / Georgia Tech / Michigan (USA)</span></td>
+                <td data-label="Admission Pathway">SAT/ACT + High School GPA</td>
+                <td class="figure" data-label="Avg. Annual Tuition">$35,000 - $45,000</td>
+                <td data-label="Key Features">World-class large public research institutions famous for automotive and aerospace excellence.</td>
+              </tr>
+              <tr>
+                <td data-label="University Name"><span class="uniname">Imperial College London / Cambridge (UK)</span></td>
+                <td data-label="Admission Pathway">A-Levels / IB + Admissions Test</td>
+                <td class="figure" data-label="Avg. Annual Tuition">£35,000 - £47,000</td>
+                <td data-label="Key Features">Elite, long-standing academic prestige balanced with modern engineering labs and close ties to European industry.</td>
+              </tr>
+              <tr>
+                <td data-label="University Name"><span class="uniname">TU Munich / RWTH Aachen (Germany)</span></td>
+                <td data-label="Admission Pathway">High School Grades + TestAS</td>
+                <td class="figure" data-label="Avg. Annual Tuition">None to €3,000 (Low Cost)</td>
+                <td data-label="Key Features">Virtually tuition-free public education; deep historic alignment with top-tier German automotive and machine design sectors.</td>
+              </tr>
+              <tr>
+                <td data-label="University Name"><span class="uniname">National University of Singapore (NUS)</span></td>
+                <td data-label="Admission Pathway">High School Excellence + Interview</td>
+                <td class="figure" data-label="Avg. Annual Tuition">S$38,000 - S$44,000</td>
+                <td data-label="Key Features">Asia's highest-ranked institution with state-of-the-art smart systems and advanced materials labs.</td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -543,11 +649,12 @@ footer{background: var(--primary-dark); color: #AEB9E1; padding: 80px 20px 40px;
         <select id="calc-region" onchange="updateEstimatorOptions()">
           <option value="in">Colleges in India</option>
           <option value="ae">Colleges in the UAE</option>
+          <option value="intl">Colleges Abroad (International)</option>
         </select>
       </div>
 
       <div class="calc-field">
-        <label for="calc-tier">2. Choose University Tier</label>
+        <label for="calc-tier">2. Choose University Focus</label>
         <select id="calc-tier" onchange="calculateProjectedFees()">
         </select>
       </div>
@@ -580,13 +687,17 @@ footer{background: var(--primary-dark); color: #AEB9E1; padding: 80px 20px 40px;
       <div class="quiz-step active" id="q-step-1">
         <h3>Question 1: Where would you prefer to complete your college studies?</h3>
         <div class="options-list">
-          <button class="opt-card" onclick="selectQuizOption(1, 'region', 'in')">
+          <button class="opt-card" onclick="selectSingleQuizOption(1, 'region', 'in')">
             <b>Universities in India</b>
-            <span>Prepare for competitive tracking tests like JEE to step into large manufacturing and engineering industries.</span>
+            <span>Prepare for competitive exams like JEE to enter excellent core manufacturing and software design pipelines.</span>
           </button>
-          <button class="opt-card" onclick="selectQuizOption(1, 'region', 'ae')">
+          <button class="opt-card" onclick="selectSingleQuizOption(1, 'region', 'ae')">
             <b>Universities in the UAE</b>
-            <span>Study in an international campus hub with modern facilities and close links to global transportation sectors.</span>
+            <span>Study in an international campus ecosystem with state-of-the-art infrastructure and local aerospace/energy hubs.</span>
+          </button>
+          <button class="opt-card" onclick="selectSingleQuizOption(1, 'region', 'intl')">
+            <b>Universities Abroad (US, UK, Germany)</b>
+            <span>Immerse yourself in global tech hubs, high startup funding, or elite research settings.</span>
           </button>
         </div>
       </div>
@@ -594,34 +705,46 @@ footer{background: var(--primary-dark); color: #AEB9E1; padding: 80px 20px 40px;
       <div class="quiz-step" id="q-step-2">
         <h3>Question 2: What is your primary career goal after graduating?</h3>
         <div class="options-list">
-          <button class="opt-card" onclick="selectQuizOption(2, 'priority', 'research')">
+          <button class="opt-card" onclick="selectSingleQuizOption(2, 'priority', 'research')">
             <b>Advanced Research &amp; Discovery</b>
-            <span>Focus on complex academic logic, advanced system design, and specialized research laboratory work.</span>
+            <span>Focus on complex academic logic, advanced system simulations, and specialized research laboratory work.</span>
           </button>
-          <button class="opt-card" onclick="selectQuizOption(2, 'priority', 'industry')">
+          <button class="opt-card" onclick="selectSingleQuizOption(2, 'priority', 'industry')">
             <b>Immediate Corporate Placement</b>
-            <span>Enter the workforce quickly, focusing on automation software platforms and large-scale manufacturing workflows.</span>
+            <span>Enter the workforce quickly, focusing on physical engineering projects and large-scale manufacturing workflows.</span>
           </button>
         </div>
       </div>
 
       <div class="quiz-step" id="q-step-3">
-        <h3>Question 3: Which technical topic excites you the most?</h3>
+        <h3>Question 3: Select all the topics that interest you (Choose one or more):</h3>
         <div class="options-list">
-          <button class="opt-card" onclick="selectQuizOption(3, 'track', 'mechatronics')">
-            <b>Robotics &amp; Automated Systems</b>
-            <span>Program smart robotic parts, microcontrollers, automated equipment, and electronic control loops.</span>
+          <button class="opt-card opt-card-check" onclick="toggleCheckboxQuizOption('robotics')">
+            <div class="checkbox-indicator"></div>
+            <b>Robotics &amp; Smart Code Devices</b>
+            <span>Programming robotic limbs, automated lines, microcontrollers, and smart electronic circuits.</span>
           </button>
-          <button class="opt-card" onclick="selectQuizOption(3, 'track', 'aerospace')">
-            <b>Aerospace &amp; Energy Flows</b>
-            <span>Analyze aircraft body aerodynamics, jet propulsion systems, and thermodynamic thermal energy transformations.</span>
+          <button class="opt-card opt-card-check" onclick="toggleCheckboxQuizOption('aerospace')">
+            <div class="checkbox-indicator"></div>
+            <b>Aerospace &amp; Aerodynamics</b>
+            <span>Analyzing jet propulsion physics, wings, high-altitude flight vehicles, and rockets.</span>
+          </button>
+          <button class="opt-card opt-card-check" onclick="toggleCheckboxQuizOption('automotive')">
+            <div class="checkbox-indicator"></div>
+            <b>EVs &amp; Automotive Layouts</b>
+            <span>Designing battery cooling systems, modern vehicle frames, and sustainable transport designs.</span>
+          </button>
+          <button class="opt-card opt-card-check" onclick="toggleCheckboxQuizOption('energy')">
+            <div class="checkbox-indicator"></div>
+            <b>Renewable Energy Fluids &amp; Heat</b>
+            <span>Working on wind turbines, fluid dynamics, heat distribution networks, and solar technology.</span>
           </button>
         </div>
       </div>
 
       <div class="quiz-footer">
-        <button class="btn btn-ghost" id="quiz-prev-btn" onclick="navigateQuiz(-1)" disabled style="color: var(--primary); border-color: var(--border);">Go Back</button>
-        <button class="btn btn-primary" id="quiz-next-btn" onclick="navigateQuiz(1)" style="display:none;">Next Question</button>
+        <button class="btn btn-ghost" id="quiz-prev-btn" onclick="navigateQuiz(-1)" disabled style="color: var(--text-main); border-color: var(--border);">Go Back</button>
+        <button class="btn btn-primary" id="quiz-next-btn" onclick="processCheckboxStep()" style="display:none;">Calculate Path Recommendation →</button>
       </div>
 
       <div class="quiz-result-view" id="quiz-result-box">
@@ -647,7 +770,7 @@ footer{background: var(--primary-dark); color: #AEB9E1; padding: 80px 20px 40px;
       </details>
       <details class="faq-item">
         <summary>Which mathematics subjects should I study most closely in high school?</summary>
-        <p>Give your closest attention to calculus, multi-variable tracking math, coordinate geometry, linear equations, and basic structural physics parameters.</p>
+        <p>Give your closest attention to calculus, basic tracking math, coordinate geometry, linear equations, and basic structural physics parameters.</p>
       </details>
       <details class="faq-item">
         <summary>Do I need to learn complex CAD design tools before entering college?</summary>
@@ -673,14 +796,15 @@ footer{background: var(--primary-dark); color: #AEB9E1; padding: 80px 20px 40px;
 </footer>
 
 <script>
+// Mobile Navigation Toggle
 const menuToggle = document.getElementById('menuToggle');
 const navLinks = document.getElementById('navLinks');
-
 menuToggle.addEventListener('click', () => {
   const isOpen = navLinks.classList.toggle('open');
   menuToggle.setAttribute('aria-expanded', isOpen);
 });
 
+// Scroll Progress Tracker
 window.addEventListener('scroll', () => {
   const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
   const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -688,6 +812,20 @@ window.addEventListener('scroll', () => {
   document.getElementById('scroll-progress').style.width = scrolled + '%';
 });
 
+// Dark/Light Theme Handler
+function toggleTheme() {
+  const currentTheme = document.documentElement.getAttribute('data-theme');
+  const btn = document.getElementById('themeBtn');
+  if (currentTheme === 'dark') {
+    document.documentElement.removeAttribute('data-theme');
+    btn.innerText = "☀️ Light";
+  } else {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    btn.innerText = "🌙 Dark";
+  }
+}
+
+// Tab Switching System
 function switchTab(evt, panelId) {
   const panels = document.querySelectorAll('.tabpanel');
   const tabs = document.querySelectorAll('.tabbtn');
@@ -699,13 +837,13 @@ function switchTab(evt, panelId) {
   evt.currentTarget.classList.add('active');
 }
 
+// Cost Estimator Matrix
 const costData = {
   in: [
     { name: "IIT Public Colleges (Subsidized)", base: 220000, hostel: 40000 },
     { name: "NIT Campus Framework (Public)", base: 150000, hostel: 35000 },
     { name: "BITS Pilani (Private Autonomous)", base: 500000, hostel: 60000 },
     { name: "VIT University (Private Tier-1)", base: 340000, hostel: 70000 },
-    { name: "Manipal Institute (MIT Private)", base: 430000, hostel: 65000 },
     { name: "DTU Delhi (State Public College)", base: 200000, hostel: 45000 }
   ],
   ae: [
@@ -713,8 +851,13 @@ const costData = {
     { name: "American University of Sharjah (AUS)", base: 98000, hostel: 20000 },
     { name: "University of Sharjah Campus", base: 56000, hostel: 12000 },
     { name: "UAE University (Al Ain Public)", base: 62000, hostel: 14000 },
-    { name: "Heriot-Watt University Dubai", base: 70000, hostel: 16000 },
-    { name: "Amity University Dubai Private", base: 45000, hostel: 12000 }
+    { name: "Heriot-Watt University Dubai", base: 70000, hostel: 16000 }
+  ],
+  intl: [
+    { name: "Elite US Private Ivy (MIT, Stanford)", base: 220000, hostel: 55000 }, // Converted roughly to relative indicators or standard display text
+    { name: "US Public Research Tiers (Purdue)", base: 145000, hostel: 45000 },
+    { name: "UK Top Universities (Imperial, Cam)", base: 165000, hostel: 50000 },
+    { name: "German Public Universities (TU Munich)", base: 8000, hostel: 40000 }
   ]
 };
 
@@ -746,16 +889,20 @@ function calculateProjectedFees() {
     total += selectedRecord.hostel;
   }
   
-  const currencySymbol = (region === 'in') ? '₹ ' : 'AED ';
+  let currencySymbol = '₹ ';
+  if(region === 'ae') currencySymbol = 'AED ';
+  if(region === 'intl') currencySymbol = '$ ';
+  
   display.innerHTML = `<span>${currencySymbol}${total.toLocaleString()}</span>`;
 }
 
 updateEstimatorOptions();
 
-let quizAnswers = { region: '', priority: '', track: '' };
+// Interactive Quiz System (Multi-Select Update)
+let quizAnswers = { region: '', priority: '', interests: [] };
 let currentQuizStep = 1;
 
-function selectQuizOption(step, key, value) {
+function selectSingleQuizOption(step, key, value) {
   quizAnswers[key] = value;
   
   const stepContainer = document.getElementById(`q-step-${step}`);
@@ -764,31 +911,45 @@ function selectQuizOption(step, key, value) {
   
   event.currentTarget.classList.add('selected');
   
-  if(currentQuizStep < 3) {
-    setTimeout(() => {
-      navigateQuiz(1);
-    }, 250);
+  setTimeout(() => {
+    navigateQuiz(1);
+  }, 250);
+}
+
+function toggleCheckboxQuizOption(interestValue) {
+  const idx = quizAnswers.interests.indexOf(interestValue);
+  if (idx > -1) {
+    quizAnswers.interests.splice(idx, 1); // Deselect if already present
+    event.currentTarget.classList.remove('selected');
   } else {
-    evaluateQuizResult();
+    quizAnswers.interests.push(interestValue); // Add to selections
+    event.currentTarget.classList.add('selected');
   }
 }
 
+function processCheckboxStep() {
+  if (quizAnswers.interests.length === 0) {
+    alert("Please select at least one topic of interest before completing the quiz!");
+    return;
+  }
+  evaluateQuizResult();
+}
+
 function navigateQuiz(direction) {
-  if (direction === 1 && !isStepValidated(currentQuizStep)) return;
-  
   document.getElementById(`q-step-${currentQuizStep}`).classList.remove('active');
   currentQuizStep += direction;
   document.getElementById(`q-step-${currentQuizStep}`).classList.add('active');
   
   document.getElementById('quiz-prev-btn').disabled = (currentQuizStep === 1);
+  
+  const nextBtn = document.getElementById('quiz-next-btn');
+  if (currentQuizStep === 3) {
+    nextBtn.style.display = 'inline-flex';
+  } else {
+    nextBtn.style.display = 'none';
+  }
+  
   document.getElementById('quiz-result-box').style.display = 'none';
-}
-
-function isStepValidated(step) {
-  if (step === 1 && !quizAnswers.region) return false;
-  if (step === 2 && !quizAnswers.priority) return false;
-  if (step === 3 && !quizAnswers.track) return false;
-  return true;
 }
 
 function evaluateQuizResult() {
@@ -797,22 +958,26 @@ function evaluateQuizResult() {
   const resultMeta = document.getElementById('quiz-result-meta');
   
   let targetInstitution = "";
-  let specializationTrajectory = "";
   
   if (quizAnswers.region === 'in') {
-    targetInstitution = quizAnswers.priority === 'research' ? "Indian Institutes of Technology (IITs) or BITS Pilani" : "National Institutes of Technology (NITs), DTU, or VIT University";
+    targetInstitution = quizAnswers.priority === 'research' ? "Indian Institutes of Technology (IIT Bombay/Delhi) or BITS Pilani" : "National Institutes of Technology (NITs), DTU, or VIT University";
+  } else if (quizAnswers.region === 'ae') {
+    targetInstitution = quizAnswers.priority === 'research' ? "Khalifa University (Abu Dhabi) or UAE University" : "American University of Sharjah (AUS) or Heriot-Watt University Dubai";
   } else {
-    targetInstitution = quizAnswers.priority === 'research' ? "Khalifa University or UAE University (Al Ain)" : "American University of Sharjah (AUS) or Heriot-Watt University Dubai";
+    targetInstitution = quizAnswers.priority === 'research' ? "MIT, Stanford, or Imperial College London" : "Georgia Tech, Purdue, or German public universities like TU Munich";
   }
   
-  if (quizAnswers.track === 'mechatronics') {
-    specializationTrajectory = "• Focus Area: Robotics, automated manufacturing lines, smart sensor design, and microcontrollers.";
-  } else {
-    specializationTrajectory = "• Focus Area: Fluid dynamics, aircraft aerodynamics, space flight propulsion, and green thermal energy plants.";
-  }
+  // Format interest profiles cleanly based on checkboxes chosen
+  let tracksText = "";
+  quizAnswers.interests.forEach(interest => {
+    if(interest === 'robotics') tracksText += "\n• Robotics & Smart Control Systems (Building self-operating robotics and automated machinery workflows)";
+    if(interest === 'aerospace') tracksText += "\n• Aerospace Engineering Frameworks (Analyzing jet propulsion, aircraft frames, and aerodynamics)";
+    if(interest === 'automotive') tracksText += "\n• Modern EV & Vehicle Layouts (Optimizing structural design, powertrain efficiencies, and thermal limits)";
+    if(interest === 'energy') tracksText += "\n• Renewable Energy Projects (Deploying advanced fluid dynamics to wind power, solar plants, and clean fuel lines)";
+  });
   
-  resultText.innerText = `We recommend checking out: ${targetInstitution}. This choice aligns beautifully with your learning style and long-term career priorities.`;
-  resultMeta.innerText = `${specializationTrajectory}\n• Next Steps: Look up the specific admissions requirements and tracking test dates for these target campuses!`;
+  resultText.innerText = `We recommend exploring: ${targetInstitution}. This match complements your preferred study region and career goal setup.`;
+  resultMeta.innerText = `Your Selected Focus Paths:${tracksText}\n\n• Next Step Recommendation: Map out your relevant entrance test timelines (such as JEE, EmSAT, or your SAT/language assessments) to prepare your roadmap smoothly.`;
   resultBox.style.display = 'block';
 }
 </script>
