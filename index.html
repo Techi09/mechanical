@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Mechanical Engineering | Career & Education Guide</title>
+<title>Mechanical Engineering | Advanced Career & Education Guide</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap');
 
@@ -85,15 +85,14 @@ header{
 }
 [data-theme="dark"] .brand { color: #FFF; }
 .brand .gear{width:24px; height:24px; animation: spin 12s linear infinite;}
-.navlinks{display:flex; gap:24px; font-weight: 500; font-size:14px; align-items:center;}
+.navlinks{display:flex; gap:20px; font-weight: 500; font-size:14px; align-items:center;}
 .navlinks a{color: var(--text-muted); transition: color .2s;}
 .navlinks a:hover{color: var(--accent);}
 .navlinks a.cta{
-  background: var(--accent); color: #fff; padding:10px 20px; border-radius:6px;
+  background: var(--accent); color: #fff; padding:10px 18px; border-radius:6px;
 }
 .navlinks a.cta:hover{background: var(--accent-hover); transform:translateY(-1px);}
 
-/* Theme Toggle Button */
 .theme-btn {
   background: none; border: 1px solid var(--border); padding: 8px 12px; border-radius: 6px;
   cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--text-main);
@@ -107,7 +106,7 @@ header{
 }
 .menu-toggle svg{width:24px; height:24px; stroke: var(--text-main);}
 
-@media (max-width:960px){
+@media (max-width:1024px){
   .navlinks{
     display:none; position:absolute; top:100%; left:0; right:0;
     background: var(--bg-card); flex-direction:column; align-items:stretch; gap:0;
@@ -128,9 +127,9 @@ header{
   color: var(--cyan); text-transform:uppercase; margin-bottom:24px;
   display:flex; align-items:center; gap:10px;
 }
-.hero h1{ font-size: clamp(36px, 6vw, 64px); line-height: 1.1; max-width:900px; font-weight: 800; }
+.hero h1{ font-size: clamp(34px, 5.5vw, 60px); line-height: 1.1; max-width:950px; font-weight: 800; }
 .hero h1 span{color: var(--accent);}
-.hero-sub{ margin-top:24px; max-width:680px; font-size: clamp(16px, 2vw, 19px); color: #AEB9E1; line-height: 1.6; }
+.hero-sub{ margin-top:24px; max-width:720px; font-size: clamp(16px, 2vw, 19px); color: #AEB9E1; line-height: 1.6; }
 
 .hero-ctas{display:flex; flex-wrap:wrap; gap:16px; margin-top:36px;}
 .btn{
@@ -144,152 +143,114 @@ header{
 .btn-ghost{border-color: rgba(255,255,255,0.3); color:#fff; background:transparent;}
 .btn-ghost:hover{background: rgba(255,255,255,0.08); border-color:#fff;}
 
-.titleblock{
-  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px;
-  display:grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); max-width:700px; margin-top:48px;
-}
-.titleblock div{ padding:14px 18px; border-right:1px solid rgba(255,255,255,0.1); }
-.titleblock div:last-child{border-right:none;}
-.titleblock b{display:block; color: var(--accent); text-transform:uppercase; font-size:10px; font-family: 'JetBrains Mono', monospace; margin-bottom:4px;}
-
 /* Stats Strip */
 .stats-strip { background: var(--bg-card); border-bottom: 1px solid var(--border); padding: 24px 20px; transition: background 0.3s, border-color 0.3s; }
 .stats-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
 .stat-box { font-size: 14px; color: var(--text-muted); }
 .stat-box span { display: block; font-size: 32px; font-family: 'Plus Jakarta Sans', sans-serif; color: var(--text-main); font-weight: 700; margin-bottom: 4px; }
-[data-theme="light"] .stat-box span { color: var(--primary); }
 
 /* Sections */
-section{padding:90px 20px; position:relative;}
+section{padding:80px 20px; position:relative;}
 .section-inner{max-width:1200px; margin:0 auto;}
-.section-head{margin-bottom:48px; max-width:800px;}
-.section-head h2{font-size: clamp(28px, 4vw, 36px); color: var(--text-main); line-height: 1.2; margin-top: 8px;}
-[data-theme="light"] .section-head h2 { color: var(--primary); }
-.section-head p{margin-top:14px; color: var(--text-muted); font-size:16px;}
+.section-head{margin-bottom:40px; max-width:800px;}
+.section-head h2{font-size: clamp(26px, 3.5vw, 34px); color: var(--text-main); line-height: 1.2; margin-top: 8px;}
+.section-head p{margin-top:12px; color: var(--text-muted); font-size:16px;}
 
 .alt{background: #F0F4F8; transition: background 0.3s;}
 [data-theme="dark"] .alt { background: #0E1322; }
 
 /* Cards Grid Layouts */
-.interactive-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+.interactive-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
 .blueprint-card {
-  background: var(--bg-card); border: 1px solid var(--border); padding: 32px; border-radius: 12px;
+  background: var(--bg-card); border: 1px solid var(--border); padding: 28px; border-radius: 12px;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); position: relative;
 }
 .blueprint-card:hover {
   transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 12px 30px rgba(0,0,0,0.06); background: var(--card-hover-bg);
 }
-.blueprint-card h3, .blueprint-card h4 { font-size: 20px; color: var(--text-main); margin: 16px 0 10px; }
-[data-theme="light"] .blueprint-card h3, [data-theme="light"] .blueprint-card h4 { color: var(--primary); }
-.blueprint-card p { font-size: 15px; color: var(--text-muted); }
-.blueprint-card .ico { font-size: 32px; display: inline-block; }
-.blueprint-card ul { margin-top: 14px; padding-left: 20px; color: var(--text-main); font-size: 14px; }
-.blueprint-card ul li { margin-bottom: 6px; }
-
-/* Pathway Flowchart */
-.flowchart { position: relative; max-width: 850px; margin: 30px auto; padding-left: 32px; border-left: 2px dashed var(--accent); }
-.flow-node { position: relative; padding-bottom: 40px; }
-.flow-node:last-child { padding-bottom: 0; }
-.flow-node::before {
-  content: ""; position: absolute; left: -39px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 3px solid var(--bg-light);
-}
-.flow-node .step-tag { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent); font-weight: 600; }
-.flow-node h4 { font-size: 18px; margin: 6px 0; color: var(--text-main); }
-.flow-node p { font-size: 15px; color: var(--text-muted); }
+.blueprint-card h3, .blueprint-card h4 { font-size: 19px; color: var(--text-main); margin: 12px 0 8px; }
+.blueprint-card p { font-size: 14px; color: var(--text-muted); }
 
 /* Tabs system */
-.tab-container { margin-top: 32px; }
-.tabbar{display:flex; border-bottom:2px solid var(--border); gap: 10px; flex-wrap:wrap;}
+.tab-container { margin-top: 24px; }
+.tabbar{display:flex; border-bottom:2px solid var(--border); gap: 8px; flex-wrap:wrap;}
 .tabbtn{
-  font-weight: 600; font-size:15px; background:none; border:none; cursor:pointer; padding:14px 24px; color:var(--text-muted);
+  font-weight: 600; font-size:14px; background:none; border:none; cursor:pointer; padding:12px 20px; color:var(--text-muted);
   border-bottom:3px solid transparent; margin-bottom:-2px; transition:all 0.2s;
 }
 .tabbtn.active{color:var(--accent); border-color:var(--accent);}
-.tabpanel{display:none; padding:24px 0 0;}
+.tabpanel{display:none; padding:20px 0 0;}
 .tabpanel.active{display:block;}
 
-/* Tables and Responsive Cards Layout */
-.tablewrap { width: 100%; overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card); box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
-.specsheet{width:100%; border-collapse:collapse; font-size:15px; text-align: left; }
-.specsheet th{ font-weight: 600; color:var(--text-main); background: var(--bg-light); padding:16px; border-bottom: 2px solid var(--border); }
-.specsheet td{padding:18px 16px; border-bottom:1px solid var(--border); vertical-align:middle;}
-.specsheet tr:last-child td { border-bottom: none; }
-.specsheet tr:hover td { background: var(--bg-light); }
+/* Search & Filter Component */
+.table-filter-bar {
+  display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; align-items: center;
+}
+.search-input {
+  flex: 1; min-width: 260px; padding: 12px 16px; border-radius: 8px; border: 1px solid var(--border);
+  background: var(--bg-card); color: var(--text-main); font-size: 14px;
+}
+
+/* Tables Layout */
+.tablewrap { width: 100%; overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card); margin-bottom: 24px; }
+.specsheet{width:100%; border-collapse:collapse; font-size:14px; text-align: left; }
+.specsheet th{ font-weight: 600; color:var(--text-main); background: var(--bg-light); padding:14px; border-bottom: 2px solid var(--border); }
+.specsheet td{padding:14px; border-bottom:1px solid var(--border); vertical-align:middle;}
 .specsheet td.figure{font-family:'JetBrains Mono', monospace; color:var(--accent); font-weight:600;}
 .uniname { font-weight: 600; color: var(--text-main); }
 
 @media (max-width:850px){
   .specsheet thead { display: none; }
   .specsheet, .specsheet tbody, .specsheet tr, .specsheet td { display: block; width: 100%; }
-  .specsheet tr { border-bottom: 3px solid var(--border); padding: 12px 0; }
-  .specsheet td { display: flex; justify-content: space-between; padding: 12px 16px; border-bottom: 1px dashed var(--border); text-align: right; }
+  .specsheet tr { border-bottom: 3px solid var(--border); padding: 10px 0; }
+  .specsheet td { display: flex; justify-content: space-between; padding: 10px 14px; border-bottom: 1px dashed var(--border); text-align: right; }
   .specsheet td:last-child { border-bottom: none; }
   .specsheet td::before { content: attr(data-label); font-weight: 600; color: var(--text-muted); float: left; text-align: left; font-size: 13px; }
 }
 
-/* Interactive Cost Estimator Tool */
-.calculator-box { background: var(--bg-card); border: 1px solid var(--border); padding: 36px; margin-top: 40px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.03); }
-.calc-field { margin-bottom: 24px; }
-.calc-field label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 10px; color: var(--text-main); }
+/* Calculator & Quiz Boxes */
+.calculator-box, .quiz-box { background: var(--bg-card); border: 1px solid var(--border); padding: 32px; margin-top: 32px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.02); }
+.calc-field { margin-bottom: 20px; }
+.calc-field label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 8px; color: var(--text-main); }
 .calc-field select {
-  width: 100%; padding: 14px; border: 1px solid var(--border); border-radius: 8px;
-  font-size: 15px; background: var(--bg-light); color: var(--text-main); outline: none; transition: border 0.2s;
+  width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px;
+  font-size: 14px; background: var(--bg-light); color: var(--text-main); outline: none;
 }
-.calc-field select:focus { border-color: var(--accent); }
 .calc-result {
-  background: #0A2540; color: #fff; padding: 24px; border-radius: 8px;
+  background: #0A2540; color: #fff; padding: 20px; border-radius: 8px;
   display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
 }
 [data-theme="dark"] .calc-result { background: #0F172A; border: 1px solid var(--border); }
-.calc-result span { font-size: 28px; font-family: 'Plus Jakarta Sans', sans-serif; color: #FFF; font-weight: 700; }
+.calc-result span { font-size: 26px; font-family: 'Plus Jakarta Sans', sans-serif; color: #FFF; font-weight: 700; }
 
-/* Interactive Finder Quiz System */
-.quiz-box { background: var(--bg-card); border: 1px solid var(--border); padding: 36px; margin-top: 32px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.03); }
+/* Quiz Styles */
 .quiz-step { display: none; }
 .quiz-step.active { display: block; }
-.quiz-step h3 { font-size: 22px; color: var(--text-main); margin-bottom: 24px; }
-.options-list { display: grid; grid-template-columns: 1fr; gap: 16px; }
-@media(min-width: 650px) { .options-list { grid-template-columns: 1fr 1fr; } }
+.quiz-step h3 { font-size: 20px; color: var(--text-main); margin-bottom: 20px; }
+.options-list { display: grid; grid-template-columns: 1fr; gap: 14px; }
+@media(min-width: 768px) { .options-list { grid-template-columns: 1fr 1fr; } }
 
 .opt-card {
-  background: var(--bg-light); border: 2px solid var(--border); padding: 20px; border-radius: 8px; color: var(--text-main); text-align: left; cursor: pointer; transition: all 0.2s;
+  background: var(--bg-light); border: 2px solid var(--border); padding: 18px; border-radius: 8px; color: var(--text-main); text-align: left; cursor: pointer; transition: all 0.2s;
 }
 .opt-card:hover { border-color: var(--accent); }
-.opt-card.selected { border-color: var(--accent); background: rgba(255, 90, 31, 0.08); box-shadow: inset 0 0 0 1px var(--accent); }
-.opt-card b { display: block; font-size: 16px; margin-bottom: 6px; color: var(--text-main); }
-.opt-card span { font-size: 14px; color: var(--text-muted); }
+.opt-card.selected { border-color: var(--accent); background: rgba(255, 90, 31, 0.06); box-shadow: inset 0 0 0 1px var(--accent); }
+.opt-card b { display: block; font-size: 15px; margin-bottom: 4px; color: var(--text-main); }
+.opt-card span { font-size: 13px; color: var(--text-muted); }
 
-/* Checkbox specific styles */
-.opt-card-check { position: relative; padding-left: 48px; }
+.opt-card-check { position: relative; padding-left: 44px; }
 .opt-card-check .checkbox-indicator {
-  position: absolute; left: 18px; top: 22px; width: 18px; height: 18px; border: 2px solid var(--text-muted); border-radius: 4px;
-  display: flex; align-items: center; justify-content: center; transition: all 0.2s;
+  position: absolute; left: 16px; top: 20px; width: 18px; height: 18px; border: 2px solid var(--text-muted); border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
 }
-.opt-card.selected .checkbox-indicator {
-  background: var(--accent); border-color: var(--accent);
-}
-.opt-card.selected .checkbox-indicator::after {
-  content: "✓"; color: #fff; font-size: 12px; font-weight: bold;
-}
+.opt-card.selected .checkbox-indicator { background: var(--accent); border-color: var(--accent); }
+.opt-card.selected .checkbox-indicator::after { content: "✓"; color: #fff; font-size: 11px; font-weight: bold; }
 
-.quiz-footer { display: flex; justify-content: space-between; margin-top: 32px; }
-.quiz-result-view { display: none; background: rgba(34, 197, 94, 0.1); border: 2px dashed #22C55E; padding: 28px; border-radius: 8px; margin-top: 24px; }
+.quiz-footer { display: flex; justify-content: space-between; margin-top: 24px; }
+.quiz-result-view { display: none; background: rgba(34, 197, 94, 0.08); border: 2px dashed #22C55E; padding: 24px; border-radius: 8px; margin-top: 24px; }
 
-/* Accordion FAQs */
-.faq-wrap { max-width: 900px; margin-top: 32px; display: flex; flex-direction: column; gap: 16px; }
-.faq-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; transition: border 0.2s; }
-.faq-item[open] { border-color: var(--accent); }
-.faq-item summary { font-weight: 600; font-size: 16px; color: var(--text-main); cursor: pointer; display: flex; justify-content: space-between; align-items: center; list-style: none; }
-.faq-item summary::-webkit-details-marker { display: none; }
-.faq-item summary::after { content: "+"; color: var(--accent); font-size: 22px; font-weight: 400; transition: transform 0.2s; }
-.faq-item[open] summary::after { transform: rotate(45deg); }
-.faq-item p { margin-top: 12px; font-size: 15px; color: var(--text-muted); border-top: 1px solid var(--border); padding-top: 12px; }
-
-/* Footer Design */
-footer{background: var(--primary-dark); color: #AEB9E1; padding: 80px 20px 40px; border-top: 4px solid var(--accent); transition: background 0.3s;}
-.footer-wrap{max-width:1200px; margin:0 auto;}
-.footer-top{display:flex; justify-content:space-between; flex-wrap:wrap; gap:40px; margin-bottom:48px; align-items:flex-start;}
-.footer-bottom{border-top:1px solid rgba(255,255,255,0.1); padding-top:24px; font-size:13px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px;}
+footer{background: var(--primary-dark); color: #AEB9E1; padding: 60px 20px 30px; border-top: 4px solid var(--accent); font-size: 14px;}
+.footer-wrap{max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; flex-wrap:wrap; gap:24px;}
 
 @keyframes spin{from{transform:rotate(0deg);} to{transform:rotate(360deg);}}
 </style>
@@ -305,493 +266,276 @@ footer{background: var(--primary-dark); color: #AEB9E1; padding: 80px 20px 40px;
         <path d="M12 8a4 4 0 100 8 4 4 0 000-8z" stroke="#FF5A1F" stroke-width="2"/>
         <path d="M12 2v2.4M12 19.6V22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M2 12h2.4M19.6 12H22M4.9 19.1l1.7-1.7M17.4 6.6l1.7-1.7" stroke="#FF5A1F" stroke-width="2" stroke-linecap="round"/>
       </svg>
-      <span>Mechanical Engineering Hub</span>
+      <span>Mechanical Engineering Matrix</span>
     </div>
     <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
     </button>
     <nav class="navlinks" id="navLinks">
-      <a href="#specializations">Specializations</a>
-      <a href="#careers">Career Paths</a>
-      <a href="#pathway">Steps to Success</a>
-      <a href="#institutions">Colleges &amp; Fees</a>
+      <a href="#institutions">Universities Database</a>
       <a href="#estimator">Cost Estimator</a>
-      <a href="#pathfinder">Find Your Path</a>
-      <a href="#faqs">FAQs</a>
+      <a href="#pathfinder">Intelligent Finder Quiz</a>
       <div class="theme-btn-container">
         <button class="theme-btn" id="themeBtn" onclick="toggleTheme()">☀️ Light</button>
       </div>
-      <a href="#pathfinder" class="cta">Take the Quiz</a>
+      <a href="#pathfinder" class="cta">Run Fit Checker</a>
     </nav>
   </div>
 </header>
 
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-kicker">Design • Build • Innovate</div>
-    <h1>Shape the Physical World Through <span>Mechanical Engineering.</span></h1>
-    <p class="hero-sub">From electric vehicles and renewable energy systems to medical devices and aerospace exploration, mechanical engineering is the foundation of everything that moves. It turns bold ideas into working real-world technology.</p>
-    
+    <div class="hero-kicker">Unified Academic Directory</div>
+    <h1>Comprehensive Global University Ecosystem for <span>Mechanical Engineering.</span></h1>
+    <p class="hero-sub">Explore an expanded database of elite public, state, and private institutions across India, the United Arab Emirates, and global tech landscapes. Filter options, estimate parameters, and discover dynamic fits.</p>
     <div class="hero-ctas">
-      <a href="#pathfinder" class="btn btn-primary">Take the Career Pathfinder Quiz →</a>
-      <a href="#institutions" class="btn btn-ghost">Compare Global Colleges</a>
-    </div>
-
-    <div class="titleblock">
-      <div><b>Degree Options</b>B.Tech / B.E. / B.S.</div>
-      <div><b>Duration</b>4 Years</div>
-      <div><b>Core Focus</b>Design, Energy &amp; Motion</div>
+      <a href="#pathfinder" class="btn btn-primary">Start Smart Filter Quiz →</a>
+      <a href="#institutions" class="btn btn-ghost">View All 40+ Core Colleges</a>
     </div>
   </div>
 </section>
 
-<div class="stats-strip">
-  <div class="stats-grid">
-    <div class="stat-box"><span>20+</span>Growing Sectors</div>
-    <div class="stat-box"><span>100%</span>Practical Application</div>
-    <div class="stat-box"><span>Global</span>Career Flexibility</div>
-    <div class="stat-box"><span>8+</span>Major Specializations</div>
-  </div>
-</div>
-
-<section id="specializations">
+<section id="institutions">
   <div class="section-inner">
     <div class="section-head">
-      <h2>Exciting Engineering Specializations</h2>
-      <p>As you progress through college, you can specialize in one of these fast-growing sub-fields that match your unique goals.</p>
-    </div>
-
-    <div class="interactive-grid">
-      <div class="blueprint-card">
-        <div class="ico">🤖</div>
-        <h3>Robotics &amp; Automation</h3>
-        <p>Combine mechanical parts with software, electronic control loops, sensors, and intelligent microcontrollers to build self-operating systems.</p>
-        <ul>
-          <li>Autonomous assembly robots</li>
-          <li>Drone mechanics and flight controls</li>
-          <li>Sensors &amp; intelligent frameworks</li>
-        </ul>
-      </div>
-      <div class="blueprint-card">
-        <div class="ico">⚡</div>
-        <h3>Automotive &amp; EV Technology</h3>
-        <p>Design the next generation of transportation, looking beyond traditional motors to advance clean energy vehicle systems.</p>
-        <ul>
-          <li>Electric vehicle battery cooling layouts</li>
-          <li>Aerodynamic body designs</li>
-          <li>Structural durability &amp; safety modeling</li>
-        </ul>
-      </div>
-      <div class="blueprint-card">
-        <div class="ico">🚀</div>
-        <h3>Aerospace Systems</h3>
-        <p>Work on the complex fluid behavior and structures required for advanced high-altitude flight vehicles and spacecraft propulsion.</p>
-        <ul>
-          <li>Aircraft engine performance modeling</li>
-          <li>Spacecraft heat shield materials</li>
-          <li>Aerodynamic drag optimization</li>
-        </ul>
-      </div>
-      <div class="blueprint-card">
-        <div class="ico">🌱</div>
-        <h3>Renewable Energy Fluids</h3>
-        <p>Create eco-friendly energy generation systems, focusing closely on advanced heat transfer tracking and fluid dynamics physics.</p>
-        <ul>
-          <li>Wind turbine blade dynamics</li>
-          <li>Solar plant thermodynamic efficiencies</li>
-          <li>Hydrogen fuel distribution infrastructure</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="careers" class="alt">
-  <div class="section-inner">
-    <div class="section-head">
-      <h2>Diverse Career Paths</h2>
-      <p>Mechanical engineering degrees provide extensive career versatility, opening doors across software design platforms and traditional manufacturing lines alike.</p>
-    </div>
-
-    <div class="interactive-grid">
-      <div class="blueprint-card">
-        <h4>CAD Design Engineer</h4>
-        <p>Create accurate 3D blueprints and physical stress models using modern design software platforms like SolidWorks, Fusion 360, or AutoCAD.</p>
-      </div>
-      <div class="blueprint-card">
-        <h4>CAE Analyst (Simulation Engineer)</h4>
-        <p>Run advanced simulations with tools like ANSYS or MATLAB to safely check heat behavior and part stress limits before manufacturing starts.</p>
-      </div>
-      <div class="blueprint-card">
-        <h4>Robotics Specialist</h4>
-        <p>Build and maintain complex automated systems and arm configurations for manufacturing plants or consumer tech products.</p>
-      </div>
-      <div class="blueprint-card">
-        <h4>Project &amp; Plant Manager</h4>
-        <p>Oversee large operations inside manufacturing facilities, tracking production workflows, maintenance timelines, and safety regulations.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="pathway">
-  <div class="section-inner">
-    <div class="section-head" style="text-align: center; margin-bottom: 60px;">
-      <h2>Your Journey to Becoming an Engineer</h2>
-      <p>A step-by-step map showing the milestones from secondary school directly into industry fields.</p>
-    </div>
-
-    <div class="flowchart">
-      <div class="flow-node">
-        <div class="step-tag">Step 01</div>
-        <h4>High School Foundations</h4>
-        <p>Build strong foundations in senior secondary school, focusing heavily on Calculus, Linear Algebra, and Physics fundamentals.</p>
-      </div>
-      <div class="flow-node">
-        <div class="step-tag">Step 02</div>
-        <h4>Entrance &amp; Language Tests</h4>
-        <p>Prepare for and clear the required selection tests, such as JEE in India, EmSAT within the UAE, or SAT/ACT/IELTS for western applications abroad.</p>
-      </div>
-      <div class="flow-node">
-        <div class="step-tag">Step 03</div>
-        <h4>The 4-Year College Cycle</h4>
-        <p>Complete your degree while building valuable experience through hands-on lab experiments, specialized design software courses, and final-year capstone team projects.</p>
-      </div>
-      <div class="flow-node">
-        <div class="step-tag">Step 04</div>
-        <h4>Professional Placement</h4>
-        <p>Step confidently into high-impact corporate jobs, industrial production plants, or advance your specialized research in post-graduate master's programs.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="institutions" class="alt">
-  <div class="section-inner">
-    <div class="section-head">
-      <h2>Top Global Engineering Universities &amp; Costs</h2>
-      <p>A comprehensive overview of prominent engineering institutions located across India, the UAE, and premier international destinations.</p>
+      <h2>Global Institutional Database</h2>
+      <p>Use the integrated local search bar inside each zone to instantaneously sort through expanded listings by university profiles or testing paths.</p>
     </div>
 
     <div class="tab-container">
       <div class="tabbar">
-        <button class="tabbtn active" onclick="switchTab(event, 'india-panel')">Colleges in India</button>
-        <button class="tabbtn" onclick="switchTab(event, 'uae-panel')">Colleges in the UAE</button>
-        <button class="tabbtn" onclick="switchTab(event, 'abroad-panel')">Colleges Abroad (US, UK, Germany)</button>
+        <button class="tabbtn active" onclick="switchTab(event, 'india-panel')">India (20 Institutions)</button>
+        <button class="tabbtn" onclick="switchTab(event, 'uae-panel')">United Arab Emirates (12 Institutions)</button>
+        <button class="tabbtn" onclick="switchTab(event, 'abroad-panel')">International Hubs (12 Institutions)</button>
       </div>
 
+      <!-- INDIA PANEL -->
       <div id="india-panel" class="tabpanel active">
+        <div class="table-filter-bar">
+          <input type="text" class="search-input" id="search-india" placeholder="🔍 Search India by name, pathway, or tier..." oninput="filterTable('india-table', this.value)">
+        </div>
         <div class="tablewrap">
-          <table class="specsheet">
+          <table class="specsheet" id="india-table">
             <thead>
               <tr>
                 <th>University Name</th>
                 <th>Admission Pathway</th>
                 <th>Avg. Annual Tuition</th>
-                <th>Key Features</th>
+                <th>Type / Classification</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td data-label="University Name"><span class="uniname">IIT Bombay / IIT Delhi / IIT Madras</span></td>
-                <td data-label="Admission Pathway">JEE Advanced</td>
-                <td class="figure" data-label="Avg. Annual Tuition">₹2,00,000 - ₹2,50,000</td>
-                <td data-label="Key Features">India's top public universities; exceptional laboratories and global placement networks.</td>
-              </tr>
-              <tr>
-                <td data-label="University Name"><span class="uniname">NIT Trichy / NIT Surathkal / VNIT Nagpur</span></td>
-                <td data-label="Admission Pathway">JEE Main</td>
-                <td class="figure" data-label="Avg. Annual Tuition">₹1,25,000 - ₹1,75,000</td>
-                <td data-label="Key Features">Highly respected public institutes with large campus ecosystems and great core jobs.</td>
-              </tr>
-              <tr>
-                <td data-label="University Name"><span class="uniname">BITS Pilani (Pilani, Goa, Hyderabad)</span></td>
-                <td data-label="Admission Pathway">BITSAT</td>
-                <td class="figure" data-label="Avg. Annual Tuition">₹4,50,000 - ₹5,50,000</td>
-                <td data-label="Key Features">Premier private university; offers dedicated 6-month corporate internship programs.</td>
-              </tr>
-              <tr>
-                <td data-label="University Name"><span class="uniname">VIT University (Vellore)</span></td>
-                <td data-label="Admission Pathway">VITEEE</td>
-                <td class="figure" data-label="Avg. Annual Tuition">₹1,90,000 - ₹4,90,000</td>
-                <td data-label="Key Features">Tuition fees adjust dynamically based on your performance rank categories.</td>
-              </tr>
-              <tr>
-                <td data-label="University Name"><span class="uniname">Manipal Institute of Technology (MIT)</span></td>
-                <td data-label="Admission Pathway">MET</td>
-                <td class="figure" data-label="Avg. Annual Tuition">₹4,00,000 - ₹4,60,000</td>
-                <td data-label="Key Features">Great practical student design teams for formula racing cars and custom drones.</td>
-              </tr>
-              <tr>
-                <td data-label="University Name"><span class="uniname">Delhi Technological University (DTU)</span></td>
-                <td data-label="Admission Pathway">JEE Main (JAC Delhi)</td>
-                <td class="figure" data-label="Avg. Annual Tuition">₹1,90,000 - ₹2,20,000</td>
-                <td data-label="Key Features">Historically renowned for mechanical fields with strong connections to local automotive hubs.</td>
-              </tr>
+              <!-- Tier 1 Public -->
+              <tr><td><span class="uniname">IIT Bombay</span></td><td>JEE Advanced</td><td class="figure">₹2,20,000</td><td>Premium Public (Tier 1)</td></tr>
+              <tr><td><span class="uniname">IIT Delhi</span></td><td>JEE Advanced</td><td class="figure">₹2,25,000</td><td>Premium Public (Tier 1)</td></tr>
+              <tr><td><span class="uniname">IIT Madras</span></td><td>JEE Advanced</td><td class="figure">₹2,15,000</td><td>Premium Public (Tier 1)</td></tr>
+              <tr><td><span class="uniname">IIT Kharagpur</span></td><td>JEE Advanced</td><td class="figure">₹2,10,000</td><td>Premium Public (Tier 1)</td></tr>
+              <tr><td><span class="uniname">IIT Roorkee</span></td><td>JEE Advanced</td><td class="figure">₹2,30,000</td><td>Premium Public (Tier 1)</td></tr>
+              <tr><td><span class="uniname">IIT Kanpur</span></td><td>JEE Advanced</td><td class="figure">₹2,20,000</td><td>Premium Public (Tier 1)</td></tr>
+              <!-- National Institutes -->
+              <tr><td><span class="uniname">NIT Trichy</span></td><td>JEE Main</td><td class="figure">₹1,45,000</td><td>National Public (Tier 1)</td></tr>
+              <tr><td><span class="uniname">NIT Surathkal</span></td><td>JEE Main</td><td class="figure">₹1,50,000</td><td>National Public (Tier 1)</td></tr>
+              <tr><td><span class="uniname">NIT Warangal</span></td><td>JEE Main</td><td class="figure">₹1,40,000</td><td>National Public (Tier 1)</td></tr>
+              <tr><td><span class="uniname">VNIT Nagpur</span></td><td>JEE Main</td><td class="figure">₹1,35,000</td><td>National Public (Tier 2)</td></tr>
+              <tr><td><span class="uniname">MNNIT Allahabad</span></td><td>JEE Main</td><td class="figure">₹1,42,000</td><td>National Public (Tier 2)</td></tr>
+              <!-- Top State & Elite Autonomous -->
+              <tr><td><span class="uniname">BITS Pilani (Main Campus)</span></td><td>BITSAT</td><td class="figure">₹5,20,000</td><td>Elite Private Private</td></tr>
+              <tr><td><span class="uniname">BITS Pilani (Goa Campus)</span></td><td>BITSAT</td><td class="figure">₹5,00,000</td><td>Elite Private Private</td></tr>
+              <tr><td><span class="uniname">BITS Pilani (Hyderabad Campus)</span></td><td>BITSAT</td><td class="figure">₹5,00,000</td><td>Elite Private Private</td></tr>
+              <tr><td><span class="uniname">Delhi Technological University (DTU)</span></td><td>JEE Main / JAC</td><td class="figure">₹2,10,000</td><td>Premier State University</td></tr>
+              <tr><td><span class="uniname">Netaji Subhas Univ of Technology (NSUT)</span></td><td>JEE Main / JAC</td><td class="figure">₹2,05,000</td><td>Premier State University</td></tr>
+              <tr><td><span class="uniname">COEP Technological University (Pune)</span></td><td>MHT-CET / JEE</td><td class="figure">₹1,35,000</td><td>Top State Government</td></tr>
+              <tr><td><span class="uniname">Jadavpur University (Kolkata)</span></td><td>WBJEE</td><td class="figure">₹10,000</td><td>Low-Cost State Government</td></tr>
+              <tr><td><span class="uniname">VIT University (Vellore Main)</span></td><td>VITEEE</td><td class="figure">₹3,40,000</td><td>High-Scale Private</td></tr>
+              <tr><td><span class="uniname">Manipal Institute of Technology (MIT)</span></td><td>MET</td><td class="figure">₹4,50,000</td><td>High-Scale Private</td></tr>
             </tbody>
           </table>
         </div>
       </div>
 
+      <!-- UAE PANEL -->
       <div id="uae-panel" class="tabpanel">
+        <div class="table-filter-bar">
+          <input type="text" class="search-input" id="search-uae" placeholder="🔍 Search UAE institutes..." oninput="filterTable('uae-table', this.value)">
+        </div>
         <div class="tablewrap">
-          <table class="specsheet">
+          <table class="specsheet" id="uae-table">
             <thead>
               <tr>
                 <th>University Name</th>
                 <th>Admission Pathway</th>
                 <th>Avg. Annual Tuition</th>
-                <th>Key Features</th>
+                <th>Type / Classification</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td data-label="University Name"><span class="uniname">Khalifa University (Abu Dhabi)</span></td>
-                <td data-label="Admission Pathway">EmSAT + High School GPA</td>
-                <td class="figure" data-label="Avg. Annual Tuition">AED 65,000 - AED 82,000</td>
-                <td data-label="Key Features">Top-tier local research focus targeting aerospace, sustainable clean energy, and robotics.</td>
-              </tr>
-              <tr>
-                <td data-label="University Name"><span class="uniname">American University of Sharjah (AUS)</span></td>
-                <td data-label="Admission Pathway">High School GPA + IELTS/TOEFL</td>
-                <td class="figure" data-label="Avg. Annual Tuition">AED 95,000 - AED 102,000</td>
-                <td data-label="Key Features">Prestigious international standard university, featuring complete ABET-accredited engineering paths.</td>
-              </tr>
-              <tr>
-                <td data-label="University Name"><span class="uniname">University of Sharjah</span></td>
-                <td data-label="Admission Pathway">High School Grades + Interview</td>
-                <td class="figure" data-label="Avg. Annual Tuition">AED 44,000 - AED 68,000</td>
-                <td data-label="Key Features">Excellent modern lab infrastructure with flexible, well-supported local engineering options.</td>
-              </tr>
-              <tr>
-                <td data-label="University Name"><span class="uniname">UAE University (Al Ain)</span></td>
-                <td data-label="Admission Pathway">EmSAT Criteria Scores</td>
-                <td class="figure" data-label="Avg. Annual Tuition">AED 55,000 - AED 70,000</td>
-                <td data-label="Key Features">The UAE's historic national university; excellent scholarship paths available for high-achieving students.</td>
-              </tr>
-              <tr>
-                <td data-label="University Name"><span class="uniname">Heriot-Watt University Dubai</span></td>
-                <td data-label="Admission Pathway">High School Curriculum Grades</td>
-                <td class="figure" data-label="Avg. Annual Tuition">AED 65,000 - AED 75,000</td>
-                <td data-label="Key Features">Respected British branch campus model specializing in hands-on modern manufacturing layouts.</td>
-              </tr>
-              <tr>
-                <td data-label="University Name"><span class="uniname">Amity University Dubai</span></td>
-                <td data-label="Admission Pathway">Academic Marks + Interview</td>
-                <td class="figure" data-label="Avg. Annual Tuition">AED 40,000 - AED 50,000</td>
-                <td data-label="Key Features">Offers useful hybrid pathways spanning regional business connections and practical design tasks.</td>
-              </tr>
-              <tr>
-                <td data-label="University Name"><span class="uniname">BITS Pilani Dubai Campus</span></td>
-                <td data-label="Admission Pathway">12th Board Marks (PCM)</td>
-                <td class="figure" data-label="Avg. Annual Tuition">AED 45,000 - AED 52,000</td>
-                <td data-label="Key Features">Replicates the strong academic framework of its parent Indian campus with regional UAE internship connections.</td>
-              </tr>
+              <tr><td><span class="uniname">Khalifa University (Abu Dhabi)</span></td><td>EmSAT + High Grades</td><td class="figure">AED 76,000</td><td>Elite Government Research</td></tr>
+              <tr><td><span class="uniname">American University of Sharjah (AUS)</span></td><td>GPA + TOEFL/IELTS</td><td class="figure">AED 98,000</td><td>Elite Private American</td></tr>
+              <tr><td><span class="uniname">United Arab Emirates University (UAEU)</span></td><td>EmSAT Minimums</td><td class="figure">AED 65,000</td><td>National Public University</td></tr>
+              <tr><td><span class="uniname">University of Sharjah (UOS)</span></td><td>High School Baseline</td><td class="figure">AED 58,000</td><td>Major Regional Semi-Public</td></tr>
+              <tr><td><span class="uniname">Heriot-Watt University Dubai</span></td><td>Academic Portfolio</td><td class="figure">AED 72,000</td><td>International UK Branch</td></tr>
+              <tr><td><span class="uniname">University of Birmingham Dubai</span></td><td>IB / CBSE Portfolio</td><td class="figure">AED 94,000</td><td>International UK Branch</td></tr>
+              <tr><td><span class="uniname">BITS Pilani Dubai Campus</span></td><td>12th Board PCM Marks</td><td class="figure">AED 48,000</td><td>Indian Specialized Branch</td></tr>
+              <tr><td><span class="uniname">Amity University Dubai</span></td><td>School Marks + Panel</td><td class="figure">AED 45,000</td><td>Private Career-Focused</td></tr>
+              <tr><td><span class="uniname">Manipal Academy of Higher Ed Dubai</span></td><td>CBSE/ISC Grades</td><td class="figure">AED 42,000</td><td>Private Career-Focused</td></tr>
+              <tr><td><span class="uniname">Abu Dhabi University (ADU)</span></td><td>GPA Match Assessment</td><td class="figure">AED 62,000</td><td>Private Diverse Ecosystem</td></tr>
+              <tr><td><span class="uniname">Rochester Institute of Tech (RIT Dubai)</span></td><td>US Standards / SAT</td><td class="figure">AED 68,000</td><td>International US Branch</td></tr>
+              <tr><td><span class="uniname">Middlesex University Dubai</span></td><td>Academic Credentials</td><td class="figure">AED 56,000</td><td>International UK Branch</td></tr>
             </tbody>
           </table>
         </div>
       </div>
 
+      <!-- ABROAD PANEL -->
       <div id="abroad-panel" class="tabpanel">
+        <div class="table-filter-bar">
+          <input type="text" class="search-input" id="search-abroad" placeholder="🔍 Search international campuses..." oninput="filterTable('abroad-table', this.value)">
+        </div>
         <div class="tablewrap">
-          <table class="specsheet">
+          <table class="specsheet" id="abroad-table">
             <thead>
               <tr>
                 <th>University Name</th>
                 <th>Admission Pathway</th>
                 <th>Avg. Annual Tuition</th>
-                <th>Key Features</th>
+                <th>Type / Region Focus</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td data-label="University Name"><span class="uniname">MIT / Stanford / UC Berkeley (USA)</span></td>
-                <td data-label="Admission Pathway">SAT/ACT + Portfolio + TOEFL</td>
-                <td class="figure" data-label="Avg. Annual Tuition">$55,000 - $65,000</td>
-                <td data-label="Key Features">Global pioneers in breakthrough tech research, immense innovation funding, and tech startups.</td>
-              </tr>
-              <tr>
-                <td data-label="University Name"><span class="uniname">Purdue / Georgia Tech / Michigan (USA)</span></td>
-                <td data-label="Admission Pathway">SAT/ACT + High School GPA</td>
-                <td class="figure" data-label="Avg. Annual Tuition">$35,000 - $45,000</td>
-                <td data-label="Key Features">World-class large public research institutions famous for automotive and aerospace excellence.</td>
-              </tr>
-              <tr>
-                <td data-label="University Name"><span class="uniname">Imperial College London / Cambridge (UK)</span></td>
-                <td data-label="Admission Pathway">A-Levels / IB + Admissions Test</td>
-                <td class="figure" data-label="Avg. Annual Tuition">£35,000 - £47,000</td>
-                <td data-label="Key Features">Elite, long-standing academic prestige balanced with modern engineering labs and close ties to European industry.</td>
-              </tr>
-              <tr>
-                <td data-label="University Name"><span class="uniname">TU Munich / RWTH Aachen (Germany)</span></td>
-                <td data-label="Admission Pathway">High School Grades + TestAS</td>
-                <td class="figure" data-label="Avg. Annual Tuition">None to €3,000 (Low Cost)</td>
-                <td data-label="Key Features">Virtually tuition-free public education; deep historic alignment with top-tier German automotive and machine design sectors.</td>
-              </tr>
-              <tr>
-                <td data-label="University Name"><span class="uniname">National University of Singapore (NUS)</span></td>
-                <td data-label="Admission Pathway">High School Excellence + Interview</td>
-                <td class="figure" data-label="Avg. Annual Tuition">S$38,000 - S$44,000</td>
-                <td data-label="Key Features">Asia's highest-ranked institution with state-of-the-art smart systems and advanced materials labs.</td>
-              </tr>
+              <tr><td><span class="uniname">MIT (Massachusetts Inst of Tech)</span></td><td>SAT/ACT + Portfolio</td><td class="figure">$62,000</td><td>Global Elite Private (US)</td></tr>
+              <tr><td><span class="uniname">Stanford University</span></td><td>SAT/ACT + Essays</td><td class="figure">$64,000</td><td>Global Elite Private (US)</td></tr>
+              <tr><td><span class="uniname">UC Berkeley</span></td><td>UC Application Matrix</td><td class="figure">$44,000</td><td>Premier Public Flagship (US)</td></tr>
+              <tr><td><span class="uniname">Purdue University (West Lafayette)</span></td><td>SAT/ACT + High GPA</td><td class="figure">$31,000</td><td>Elite Engineering Public (US)</td></tr>
+              <tr><td><span class="uniname">Georgia Institute of Technology</span></td><td>SAT/ACT Alignment</td><td class="figure">$33,000</td><td>Elite Engineering Public (US)</td></tr>
+              <tr><td><span class="uniname">University of Michigan (Ann Arbor)</span></td><td>Common App + Grades</td><td class="figure">$49,000</td><td>High-Scale Public State (US)</td></tr>
+              <tr><td><span class="uniname">Imperial College London</span></td><td>A-Levels / IB Matrix</td><td class="figure">£39,000</td><td>Elite STEM Institute (UK)</td></tr>
+              <tr><td><span class="uniname">University of Cambridge</span></td><td>Advanced Assessment</td><td class="figure">£44,000</td><td>Historic World Elite (UK)</td></tr>
+              <tr><td><span class="uniname">TU Munich (Technical Univ of Munich)</span></td><td>TestAS + German Cert</td><td class="figure">€3,000</td><td>Low-Cost Public Elite (Germany)</td></tr>
+              <tr><td><span class="uniname">RWTH Aachen University</span></td><td>School Marks Verification</td><td class="figure">None / Fees Waived</td><td>Low-Cost Public Elite (Germany)</td></tr>
+              <tr><td><span class="uniname">National University of Singapore (NUS)</span></td><td>Excellent Academic Rank</td><td class="figure">S$39,000</td><td>Top Asian Flagship (SG)</td></tr>
+              <tr><td><span class="uniname">Nanyang Technological Univ (NTU)</span></td><td>Entrance Review Tier</td><td class="figure">S$37,000</td><td>Top Asian Flagship (SG)</td></tr>
             </tbody>
           </table>
         </div>
       </div>
     </div>
 
+    <!-- COST ESTIMATOR CONTAINER -->
     <div id="estimator" class="calculator-box">
-      <h3 style="margin-bottom: 12px; font-size: 22px;">Estimate Your Yearly College Budget</h3>
-      <p style="font-size: 15px; color: var(--text-muted); margin-bottom: 24px;">Select your preferred location, university type, and living style to calculate a clear annual spending estimate.</p>
+      <h3 style="margin-bottom: 10px; font-size: 21px;">Dynamic Budgeting Estimator</h3>
+      <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 20px;">Review estimated costs across our expanded structural lists instantly.</p>
       
       <div class="calc-field">
-        <label for="calc-region">1. Choose Country Focus</label>
+        <label for="calc-region">1. Target Region Focus</label>
         <select id="calc-region" onchange="updateEstimatorOptions()">
-          <option value="in">Colleges in India</option>
-          <option value="ae">Colleges in the UAE</option>
-          <option value="intl">Colleges Abroad (International)</option>
+          <option value="in">Institutions inside India</option>
+          <option value="ae">Institutions inside the UAE</option>
+          <option value="intl">International Targets Abroad</option>
         </select>
       </div>
-
       <div class="calc-field">
-        <label for="calc-tier">2. Choose University Focus</label>
-        <select id="calc-tier" onchange="calculateProjectedFees()">
-        </select>
+        <label for="calc-tier">2. Selected Institution Tier</label>
+        <select id="calc-tier" onchange="calculateProjectedFees()"></select>
       </div>
-
       <div class="calc-field">
-        <label for="calc-housing">3. Choose Housing Preference</label>
+        <label for="calc-housing">3. Domestic Housing Strategy</label>
         <select id="calc-housing" onchange="calculateProjectedFees()">
-          <option value="hostel">Living on Campus (Hostel/Dorm)</option>
-          <option value="day">Day Scholar (Commuting from Home)</option>
+          <option value="hostel">On-Campus Housing / Hostel System</option>
+          <option value="day">Day Scholar / Commuter Strategy</option>
         </select>
       </div>
-
       <div class="calc-result">
-        <div>Estimated Base Expense (Per Year):</div>
-        <div id="calc-output-display"><span>₹ 2,30,000</span></div>
+        <div>Calculated Base Budget Allocation (Per Annum):</div>
+        <div id="calc-output-display"><span>₹ 2,20,000</span></div>
       </div>
     </div>
-
   </div>
 </section>
 
-<section id="pathfinder">
+<!-- INTELLIGENT FINDER QUIZ SECTION -->
+<section id="pathfinder" class="alt">
   <div class="section-inner">
     <div class="section-head" style="text-align: center;">
-      <h2>Find Your Perfect Match</h2>
-      <p>Answer three quick questions below to immediately discover your ideal engineering focus area and target institutions.</p>
+      <h2>Intelligent Career & Budget Pathfinder</h2>
+      <p>Configure your destination preferences, budget targets, and multiple tracking specializations to parse our expanded listing ecosystem.</p>
     </div>
 
     <div class="quiz-box">
+      <!-- Step 1 -->
       <div class="quiz-step active" id="q-step-1">
-        <h3>Question 1: Where would you prefer to complete your college studies?</h3>
+        <h3>Question 1: Select Your Destination Focus</h3>
         <div class="options-list">
           <button class="opt-card" onclick="selectSingleQuizOption(1, 'region', 'in')">
-            <b>Universities in India</b>
-            <span>Prepare for competitive exams like JEE to enter excellent core manufacturing and software design pipelines.</span>
+            <b>India Ecosystem</b>
+            <span>Prepare via specialized pathways like JEE, BITSAT, or state selection streams.</span>
           </button>
           <button class="opt-card" onclick="selectSingleQuizOption(1, 'region', 'ae')">
-            <b>Universities in the UAE</b>
-            <span>Study in an international campus ecosystem with state-of-the-art infrastructure and local aerospace/energy hubs.</span>
+            <b>UAE Territory</b>
+            <span>Target international branch campuses and premium regional research environments.</span>
           </button>
           <button class="opt-card" onclick="selectSingleQuizOption(1, 'region', 'intl')">
-            <b>Universities Abroad (US, UK, Germany)</b>
-            <span>Immerse yourself in global tech hubs, high startup funding, or elite research settings.</span>
+            <b>Global International Arenas</b>
+            <span>Target elite high-investment tech corridors in North America, Western Europe, or Singapore.</span>
           </button>
         </div>
       </div>
 
+      <!-- Step 2: NEW DYNAMIC BUDGET RANGE SELECTOR -->
       <div class="quiz-step" id="q-step-2">
-        <h3>Question 2: What is your primary career goal after graduating?</h3>
-        <div class="options-list">
-          <button class="opt-card" onclick="selectSingleQuizOption(2, 'priority', 'research')">
-            <b>Advanced Research &amp; Discovery</b>
-            <span>Focus on complex academic logic, advanced system simulations, and specialized research laboratory work.</span>
-          </button>
-          <button class="opt-card" onclick="selectSingleQuizOption(2, 'priority', 'industry')">
-            <b>Immediate Corporate Placement</b>
-            <span>Enter the workforce quickly, focusing on physical engineering projects and large-scale manufacturing workflows.</span>
-          </button>
+        <h3>Question 2: Identify Your Annual Tuition Budget Threshold</h3>
+        <div class="options-list" id="budget-options-container">
+          <!-- Dynamic values loaded by JS according to step 1 selection -->
         </div>
       </div>
 
+      <!-- Step 3: MULTI-SELECT INTERESTS MODULE -->
       <div class="quiz-step" id="q-step-3">
-        <h3>Question 3: Select all the topics that interest you (Choose one or more):</h3>
+        <h3>Question 3: Select All Engineering Topic Interests (Choose one or more)</h3>
         <div class="options-list">
           <button class="opt-card opt-card-check" onclick="toggleCheckboxQuizOption('robotics')">
             <div class="checkbox-indicator"></div>
-            <b>Robotics &amp; Smart Code Devices</b>
-            <span>Programming robotic limbs, automated lines, microcontrollers, and smart electronic circuits.</span>
+            <b>Robotics &amp; Control Architecture</b>
+            <span>Automation lines, autonomous controllers, and integrated electronic circuitry systems.</span>
           </button>
           <button class="opt-card opt-card-check" onclick="toggleCheckboxQuizOption('aerospace')">
             <div class="checkbox-indicator"></div>
-            <b>Aerospace &amp; Aerodynamics</b>
-            <span>Analyzing jet propulsion physics, wings, high-altitude flight vehicles, and rockets.</span>
+            <b>Aerospace &amp; High-Velocity Physics</b>
+            <span>Propulsion models, fluid boundary behavior tracking, and structural defense configurations.</span>
           </button>
           <button class="opt-card opt-card-check" onclick="toggleCheckboxQuizOption('automotive')">
             <div class="checkbox-indicator"></div>
-            <b>EVs &amp; Automotive Layouts</b>
-            <span>Designing battery cooling systems, modern vehicle frames, and sustainable transport designs.</span>
+            <b>Automotive Technology &amp; Electric Vehicles</b>
+            <span>Advanced power management tracking, thermodynamic limits, and vehicle stress dynamics.</span>
           </button>
           <button class="opt-card opt-card-check" onclick="toggleCheckboxQuizOption('energy')">
             <div class="checkbox-indicator"></div>
-            <b>Renewable Energy Fluids &amp; Heat</b>
-            <span>Working on wind turbines, fluid dynamics, heat distribution networks, and solar technology.</span>
+            <b>Renewable Energy Fluids &amp; Analytics</b>
+            <span>Wind harvesting layouts, fluid optimization paths, and high-efficiency solar tracking grids.</span>
           </button>
         </div>
       </div>
 
       <div class="quiz-footer">
-        <button class="btn btn-ghost" id="quiz-prev-btn" onclick="navigateQuiz(-1)" disabled style="color: var(--text-main); border-color: var(--border);">Go Back</button>
-        <button class="btn btn-primary" id="quiz-next-btn" onclick="processCheckboxStep()" style="display:none;">Calculate Path Recommendation →</button>
+        <button class="btn btn-ghost" id="quiz-prev-btn" onclick="navigateQuiz(-1)" disabled style="color: var(--text-main); border-color: var(--border);">Back</button>
+        <button class="btn btn-primary" id="quiz-next-btn" onclick="processQuizStepThree()" style="display:none;">Compute Targeted Matrix Match →</button>
       </div>
 
       <div class="quiz-result-view" id="quiz-result-box">
-        <h4 style="color: #16A34A; font-size: 20px; margin-bottom: 10px;">Your Personalized Path Recommendation</h4>
-        <p id="quiz-result-text" style="color: var(--text-main); font-size: 16px; margin-bottom: 14px; font-weight: 500;"></p>
+        <h4 style="color: #16A34A; font-size: 19px; margin-bottom: 8px;">Targeted Matrix Integration Output</h4>
+        <p id="quiz-result-text" style="color: var(--text-main); font-size: 15px; margin-bottom: 12px; font-weight: 500;"></p>
         <div id="quiz-result-meta" style="font-size:14px; color: var(--text-muted); line-height: 1.5; white-space: pre-line;"></div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="faqs" class="alt">
-  <div class="section-inner">
-    <div class="section-head">
-      <h2>Frequently Answered Questions</h2>
-      <p>Clear, direct answers to common questions about starting your path in mechanical engineering.</p>
-    </div>
-
-    <div class="faq-wrap">
-      <details class="faq-item" open>
-        <summary>Will software fields make mechanical engineering roles less valuable?</summary>
-        <p>Not at all. Every advanced line of software code needs physical machinery to complete real-world work. The rapid growth of robotics, electric cars, and space exploration creates an immediate demand for engineers who know how to design reliable physical parts that handle stress and heat safely.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Which mathematics subjects should I study most closely in high school?</summary>
-        <p>Give your closest attention to calculus, basic tracking math, coordinate geometry, linear equations, and basic structural physics parameters.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Do I need to learn complex CAD design tools before entering college?</summary>
-        <p>No, this is not required. Universities guide you through basic design drawing math, structural shapes, and software tools step-by-step during introductory course semesters.</p>
-      </details>
-    </div>
-  </div>
-</section>
-
 <footer>
   <div class="footer-wrap">
-    <div class="footer-top">
-      <div>
-        <h3 style="color: #fff; margin-bottom: 12px;">Mechanical Engineering Student Hub</h3>
-        <p style="font-size: 15px; max-width: 500px; color: #AEB9E1;">An educational guide and planning template built to support secondary candidates mapping out their college applications.</p>
-      </div>
+    <div>
+      <h4 style="color:#fff; margin-bottom:8px;">Unified Engineering Academic Registry</h4>
+      <p style="color:#AEB9E1; max-width:600px; font-size:13px;">Advanced structural planning directory for mechanical engineering candidates. Cross-referenced across primary regional matrices.</p>
     </div>
-    <div class="footer-bottom">
-      <div>Note: Tuition fees represent current annual estimations. Always review active university websites directly to verify modern pricing metrics before applying.</div>
-      <div class="mono" style="color: #64748B;">[ End of Document ]</div>
-    </div>
+    <div class="mono" style="color:#64748B;">[ Matrix Ver 2.4 ]</div>
   </div>
 </footer>
 
@@ -812,11 +556,11 @@ window.addEventListener('scroll', () => {
   document.getElementById('scroll-progress').style.width = scrolled + '%';
 });
 
-// Dark/Light Theme Handler
+// Theme System Toggle
 function toggleTheme() {
-  const currentTheme = document.documentElement.getAttribute('data-theme');
+  const current = document.documentElement.getAttribute('data-theme');
   const btn = document.getElementById('themeBtn');
-  if (currentTheme === 'dark') {
+  if (current === 'dark') {
     document.documentElement.removeAttribute('data-theme');
     btn.innerText = "☀️ Light";
   } else {
@@ -825,160 +569,191 @@ function toggleTheme() {
   }
 }
 
-// Tab Switching System
-function switchTab(evt, panelId) {
-  const panels = document.querySelectorAll('.tabpanel');
-  const tabs = document.querySelectorAll('.tabbtn');
-  
-  panels.forEach(p => p.classList.remove('active'));
-  tabs.forEach(t => t.classList.remove('active'));
-  
-  document.getElementById(panelId).classList.add('active');
+// Tab Selector System
+function switchTab(evt, id) {
+  document.querySelectorAll('.tabpanel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tabbtn').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
   evt.currentTarget.classList.add('active');
 }
 
-// Cost Estimator Matrix
-const costData = {
+// Fast Table Filtering 
+function filterTable(tableId, query) {
+  const cleanQuery = query.toLowerCase().trim();
+  const rows = document.querySelectorAll(`#${tableId} tbody tr`);
+  rows.forEach(row => {
+    const content = row.innerText.toLowerCase();
+    row.style.display = content.includes(cleanQuery) ? '' : 'none';
+  });
+}
+
+// Global Cost Matrices 
+const budgetMatrix = {
   in: [
-    { name: "IIT Public Colleges (Subsidized)", base: 220000, hostel: 40000 },
-    { name: "NIT Campus Framework (Public)", base: 150000, hostel: 35000 },
-    { name: "BITS Pilani (Private Autonomous)", base: 500000, hostel: 60000 },
-    { name: "VIT University (Private Tier-1)", base: 340000, hostel: 70000 },
-    { name: "DTU Delhi (State Public College)", base: 200000, hostel: 45000 }
+    { name: "IIT Elite Public Tier (Subsidized)", base: 220000, hostel: 40000 },
+    { name: "NIT Public Framework Grid", base: 145000, hostel: 35000 },
+    { name: "BITS Pilani Ecosystem (Private)", base: 510000, hostel: 60000 },
+    { name: "DTU / NSUT Premier State Public", base: 205000, hostel: 45000 },
+    { name: "VIT / Manipal Elite Corporate Private", base: 395000, hostel: 75000 }
   ],
   ae: [
-    { name: "Khalifa University (Abu Dhabi Hub)", base: 74000, hostel: 15000 },
+    { name: "Khalifa University Research Matrix", base: 76000, hostel: 15000 },
     { name: "American University of Sharjah (AUS)", base: 98000, hostel: 20000 },
-    { name: "University of Sharjah Campus", base: 56000, hostel: 12000 },
-    { name: "UAE University (Al Ain Public)", base: 62000, hostel: 14000 },
-    { name: "Heriot-Watt University Dubai", base: 70000, hostel: 16000 }
+    { name: "UAE University National Public System", base: 65000, hostel: 14000 },
+    { name: "Heriot-Watt / Birmingham UK Branches", base: 83000, hostel: 16000 },
+    { name: "BITS Pilani / Amity Regional Branches", base: 45000, hostel: 12000 }
   ],
   intl: [
-    { name: "Elite US Private Ivy (MIT, Stanford)", base: 220000, hostel: 55000 }, // Converted roughly to relative indicators or standard display text
-    { name: "US Public Research Tiers (Purdue)", base: 145000, hostel: 45000 },
-    { name: "UK Top Universities (Imperial, Cam)", base: 165000, hostel: 50000 },
-    { name: "German Public Universities (TU Munich)", base: 8000, hostel: 40000 }
+    { name: "Elite Private US (MIT / Stanford Matrix)", base: 63000, hostel: 16000 },
+    { name: "US Public Flagships (Berkeley / Purdue)", base: 36000, hostel: 14000 },
+    { name: "UK Premium Research (Imperial / Cambridge)", base: 41500, hostel: 12000 },
+    { name: "German Low-Cost Public Infrastructure", base: 1500, hostel: 11000 },
+    { name: "Singapore Ivy Systems (NUS / NTU)", base: 38000, hostel: 9000 }
   ]
 };
 
 function updateEstimatorOptions() {
-  const region = document.getElementById('calc-region').value;
-  const tierSelect = document.getElementById('calc-tier');
-  tierSelect.innerHTML = '';
-  
-  costData[region].forEach((item, index) => {
+  const reg = document.getElementById('calc-region').value;
+  const selector = document.getElementById('calc-tier');
+  selector.innerHTML = '';
+  budgetMatrix[reg].forEach((item, idx) => {
     let opt = document.createElement('option');
-    opt.value = index;
+    opt.value = idx;
     opt.innerText = item.name;
-    tierSelect.appendChild(opt);
+    selector.appendChild(opt);
   });
   calculateProjectedFees();
 }
 
 function calculateProjectedFees() {
-  const region = document.getElementById('calc-region').value;
-  const index = document.getElementById('calc-tier').value;
-  const housing = document.getElementById('calc-housing').value;
-  const display = document.getElementById('calc-output-display');
+  const reg = document.getElementById('calc-region').value;
+  const idx = document.getElementById('calc-tier').value;
+  const house = document.getElementById('calc-housing').value;
+  const out = document.getElementById('calc-output-display');
   
-  if (!costData[region] || !costData[region][index]) return;
+  if(!budgetMatrix[reg] || !budgetMatrix[reg][idx]) return;
+  const record = budgetMatrix[reg][idx];
+  let total = record.base + (house === 'hostel' ? record.hostel : 0);
   
-  const selectedRecord = costData[region][index];
-  let total = selectedRecord.base;
-  if (housing === 'hostel') {
-    total += selectedRecord.hostel;
-  }
-  
-  let currencySymbol = '₹ ';
-  if(region === 'ae') currencySymbol = 'AED ';
-  if(region === 'intl') currencySymbol = '$ ';
-  
-  display.innerHTML = `<span>${currencySymbol}${total.toLocaleString()}</span>`;
+  let pfx = '₹ ';
+  if(reg === 'ae') pfx = 'AED ';
+  if(reg === 'intl') pfx = '$ ';
+  out.innerHTML = `<span>${pfx}${total.toLocaleString()}</span>`;
 }
-
 updateEstimatorOptions();
 
-// Interactive Quiz System (Multi-Select Update)
-let quizAnswers = { region: '', priority: '', interests: [] };
-let currentQuizStep = 1;
+// Dynamic Interactive Quiz Scripting
+let quizData = { region: '', budgetRange: '', interests: [] };
+let quizCurrentStep = 1;
 
-function selectSingleQuizOption(step, key, value) {
-  quizAnswers[key] = value;
-  
-  const stepContainer = document.getElementById(`q-step-${step}`);
-  const cards = stepContainer.querySelectorAll('.opt-card');
+function selectSingleQuizOption(step, key, val) {
+  quizData[key] = val;
+  const cards = document.getElementById(`q-step-${step}`).querySelectorAll('.opt-card');
   cards.forEach(c => c.classList.remove('selected'));
-  
   event.currentTarget.classList.add('selected');
   
-  setTimeout(() => {
-    navigateQuiz(1);
-  }, 250);
+  if (step === 1) {
+    buildDynamicBudgetOptions(val);
+  }
+  
+  setTimeout(() => { navigateQuiz(1); }, 200);
 }
 
-function toggleCheckboxQuizOption(interestValue) {
-  const idx = quizAnswers.interests.indexOf(interestValue);
-  if (idx > -1) {
-    quizAnswers.interests.splice(idx, 1); // Deselect if already present
+function buildDynamicBudgetOptions(region) {
+  const container = document.getElementById('budget-options-container');
+  container.innerHTML = '';
+  
+  let ranges = [];
+  if (region === 'in') {
+    ranges = [
+      { id: 'low', label: 'Low-Cost / High Subsidy (Under ₹1.5 Lakhs)', desc: 'Matches Jadavpur and core NIT options if ranked highly.' },
+      { id: 'mid', label: 'Standard Public Tiers (₹1.5 Lakhs - ₹3 Lakhs)', desc: 'Matches IITs, DTU, and NSUT standard structural pricing parameters.' },
+      { id: 'high', label: 'High-Scale Private Frameworks (Above ₹3 Lakhs)', desc: 'Matches BITS Pilani, VIT, and Manipal institutional structures.' }
+    ];
+  } else if (region === 'ae') {
+    ranges = [
+      { id: 'low', label: 'Adaptive Baseline (Under AED 55,000)', desc: 'Matches BITS Dubai, Amity, and Manipal regional structures.' },
+      { id: 'mid', label: 'Mid-Scale Structural Tiers (AED 55,000 - AED 80,000)', desc: 'Matches Khalifa University, UAEU, UOS, and RIT systems.' },
+      { id: 'high', label: 'Premium Elite Tier (Above AED 80,000)', desc: 'Matches American University of Sharjah (AUS) and Birmingham structures.' }
+    ];
+  } else {
+    ranges = [
+      { id: 'low', label: 'Minimal Tuition Infrastructure (Under $10,000)', desc: 'Perfect alignment with top-tier Public German Universities.' },
+      { id: 'mid', label: 'Mid-Range Flagship Systems ($10,000 - $40,000)', desc: 'Matches top public tracks like Purdue, Georgia Tech, and Singapore networks.' },
+      { id: 'high', label: 'Elite Tier Global Funding (Above $40,000)', desc: 'Matches premium institutions like MIT, Stanford, Berkeley, Imperial, and Cambridge.' }
+    ];
+  }
+
+  ranges.forEach(r => {
+    let btn = document.createElement('button');
+    btn.className = 'opt-card';
+    btn.onclick = () => { selectSingleQuizOption(2, 'budgetRange', r.id); };
+    btn.innerHTML = `<b>${r.label}</b><span>${r.desc}</span>`;
+    container.appendChild(btn);
+  });
+}
+
+function toggleCheckboxQuizOption(val) {
+  const index = quizData.interests.indexOf(val);
+  if (index > -1) {
+    quizData.interests.splice(index, 1);
     event.currentTarget.classList.remove('selected');
   } else {
-    quizAnswers.interests.push(interestValue); // Add to selections
+    quizData.interests.push(val);
     event.currentTarget.classList.add('selected');
   }
 }
 
-function processCheckboxStep() {
-  if (quizAnswers.interests.length === 0) {
-    alert("Please select at least one topic of interest before completing the quiz!");
+function processQuizStepThree() {
+  if(quizData.interests.length === 0) {
+    alert("Please select at least one engineering specialization topic to proceed.");
     return;
   }
-  evaluateQuizResult();
+  generateQuizRecommendation();
 }
 
-function navigateQuiz(direction) {
-  document.getElementById(`q-step-${currentQuizStep}`).classList.remove('active');
-  currentQuizStep += direction;
-  document.getElementById(`q-step-${currentQuizStep}`).classList.add('active');
+function navigateQuiz(dir) {
+  document.getElementById(`q-step-${quizCurrentStep}`).classList.remove('active');
+  quizCurrentStep += dir;
+  document.getElementById(`q-step-${quizCurrentStep}`).classList.add('active');
   
-  document.getElementById('quiz-prev-btn').disabled = (currentQuizStep === 1);
-  
+  document.getElementById('quiz-prev-btn').disabled = (quizCurrentStep === 1);
   const nextBtn = document.getElementById('quiz-next-btn');
-  if (currentQuizStep === 3) {
-    nextBtn.style.display = 'inline-flex';
-  } else {
-    nextBtn.style.display = 'none';
-  }
-  
+  nextBtn.style.display = (quizCurrentStep === 3) ? 'inline-flex' : 'none';
   document.getElementById('quiz-result-box').style.display = 'none';
 }
 
-function evaluateQuizResult() {
-  const resultBox = document.getElementById('quiz-result-box');
-  const resultText = document.getElementById('quiz-result-text');
-  const resultMeta = document.getElementById('quiz-result-meta');
+function generateQuizRecommendation() {
+  const rBox = document.getElementById('quiz-result-box');
+  const rTxt = document.getElementById('quiz-result-text');
+  const rMeta = document.getElementById('quiz-result-meta');
   
-  let targetInstitution = "";
-  
-  if (quizAnswers.region === 'in') {
-    targetInstitution = quizAnswers.priority === 'research' ? "Indian Institutes of Technology (IIT Bombay/Delhi) or BITS Pilani" : "National Institutes of Technology (NITs), DTU, or VIT University";
-  } else if (quizAnswers.region === 'ae') {
-    targetInstitution = quizAnswers.priority === 'research' ? "Khalifa University (Abu Dhabi) or UAE University" : "American University of Sharjah (AUS) or Heriot-Watt University Dubai";
+  let list = [];
+  if(quizData.region === 'in') {
+    if(quizData.budgetRange === 'low') list = ["Jadavpur University", "NIT Warangal", "NIT Trichy / Surathkal (With State Subsidies)"];
+    if(quizData.budgetRange === 'mid') list = ["IIT Bombay", "IIT Delhi", "IIT Madras / Kharagpur / Roorkee", "DTU Delhi", "NSUT Delhi"];
+    if(quizData.budgetRange === 'high') list = ["BITS Pilani (Pilani/Goa/Hyderabad)", "VIT University Vellore", "Manipal Institute of Technology"];
+  } else if(quizData.region === 'ae') {
+    if(quizData.budgetRange === 'low') list = ["BITS Pilani Dubai Campus", "Amity University Dubai", "Manipal Academy Dubai"];
+    if(quizData.budgetRange === 'mid') list = ["Khalifa University", "UAE University (Al Ain)", "University of Sharjah", "RIT Dubai"];
+    if(quizData.budgetRange === 'high') list = ["American University of Sharjah (AUS)", "University of Birmingham Dubai", "Heriot-Watt University Dubai"];
   } else {
-    targetInstitution = quizAnswers.priority === 'research' ? "MIT, Stanford, or Imperial College London" : "Georgia Tech, Purdue, or German public universities like TU Munich";
+    if(quizData.budgetRange === 'low') list = ["TU Munich (Germany)", "RWTH Aachen University (Germany)"];
+    if(quizData.budgetRange === 'mid') list = ["Purdue University", "Georgia Tech", "National University of Singapore (NUS)", "Nanyang Technological University (NTU)"];
+    if(quizData.budgetRange === 'high') list = ["MIT", "Stanford University", "UC Berkeley", "Imperial College London", "University of Cambridge"];
   }
   
-  // Format interest profiles cleanly based on checkboxes chosen
-  let tracksText = "";
-  quizAnswers.interests.forEach(interest => {
-    if(interest === 'robotics') tracksText += "\n• Robotics & Smart Control Systems (Building self-operating robotics and automated machinery workflows)";
-    if(interest === 'aerospace') tracksText += "\n• Aerospace Engineering Frameworks (Analyzing jet propulsion, aircraft frames, and aerodynamics)";
-    if(interest === 'automotive') tracksText += "\n• Modern EV & Vehicle Layouts (Optimizing structural design, powertrain efficiencies, and thermal limits)";
-    if(interest === 'energy') tracksText += "\n• Renewable Energy Projects (Deploying advanced fluid dynamics to wind power, solar plants, and clean fuel lines)";
+  let tracks = "";
+  quizData.interests.forEach(i => {
+    if(i === 'robotics') tracks += "\n• Robotics & Automated Controls (Mechatronics focus)";
+    if(i === 'aerospace') tracks += "\n• Aerospace & Fluid Aerodynamics (Flight & Propulsion dynamics)";
+    if(i === 'automotive') tracks += "\n• Next-Gen EV & Powertrain Engineering (Thermal & structural scaling)";
+    if(i === 'energy') tracks += "\n• Sustainable Energy Infrastructure (Aerodynamics & thermodynamics)";
   });
-  
-  resultText.innerText = `We recommend exploring: ${targetInstitution}. This match complements your preferred study region and career goal setup.`;
-  resultMeta.innerText = `Your Selected Focus Paths:${tracksText}\n\n• Next Step Recommendation: Map out your relevant entrance test timelines (such as JEE, EmSAT, or your SAT/language assessments) to prepare your roadmap smoothly.`;
-  resultBox.style.display = 'block';
+
+  rTxt.innerText = `Optimal Matrix Match: Explore [ ${list.join(" | ")} ]`;
+  rMeta.innerText = `Configured Parameters:\n• Targeted Cost Bracket: ${quizData.budgetRange.toUpperCase()} Range Profile Setup\n• Active Structural Trajectories:${tracks}\n\nAction Item: Search these institutions in the data tables above to map your admissions criteria.`;
+  rBox.style.display = 'block';
 }
 </script>
 </body>
