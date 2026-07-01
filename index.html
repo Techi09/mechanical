@@ -24,6 +24,7 @@
   --glass-bg: rgba(10, 15, 30, 0.7);
   --glass-blur: 16px;
   --glow: 0 0 20px rgba(0, 242, 254, 0.15);
+  --success: #10B981;
 }
 
 [data-theme="light"] {
@@ -43,6 +44,7 @@
   --glass-bg: rgba(255, 255, 255, 0.8);
   --glass-blur: 12px;
   --glow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --success: #059669;
 }
 
 *{box-sizing:border-box; margin:0; padding:0;}
@@ -62,20 +64,10 @@ body{
 }
 
 /* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-::-webkit-scrollbar-track {
-  background: var(--bg-light);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 10px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--text-muted);
-}
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-light); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
 
 h1,h2,h3,h4{font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; letter-spacing: -0.02em;}
 .mono {font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.05em;}
@@ -84,23 +76,16 @@ button{font-family:inherit;}
 ::selection{background:rgba(var(--cyber-cyan-rgb), 0.3); color:var(--text-main);}
 
 #scroll-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 3px;
+  position: fixed; top: 0; left: 0; height: 3px;
   background: linear-gradient(90deg, var(--accent), var(--cyber-cyan));
-  width: 0%;
-  z-index: 1000;
-  transition: width 0.1s ease-out;
+  width: 0%; z-index: 1000; transition: width 0.1s ease-out;
 }
 
 /* Glassmorphic Header */
 header{
   position:sticky; top:0; z-index:900;
-  background: var(--glass-bg);
-  backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
-  border-bottom: 1px solid var(--border);
+  background: var(--glass-bg); backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur)); border-bottom: 1px solid var(--border);
   transition: background 0.3s, border-color 0.3s;
 }
 .nav-wrap{
@@ -110,25 +95,17 @@ header{
 .brand{
   display:flex; align-items:center; gap:12px;
   color: var(--text-main); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 19px;
-  text-transform: tracking(-0.03em);
 }
 .brand .gear-container {
-  position: relative;
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;
 }
 .brand .gear{
-  width: 100%; height: 100%; 
-  animation: spin 16s linear infinite;
+  width: 100%; height: 100%; animation: spin 16s linear infinite;
   filter: drop-shadow(0 0 8px rgba(var(--cyber-cyan-rgb), 0.5));
 }
 .brand span {
   background: linear-gradient(135deg, var(--text-main) 60%, var(--cyber-cyan));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
 .navlinks{display:flex; gap:24px; font-weight: 500; font-size:14px; align-items:center;}
 .navlinks a{color: var(--text-muted); transition: all .2s ease; position: relative; padding: 4px 0;}
@@ -172,14 +149,8 @@ header{
   .menu-toggle{display:flex;}
 }
 
-/* Futuristic Hero Section */
-.hero{ 
-  position:relative; 
-  padding:140px 20px 100px; 
-  text-align: center;
-  display: flex;
-  justify-content: center;
-}
+/* Hero Section */
+.hero{ position:relative; padding:140px 20px 100px; text-align: center; display: flex; justify-content: center;}
 .hero-inner{max-width:900px; margin:0 auto; position:relative; z-index:2;}
 .hero-kicker{
   font-family: 'JetBrains Mono', monospace; font-size:12px; letter-spacing:.2em;
@@ -194,12 +165,11 @@ header{
 }
 .hero h1 span{
   background: linear-gradient(135deg, var(--accent), #FFA384);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  display: inline-block;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block;
 }
 .hero-sub{ margin:28px auto 0; max-width:700px; font-size: clamp(16px, 2.2vw, 19px); color: var(--text-muted); line-height: 1.6; font-weight: 400; }
-
 .hero-ctas{display:flex; flex-wrap:wrap; justify-content: center; gap:16px; margin-top:42px;}
+
 .btn{
   font-weight: 600; font-size:14px; font-family: 'Plus Jakarta Sans', sans-serif;
   padding:14px 30px; border-radius:8px; display:inline-flex; align-items:center; gap:10px;
@@ -221,29 +191,16 @@ section{padding:90px 20px; position:relative;}
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
 .section-head p{margin-top:14px; color: var(--text-muted); font-size:16px;}
+.alt{ background: rgba(var(--primary-rgb), 0.3); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 
-.alt{
-  background: rgba(var(--primary-rgb), 0.3);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-
-/* Ultimate Glassmorphic Component Box */
+/* Glassmorphic Box */
 .glass-panel {
-  background: var(--bg-card);
-  backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 32px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: var(--bg-card); backdrop-filter: blur(var(--glass-blur)); -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--border); border-radius: 16px; padding: 32px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.glass-panel:hover {
-  border-color: var(--border-glow);
-  background: var(--bg-card-hover);
-}
+.glass-panel:hover { border-color: var(--border-glow); background: var(--bg-card-hover); }
 
-/* Interactive Tabs Layout */
+/* Interactive Tabs */
 .tab-container { margin-top: 32px; }
 .tabbar{display:flex; border-bottom:1px solid var(--border); gap: 6px; flex-wrap:wrap; margin-bottom: 24px;}
 .tabbtn{
@@ -256,126 +213,45 @@ section{padding:90px 20px; position:relative;}
 .tabpanel.active{display:block;}
 
 /* Controls & Inputs */
-.table-filter-bar { display: flex; gap: 14px; margin-bottom: 24px; flex-wrap: wrap; align-items: center; }
+.table-filter-bar { display: flex; gap: 14px; margin-bottom: 20px; flex-wrap: wrap; align-items: center; }
 .search-input {
   flex: 1; min-width: 280px; padding: 14px 18px; border-radius: 10px; border: 1px solid var(--border);
-  background: rgba(var(--primary-rgb), 0.5); color: var(--text-main); font-size: 14.5px;
-  transition: all 0.25s ease; outline: none;
+  background: rgba(var(--primary-rgb), 0.5); color: var(--text-main); font-size: 14.5px; transition: all 0.25s ease; outline: none;
 }
-.search-input:focus {
-  border-color: var(--cyber-cyan);
-  box-shadow: 0 0 15px rgba(var(--cyber-cyan-rgb), 0.15);
+.search-input:focus { border-color: var(--cyber-cyan); box-shadow: 0 0 15px rgba(var(--cyber-cyan-rgb), 0.15); }
+
+/* Tables Architecture */
+.tablewrap { 
+  width: 100%; overflow-x: auto; border: 1px solid var(--border); border-radius: 14px; 
+  background: rgba(var(--primary-rgb), 0.2); backdrop-filter: blur(10px);
+}
+.specsheet{width:100%; border-collapse:collapse; font-size:14.5px; text-align: left; }
+.specsheet th{ 
+  font-weight: 600; font-family: 'Plus Jakarta Sans', sans-serif; color:var(--text-main); 
+  background: rgba(var(--primary-rgb), 0.6); padding:16px 20px; border-bottom: 1px solid var(--border); 
+}
+.specsheet td{padding:16px 20px; border-bottom:1px solid var(--border); vertical-align:middle; transition: background 0.2s;}
+.specsheet tbody tr:hover td { background: rgba(255,255,255,0.02); }
+.specsheet td.figure{font-family:'JetBrains Mono', monospace; color:var(--cyber-cyan); font-weight:600;}
+.uniname { font-weight: 600; color: var(--text-main); font-size: 15px; }
+
+/* Badges */
+.badge {
+  display: inline-block; padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 600;
+  background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--text-muted);
+}
+.badge-tier { background: rgba(var(--cyber-cyan-rgb), 0.08); color: var(--cyber-cyan); border-color: rgba(var(--cyber-cyan-rgb), 0.15); }
+
+@media (max-width:850px){
+  .specsheet thead { display: none; }
+  .specsheet, .specsheet tbody, .specsheet tr, .specsheet td { display: block; width: 100%; }
+  .specsheet tr { border-bottom: 2px solid var(--border); padding: 12px 0; }
+  .specsheet td { display: flex; justify-content: space-between; padding: 12px 18px; border-bottom: 1px dashed var(--border); text-align: right; }
+  .specsheet td:last-child { border-bottom: none; }
+  .specsheet td::before { content: attr(data-label); font-weight: 600; color: var(--text-muted); float: left; text-align: left; font-size: 13px; }
 }
 
-/* Info Cards Grid Architecture Layout */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
-}
-.college-card {
-  background: var(--bg-card);
-  backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 24px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.college-card:hover {
-  border-color: var(--border-glow);
-  background: var(--bg-card-hover);
-  transform: translateY(-3px);
-  box-shadow: var(--glow);
-}
-.college-card .uniname {
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--text-main);
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  line-height: 1.3;
-}
-.college-card .card-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-top: auto;
-  padding-top: 12px;
-  border-top: 1px dashed var(--border);
-}
-.college-card .meta-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 13.5px;
-}
-.college-card .meta-label {
-  color: var(--text-muted);
-}
-
-/* Career Deck Architecture Structure */
-.career-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 24px;
-  margin-top: 32px;
-}
-@media (max-width: 480px) {
-  .career-grid { grid-template-columns: 1fr; }
-}
-.career-card {
-  background: linear-gradient(135deg, rgba(20, 30, 54, 0.45), rgba(13, 21, 39, 0.6));
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 28px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-}
-.career-card::before {
-  content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--accent); opacity: 0.7;
-}
-.career-card:hover {
-  border-color: rgba(var(--accent-rgb), 0.3);
-  background: rgba(28, 42, 75, 0.55);
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
-.career-card h3 {
-  font-size: 19px;
-  color: var(--text-main);
-  margin-bottom: 8px;
-}
-.career-card p {
-  font-size: 14px;
-  color: var(--text-muted);
-  line-height: 1.5;
-  margin-bottom: 18px;
-}
-.salary-box {
-  background: rgba(var(--primary-rgb), 0.5);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 12px 16px;
-}
-.salary-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 13px;
-  color: var(--text-muted);
-  margin-bottom: 4px;
-}
-.salary-row:last-child { margin-bottom: 0; }
-.salary-row span.val {
-  font-family: 'JetBrains Mono', monospace;
-  color: var(--cyber-cyan);
-  font-weight: 600;
-}
-
-/* Modular Select Controls */
+/* Select Controls */
 .calc-field { margin-bottom: 24px; }
 .calc-field label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 10px; color: var(--text-main); font-family: 'Plus Jakarta Sans', sans-serif; }
 .calc-field select {
@@ -385,7 +261,7 @@ section{padding:90px 20px; position:relative;}
 }
 .calc-field select:focus { border-color: var(--cyber-cyan); }
 
-/* Dashboard Status / Output Panels */
+/* Result Panels */
 .calc-result {
   background: linear-gradient(135deg, rgba(13, 21, 39, 0.95), rgba(20, 30, 54, 0.95)); 
   border: 1px solid rgba(var(--cyber-cyan-rgb), 0.2); color: var(--text-muted); padding: 24px; border-radius: 12px;
@@ -395,14 +271,7 @@ section{padding:90px 20px; position:relative;}
 .calc-result div { font-size: 14.5px; font-weight: 500; }
 .calc-result span { font-size: 30px; font-family: 'Plus Jakarta Sans', sans-serif; color: var(--cyber-cyan); font-weight: 800; filter: drop-shadow(0 0 10px rgba(var(--cyber-cyan-rgb), 0.4)); }
 
-/* Badges */
-.badge {
-  display: inline-block; padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 600;
-  background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--text-muted);
-}
-.badge-tier { background: rgba(var(--cyber-cyan-rgb), 0.08); color: var(--cyber-cyan); border-color: rgba(var(--cyber-cyan-rgb), 0.15); }
-
-/* Enterprise Diagnostic Quiz Wizard */
+/* Quiz Wizard Layout */
 .quiz-box { margin-top: 40px; position: relative; }
 .quiz-step { display: none; }
 .quiz-step.active { display: block; animation: slideIn 0.4s ease-out; }
@@ -410,7 +279,7 @@ section{padding:90px 20px; position:relative;}
 .options-list { display: grid; grid-template-columns: 1fr; gap: 16px; }
 @media(min-width: 768px) { .options-list { grid-template-columns: 1fr 1fr; } }
 
-/* Modern Option Cards */
+/* Option Cards */
 .opt-card {
   background: rgba(var(--primary-rgb), 0.4); border: 2px solid var(--border); padding: 20px; border-radius: 12px; 
   color: var(--text-main); text-align: left; cursor: pointer; transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -427,7 +296,7 @@ section{padding:90px 20px; position:relative;}
 .opt-card b { display: block; font-size: 16px; margin-bottom: 6px; color: var(--text-main); font-family: 'Plus Jakarta Sans', sans-serif; }
 .opt-card span { font-size: 13.5px; color: var(--text-muted); line-height: 1.5; }
 
-/* Checkbox Alignment Framework */
+/* Checkbox Cards Framework */
 .opt-card-check { padding-left: 54px; }
 .opt-card-check .checkbox-indicator {
   position: absolute; left: 20px; top: 24px; width: 20px; height: 20px; border: 2px solid var(--text-muted); border-radius: 6px;
@@ -437,17 +306,39 @@ section{padding:90px 20px; position:relative;}
 .opt-card.selected .checkbox-indicator::after { content: "✓"; color: #fff; font-size: 12px; font-weight: bold; }
 
 .quiz-footer { display: flex; justify-content: space-between; margin-top: 32px; gap: 16px; }
-.quiz-progress-bar-container {
-  width: 100%; height: 6px; background: var(--border); border-radius: 10px; margin-bottom: 32px; overflow: hidden;
+.quiz-progress-bar-container { width: 100%; height: 6px; background: var(--border); border-radius: 10px; margin-bottom: 32px; overflow: hidden; }
+.quiz-progress-bar { height: 100%; width: 20%; background: linear-gradient(90deg, var(--cyber-cyan), var(--accent)); transition: width 0.3s ease; }
+
+/* Dynamic Content Grid Layouts (Result Cards & Career Cards) */
+.college-results-grid, .career-grid {
+  display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 24px;
 }
-.quiz-progress-bar {
-  height: 100%; width: 20%; background: linear-gradient(90deg, var(--cyber-cyan), var(--accent)); transition: width 0.3s ease;
+@media(min-width: 768px) {
+  .college-results-grid { grid-template-columns: repeat(2, 1fr); }
+  .career-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media(min-width: 1024px) {
+  .college-results-grid { grid-template-columns: repeat(3, 1fr); }
+  .career-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
-/* Beautiful Diagnostic Recommendation Node Output */
+.result-card, .career-card {
+  background: rgba(var(--primary-rgb), 0.6); border: 1px solid var(--border); border-radius: 12px;
+  padding: 24px; display: flex; flex-direction: column; transition: all 0.3s ease;
+}
+.result-card:hover, .career-card:hover {
+  transform: translateY(-4px); border-color: var(--border-glow); box-shadow: var(--glow);
+}
+.result-card h4, .career-card h4 { font-size: 18px; color: var(--text-main); margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; }
+.result-card .meta-item, .career-card .meta-item { font-size: 14px; color: var(--text-muted); margin-bottom: 8px; display: flex; justify-content: space-between; }
+.result-card .meta-item strong, .career-card .meta-item strong { color: var(--text-main); }
+
+.salary-badge { background: rgba(16, 185, 129, 0.1); color: var(--success); padding: 4px 10px; border-radius: 6px; font-size: 13px; font-weight: 600; border: 1px solid rgba(16, 185, 129, 0.2); }
+
+/* Quiz Recommendation Output Display */
 .quiz-result-view { 
-  display: none; background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(4, 120, 87, 0.05)); 
-  border: 1px solid rgba(16, 185, 129, 0.25); padding: 32px; border-radius: 16px; margin-top: 36px;
+  display: none; background: linear-gradient(135deg, rgba(16, 185, 129, 0.03), rgba(4, 120, 87, 0.03)); 
+  border: 1px solid rgba(16, 185, 129, 0.2); padding: 32px; border-radius: 16px; margin-top: 36px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.15); animation: expandResult 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .result-header-badge {
@@ -490,7 +381,7 @@ footer{
       <a href="#institutions">Universities Database</a>
       <a href="#estimator">Cost Estimator</a>
       <a href="#pathfinder">Intelligent Finder Quiz</a>
-      <a href="#careers">Career Tracker</a>
+      <a href="#careers">Career Vectors</a>
       <div class="theme-btn-container">
         <button class="theme-btn" id="themeBtn" onclick="toggleTheme()">🌙 Dark Mode</button>
       </div>
@@ -514,6 +405,7 @@ footer{
   </div>
 </section>
 
+<!-- Institutions Section -->
 <section id="institutions">
   <div class="section-inner">
     <div class="section-head">
@@ -528,84 +420,118 @@ footer{
         <button class="tabbtn" onclick="switchTab(event, 'abroad-panel')">International Hubs (12 Colleges)</button>
       </div>
 
-      <!-- India Registry Cards layout -->
       <div id="india-panel" class="tabpanel active">
         <div class="table-filter-bar">
-          <input type="text" class="search-input" id="search-india" placeholder="🔍 Filter India by name, tracking path, or tier..." oninput="filterCards('india-grid', this.value)">
+          <input type="text" class="search-input" id="search-india" placeholder="🔍 Filter India by name, tracking path, or tier..." oninput="filterTable('india-table', this.value)">
         </div>
-        <div class="card-grid" id="india-grid">
-          <div class="college-card"><div><span class="uniname">IIT Bombay</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">JEE Advanced</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">₹2,20,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge badge-tier">Premium Public (Tier 1)</span></div></div></div>
-          <div class="college-card"><div><span class="uniname">IIT Delhi</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">JEE Advanced</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">₹2,25,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge badge-tier">Premium Public (Tier 1)</span></div></div></div>
-          <div class="college-card"><div><span class="uniname">IIT Madras</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">JEE Advanced</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">₹2,15,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge badge-tier">Premium Public (Tier 1)</span></div></div></div>
-          <div class="college-card"><div><span class="uniname">IIT Kharagpur</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">JEE Advanced</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">₹2,10,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge badge-tier">Premium Public (Tier 1)</span></div></div></div>
-          <div class="college-card"><div><span class="uniname">IIT Roorkee</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">JEE Advanced</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">₹2,30,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge badge-tier">Premium Public (Tier 1)</span></div></div></div>
-          <div class="college-card"><div><span class="uniname">IIT Kanpur</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">JEE Advanced</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">₹2,20,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge badge-tier">Premium Public (Tier 1)</span></div></div></div>
-          <div class="college-card"><div><span class="uniname">NIT Trichy</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">JEE Main</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">₹1,45,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge badge-tier">National Public (Tier 1)</span></div></div></div>
-          <div class="college-card"><div><span class="uniname">NIT Surathkal</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">JEE Main</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">₹1,50,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge badge-tier">National Public (Tier 1)</span></div></div></div>
-          <div class="college-card"><div><span class="uniname">NIT Warangal</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">JEE Main</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">₹1,40,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge badge-tier">National Public (Tier 1)</span></div></div></div>
-          <div class="college-card"><div><span class="uniname">VNIT Nagpur</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">JEE Main</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">₹1,35,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">National Public (Tier 2)</span></div></div></div>
-          <div class="college-card"><div><span class="uniname">MNNIT Allahabad</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">JEE Main</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">₹1,42,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">National Public (Tier 2)</span></div></div></div>
-          <div class="college-card"><div><span class="uniname">BITS Pilani (Main Campus)</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">BITSAT</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">₹5,20,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge badge-tier">Elite Private</span></div></div></div>
-          <div class="college-card"><div><span class="uniname">BITS Pilani (Goa Campus)</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">BITSAT</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">₹5,00,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge badge-tier">Elite Private</span></div></div></div>
-          <div class="college-card"><div><span class="uniname">BITS Pilani (Hyderabad Campus)</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">BITSAT</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">₹5,00,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge badge-tier">Elite Private</span></div></div></div>
-          <div class="college-card"><div><span class="uniname">Delhi Technological University (DTU)</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">JEE Main / JAC</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">₹2,10,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">Premier State University</span></div></div></div>
-          <div class="college-card"><div><span class="uniname">Netaji Subhas Univ of Technology (NSUT)</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">JEE Main / JAC</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">₹2,05,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">Premier State University</span></div></div></div>
-          <div class="college-card"><div><span class="uniname">COEP Technological University (Pune)</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">MHT-CET / JEE</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">₹1,35,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">Top State Government</span></div></div></div>
-          <div class="college-card"><div><span class="uniname">Jadavpur University (Kolkata)</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">WBJEE</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">₹10,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">Low-Cost State Government</span></div></div></div>
-          <div class="college-card"><div><span class="uniname">VIT University (Vellore Main)</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">VITEEE</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">₹3,40,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">High-Scale Private</span></div></div></div>
-          <div class="college-card"><div><span class="uniname">Manipal Institute of Technology (MIT)</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">MET</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">₹4,50,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">High-Scale Private</span></div></div></div>
+        <div class="tablewrap">
+          <table class="specsheet" id="india-table">
+            <thead>
+              <tr>
+                <th>University Name</th>
+                <th>Admission Pathway</th>
+                <th>Avg. Annual Tuition</th>
+                <th>Classification Profile</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><span class="uniname">IIT Bombay</span></td><td><span class="badge">JEE Advanced</span></td><td class="figure">₹2,20,000</td><td><span class="badge badge-tier">Premium Public (Tier 1)</span></td></tr>
+              <tr><td><span class="uniname">IIT Delhi</span></td><td><span class="badge">JEE Advanced</span></td><td class="figure">₹2,25,000</td><td><span class="badge badge-tier">Premium Public (Tier 1)</span></td></tr>
+              <tr><td><span class="uniname">IIT Madras</span></td><td><span class="badge">JEE Advanced</span></td><td class="figure">₹2,15,000</td><td><span class="badge badge-tier">Premium Public (Tier 1)</span></td></tr>
+              <tr><td><span class="uniname">IIT Kharagpur</span></td><td><span class="badge">JEE Advanced</span></td><td class="figure">₹2,10,000</td><td><span class="badge badge-tier">Premium Public (Tier 1)</span></td></tr>
+              <tr><td><span class="uniname">IIT Roorkee</span></td><td><span class="badge">JEE Advanced</span></td><td class="figure">₹2,30,000</td><td><span class="badge badge-tier">Premium Public (Tier 1)</span></td></tr>
+              <tr><td><span class="uniname">IIT Kanpur</span></td><td><span class="badge">JEE Advanced</span></td><td class="figure">₹2,20,000</td><td><span class="badge badge-tier">Premium Public (Tier 1)</span></td></tr>
+              <tr><td><span class="uniname">NIT Trichy</span></td><td><span class="badge">JEE Main</span></td><td class="figure">₹1,45,000</td><td><span class="badge badge-tier">National Public (Tier 1)</span></td></tr>
+              <tr><td><span class="uniname">NIT Surathkal</span></td><td><span class="badge">JEE Main</span></td><td class="figure">₹1,50,000</td><td><span class="badge badge-tier">National Public (Tier 1)</span></td></tr>
+              <tr><td><span class="uniname">NIT Warangal</span></td><td><span class="badge">JEE Main</span></td><td class="figure">₹1,40,000</td><td><span class="badge badge-tier">National Public (Tier 1)</span></td></tr>
+              <tr><td><span class="uniname">VNIT Nagpur</span></td><td><span class="badge">JEE Main</span></td><td class="figure">₹1,35,000</td><td><span class="badge">National Public (Tier 2)</span></td></tr>
+              <tr><td><span class="uniname">MNNIT Allahabad</span></td><td><span class="badge">JEE Main</span></td><td class="figure">₹1,42,000</td><td><span class="badge">National Public (Tier 2)</span></td></tr>
+              <tr><td><span class="uniname">BITS Pilani (Main Campus)</span></td><td><span class="badge">BITSAT</span></td><td class="figure">₹5,20,000</td><td><span class="badge badge-tier">Elite Private</span></td></tr>
+              <tr><td><span class="uniname">BITS Pilani (Goa Campus)</span></td><td><span class="badge">BITSAT</span></td><td class="figure">₹5,00,000</td><td><span class="badge badge-tier">Elite Private</span></td></tr>
+              <tr><td><span class="uniname">BITS Pilani (Hyderabad Campus)</span></td><td><span class="badge">BITSAT</span></td><td class="figure">₹5,00,000</td><td><span class="badge badge-tier">Elite Private</span></td></tr>
+              <tr><td><span class="uniname">Delhi Technological University (DTU)</span></td><td><span class="badge">JEE Main / JAC</span></td><td class="figure">₹2,10,000</td><td><span class="badge">Premier State University</span></td></tr>
+              <tr><td><span class="uniname">Netaji Subhas Univ of Technology (NSUT)</span></td><td><span class="badge">JEE Main / JAC</span></td><td class="figure">₹2,05,000</td><td><span class="badge">Premier State University</span></td></tr>
+              <tr><td><span class="uniname">COEP Technological University (Pune)</span></td><td><span class="badge">MHT-CET / JEE</span></td><td class="figure">₹1,35,000</td><td><span class="badge">Top State Government</span></td></tr>
+              <tr><td><span class="uniname">Jadavpur University (Kolkata)</span></td><td><span class="badge">WBJEE</span></td><td class="figure">₹10,000</td><td><span class="badge">Low-Cost State Government</span></td></tr>
+              <tr><td><span class="uniname">VIT University (Vellore Main)</span></td><td><span class="badge">VITEEE</span></td><td class="figure">₹3,40,000</td><td><span class="badge">High-Scale Private</span></td></tr>
+              <tr><td><span class="uniname">Manipal Institute of Technology (MIT)</span></td><td><span class="badge">MET</span></td><td class="figure">₹4,50,000</td><td><span class="badge">High-Scale Private</span></td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
 
-      <!-- UAE Registry Cards layout -->
       <div id="uae-panel" class="tabpanel">
         <div class="table-filter-bar">
-          <input type="text" class="search-input" id="search-uae" placeholder="🔍 Filter UAE registry..." oninput="filterCards('uae-grid', this.value)">
+          <input type="text" class="search-input" id="search-uae" placeholder="🔍 Filter UAE registry..." oninput="filterTable('uae-table', this.value)">
         </div>
-        <div class="card-grid" id="uae-grid">
-          <div class="college-card"><div><span class="uniname">Khalifa University (Abu Dhabi)</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">EmSAT + Portfolio</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">AED 76,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge badge-tier">Elite Government Research</span></div></div></div>
-          <div class="college-card"><div><span class="uniname">American University of Sharjah (AUS)</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">GPA + Language Tier</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">AED 98,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge badge-tier">Elite Private American</span></div></div></div>
-          <div class="college-card"><div><span class="uniname">United Arab Emirates University (UAEU)</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">EmSAT Matrix</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">AED 65,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">National Public University</span></div></div></div>
-          <div class="college-card"><div><span class="uniname">University of Sharjah (UOS)</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">High School Score</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">AED 58,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">Major Regional Semi-Public</span></div></div></div>
-          <div class="college-card"><div><span class="uniname">Heriot-Watt University Dubai</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">Academic Portfolio</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">AED 72,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">International UK Branch</span></div></div></div>
-          <div class="college-card"><div><span class="uniname">University of Birmingham Dubai</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">IB / CBSE Portfolio</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">AED 94,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">International UK Branch</span></div></div></div>
-          <div class="college-card"><div><span class="uniname">BITS Pilani Dubai Campus</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">12th Board PCM Marks</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">AED 48,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge badge-tier">Indian Specialized Branch</span></div></div></div>
-          <div class="college-card"><div><span class="uniname">Amity University Dubai</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">School Profile + Interview</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">AED 45,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">Private Career-Focused</span></div></div></div>
-          <div class="college-card"><div><span class="uniname">Manipal Academy of Higher Ed Dubai</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">CBSE/ISC Grades</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">AED 42,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">Private Career-Focused</span></div></div></div>
-          <div class="college-card"><div><span class="uniname">Abu Dhabi University (ADU)</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">GPA Match Assessment</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">AED 62,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">Private Diverse Ecosystem</span></div></div></div>
-          <div class="college-card"><div><span class="uniname">Rochester Institute of Tech (RIT Dubai)</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">US Criteria / SAT</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">AED 68,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">International US Branch</span></div></div></div>
-          <div class="college-card"><div><span class="uniname">Middlesex University Dubai</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">Academic Evaluation</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">AED 56,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">International UK Branch</span></div></div></div>
+        <div class="tablewrap">
+          <table class="specsheet" id="uae-table">
+            <thead>
+              <tr>
+                <th>University Name</th>
+                <th>Admission Pathway</th>
+                <th>Avg. Annual Tuition</th>
+                <th>Classification Profile</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><span class="uniname">Khalifa University (Abu Dhabi)</span></td><td><span class="badge">EmSAT + Portfolio</span></td><td class="figure">AED 76,000</td><td><span class="badge badge-tier">Elite Government Research</span></td></tr>
+              <tr><td><span class="uniname">American University of Sharjah (AUS)</span></td><td><span class="badge">GPA + Language Tier</span></td><td class="figure">AED 98,000</td><td><span class="badge badge-tier">Elite Private American</span></td></tr>
+              <tr><td><span class="uniname">United Arab Emirates University (UAEU)</span></td><td><span class="badge">EmSAT Matrix</span></td><td class="figure">AED 65,000</td><td><span class="badge">National Public University</span></td></tr>
+              <tr><td><span class="uniname">University of Sharjah (UOS)</span></td><td><span class="badge">High School Score</span></td><td class="figure">AED 58,000</td><td><span class="badge">Major Regional Semi-Public</span></td></tr>
+              <tr><td><span class="uniname">Heriot-Watt University Dubai</span></td><td><span class="badge">Academic Portfolio</span></td><td class="figure">AED 72,000</td><td><span class="badge">International UK Branch</span></td></tr>
+              <tr><td><span class="uniname">University of Birmingham Dubai</span></td><td><span class="badge">IB / CBSE Portfolio</span></td><td class="figure">AED 94,000</td><td><span class="badge">International UK Branch</span></td></tr>
+              <tr><td><span class="uniname">BITS Pilani Dubai Campus</span></td><td><span class="badge">12th Board PCM Marks</span></td><td class="figure">AED 48,000</td><td><span class="badge badge-tier">Indian Specialized Branch</span></td></tr>
+              <tr><td><span class="uniname">Amity University Dubai</span></td><td><span class="badge">School Profile + Interview</span></td><td class="figure">AED 45,000</td><td><span class="badge">Private Career-Focused</span></td></tr>
+              <tr><td><span class="uniname">Manipal Academy of Higher Ed Dubai</span></td><td><span class="badge">CBSE/ISC Grades</span></td><td class="figure">AED 42,000</td><td><span class="badge">Private Career-Focused</span></td></tr>
+              <tr><td><span class="uniname">Abu Dhabi University (ADU)</span></td><td><span class="badge">GPA Match Assessment</span></td><td class="figure">AED 62,000</td><td><span class="badge">Private Diverse Ecosystem</span></td></tr>
+              <tr><td><span class="uniname">Rochester Institute of Tech (RIT Dubai)</span></td><td><span class="badge">US Criteria / SAT</span></td><td class="figure">AED 68,000</td><td><span class="badge">International US Branch</span></td></tr>
+              <tr><td><span class="uniname">Middlesex University Dubai</span></td><td><span class="badge">Academic Evaluation</span></td><td class="figure">AED 56,000</td><td><span class="badge">International UK Branch</span></td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
 
-      <!-- Abroad Registry Cards layout -->
       <div id="abroad-panel" class="tabpanel">
         <div class="table-filter-bar">
-          <input type="text" class="search-input" id="search-abroad" placeholder="🔍 Filter international campuses..." oninput="filterCards('abroad-grid', this.value)">
+          <input type="text" class="search-input" id="search-abroad" placeholder="🔍 Filter international campuses..." oninput="filterTable('abroad-table', this.value)">
         </div>
-        <div class="card-grid" id="abroad-grid">
-          <div class="college-card"><div><span class="uniname">MIT (Massachusetts Inst of Tech)</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">SAT/ACT + Portfolio</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">$62,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge badge-tier">Global Elite Private (US)</span></div></div></div>
-          <div class="college-card"><div><span class="uniname">Stanford University</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">SAT/ACT + Essays</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">$64,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge badge-tier">Global Elite Private (US)</span></div></div></div>
-          <div class="college-card"><div><span class="uniname">UC Berkeley</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">UC Application Portal</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">$44,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">Premier Public Flagship (US)</span></div></div></div>
-          <div class="college-card"><div><span class="uniname">Purdue University (West Lafayette)</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">SAT/ACT + High GPA</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">$31,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge badge-tier">Elite Engineering Public (US)</span></div></div></div>
-          <div class="college-card"><div><span class="uniname">Georgia Institute of Technology</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">SAT/ACT Alignments</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">$33,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge badge-tier">Elite Engineering Public (US)</span></div></div></div>
-          <div class="college-card"><div><span class="uniname">University of Michigan (Ann Arbor)</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">Common App + Grades</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">$49,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">High-Scale Public State (US)</span></div></div></div>
-          <div class="college-card"><div><span class="uniname">Imperial College London</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">A-Levels / IB Matrix</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">£39,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge badge-tier">Elite STEM Institute (UK)</span></div></div></div>
-          <div class="college-card"><div><span class="uniname">University of Cambridge</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">Advanced Assessment</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">£44,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge badge-tier">Historic World Elite (UK)</span></div></div></div>
-          <div class="college-card"><div><span class="uniname">TU Munich (Technical Univ of Munich)</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">TestAS + German Level</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">€3,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">Low-Cost Public Elite (DE)</span></div></div></div>
-          <div class="college-card"><div><span class="uniname">RWTH Aachen University</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">School Certificate Check</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">None / Exempt</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">Low-Cost Public Elite (DE)</span></div></div></div>
-          <div class="college-card"><div><span class="uniname">National University of Singapore (NUS)</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">Elite Academic Standing</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">S$39,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">Top Asian Flagship (SG)</span></div></div></div>
-          <div class="college-card"><div><span class="uniname">Nanyang Technological Univ (NTU)</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">Entrance Evaluation Review</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">S$37,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">Top Asian Flagship (SG)</span></div></div></div>
+        <div class="tablewrap">
+          <table class="specsheet" id="abroad-table">
+            <thead>
+              <tr>
+                <th>University Name</th>
+                <th>Admission Pathway</th>
+                <th>Avg. Annual Tuition</th>
+                <th>Classification Profile</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><span class="uniname">MIT (Massachusetts Inst of Tech)</span></td><td><span class="badge">SAT/ACT + Portfolio</span></td><td class="figure">$62,000</td><td><span class="badge badge-tier">Global Elite Private (US)</span></td></tr>
+              <tr><td><span class="uniname">Stanford University</span></td><td><span class="badge">SAT/ACT + Essays</span></td><td class="figure">$64,000</td><td><span class="badge badge-tier">Global Elite Private (US)</span></td></tr>
+              <tr><td><span class="uniname">UC Berkeley</span></td><td><span class="badge">UC Application Portal</span></td><td class="figure">$44,000</td><td><span class="badge">Premier Public Flagship (US)</span></td></tr>
+              <tr><td><span class="uniname">Purdue University (West Lafayette)</span></td><td><span class="badge">SAT/ACT + High GPA</span></td><td class="figure">$31,000</td><td><span class="badge badge-tier">Elite Engineering Public (US)</span></td></tr>
+              <tr><td><span class="uniname">Georgia Institute of Technology</span></td><td><span class="badge">SAT/ACT Alignments</span></td><td class="figure">$33,000</td><td><span class="badge badge-tier">Elite Engineering Public (US)</span></td></tr>
+              <tr><td><span class="uniname">University of Michigan (Ann Arbor)</span></td><td><span class="badge">Common App + Grades</span></td><td class="figure">$49,000</td><td><span class="badge">High-Scale Public State (US)</span></td></tr>
+              <tr><td><span class="uniname">Imperial College London</span></td><td><span class="badge">A-Levels / IB Matrix</span></td><td class="figure">£39,000</td><td><span class="badge badge-tier">Elite STEM Institute (UK)</span></td></tr>
+              <tr><td><span class="uniname">University of Cambridge</span></td><td><span class="badge">Advanced Assessment</span></td><td class="figure">£44,000</td><td><span class="badge badge-tier">Historic World Elite (UK)</span></td></tr>
+              <tr><td><span class="uniname">TU Munich (Technical Univ of Munich)</span></td><td><span class="badge">TestAS + German Level</span></td><td class="figure">€3,000</td><td><span class="badge">Low-Cost Public Elite (DE)</span></td></tr>
+              <tr><td><span class="uniname">RWTH Aachen University</span></td><td><span class="badge">School Certificate Check</span></td><td class="figure">None / Exempt</td><td><span class="badge">Low-Cost Public Elite (DE)</span></td></tr>
+              <tr><td><span class="uniname">National University of Singapore (NUS)</span></td><td><span class="badge">Elite Academic Standing</span></td><td class="figure">S$39,000</td><td><span class="badge">Top Asian Flagship (SG)</span></td></tr>
+              <tr><td><span class="uniname">Nanyang Technological Univ (NTU)</span></td><td><span class="badge">Entrance Evaluation Review</span></td><td class="figure">S$37,000</td><td><span class="badge">Top Asian Flagship (SG)</span></td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
 
+    <!-- Parameterized Cost Estimator Component -->
     <div id="estimator" class="glass-panel" style="margin-top: 48px;">
       <h3 style="margin-bottom: 8px; font-size: 22px; display: flex; align-items: center; gap: 10px;">
         <span style="width:8px; height:8px; background:var(--accent); border-radius:50%"></span>
         Dynamic Parameterized Budgeting Estimator
       </h3>
-      <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 24px;">Compute estimated base pricing parameters mapping verified institutional data synchronized directly from our primary global vectors.</p>
+      <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 24px;">Compute estimated base pricing parameters mapping verified institutional data synchronized directly from our primary global tables.</p>
       
       <div class="calc-field">
         <label for="calc-region">1. Target Region Infrastructure Focus</label>
@@ -634,6 +560,7 @@ footer{
   </div>
 </section>
 
+<!-- Quiz Pathfinder Section -->
 <section id="pathfinder" class="alt">
   <div class="section-inner">
     <div class="section-head" style="text-align: center; margin: 0 auto 48px;">
@@ -739,13 +666,16 @@ footer{
 
       <div class="quiz-footer">
         <button class="btn btn-ghost" id="quiz-prev-btn" onclick="navigateQuiz(-1)" disabled>Back</button>
-        <button class="btn btn-primary" id="quiz-next-btn" onclick="processQuizStepFour()" style="display:none;">Continue to Step 5 →</button>
+        <button class="btn btn-primary" id="quiz-next-btn" onclick="processQuizStepFour()" style="display:none;">Compute Targeted Match →</button>
       </div>
 
+      <!-- Modern Info Cards Quiz Output Container -->
       <div class="quiz-result-view" id="quiz-result-box">
-        <div class="result-header-badge">Targeted Fit Matrix Output</div>
-        <h4 id="quiz-result-text" style="color: var(--text-main); font-size: 20px; margin-bottom: 14px; font-weight: 700; line-height: 1.3;"></h4>
-        <div id="quiz-result-meta" style="font-size:14.5px; color: var(--text-muted); line-height: 1.6; white-space: pre-line;"></div>
+        <div class="result-header-badge">Pathfinder Analysis Profiles</div>
+        <h3 style="font-size: 22px; color: var(--text-main); margin-bottom: 8px;">Your Optimized Institutional Profiles</h3>
+        <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 24px;" id="quiz-summary-text"></p>
+        
+        <div class="college-results-grid" id="college-cards-container"></div>
       </div>
 
     </div>
@@ -756,49 +686,51 @@ footer{
 <section id="careers">
   <div class="section-inner">
     <div class="section-head">
-      <h2>Mechanical Specialization Career Vectors</h2>
-      <p>Analyze high-impact industry career paths mapping expected foundational entry benchmarks up to premium global system engineering milestones.</p>
+      <h2>Advanced Career Vectors</h2>
+      <p>Explore engineering trajectories mapping out core competencies, target automation pipelines, and projected baseline compensation tiers across tech ecosystems.</p>
     </div>
     
     <div class="career-grid">
       <div class="career-card">
-        <h3>Robotics &amp; Automation Engineer</h3>
-        <p>Develop autonomous kinematic tracking setups, mechatronic layouts, and software integration loops for advanced automated manufacturing hubs.</p>
-        <div class="salary-box">
-          <div class="salary-row"><span>India Baseline</span><span class="val">₹6.5L - ₹18L</span></div>
-          <div class="salary-row"><span>UAE Range</span><span class="val">AED 90k - 210k</span></div>
-          <div class="salary-row"><span>Global Hubs</span><span class="val">$85,000 - $145,000</span></div>
-        </div>
+        <h4>Robotics Systems Architect <span class="salary-badge">$98k - $145k</span></h4>
+        <div class="meta-item">Primary Horizon: <span>Automation &amp; Kinematics</span></div>
+        <div class="meta-item">Core Competency: <span>Python, ROS2, C++, Control Loops</span></div>
+        <p style="font-size: 14px; color: var(--text-muted); margin-top: 12px;">Designs, models, and optimizes multi-axis kinematic robots, automated product lifecycles, and feedback controls for edge deployment structures.</p>
+      </div>
+      
+      <div class="career-card">
+        <h4>Aerospace Propulsion Engineer <span class="salary-badge">$102k - $155k</span></h4>
+        <div class="meta-item">Primary Horizon: <span>Fluid Dynamics &amp; Flight</span></div>
+        <div class="meta-item">Core Competency: <span>ANSYS Fluent, Thermal Systems</span></div>
+        <p style="font-size: 14px; color: var(--text-muted); margin-top: 12px;">Models advanced fluid flows, boundary layers, thermal dissipation constraints, and chamber dynamics for launch environments.</p>
+      </div>
+      
+      <div class="career-card">
+        <h4>EV Powertrain Specialist <span class="salary-badge">$95k - $140k</span></h4>
+        <div class="meta-item">Primary Horizon: <span>Automotive Electrification</span></div>
+        <div class="meta-item">Core Competency: <span>Battery Thermal Mgmt, MATLAB</span></div>
+        <p style="font-size: 14px; color: var(--text-muted); margin-top: 12px;">Engineers next-generation battery chassis packages, synchronous electric drivetrains, and predictive high-voltage thermal load managers.</p>
+      </div>
+      
+      <div class="career-card">
+        <h4>Renewable Energy Grid Consultant <span class="salary-badge">$88k - $130k</span></h4>
+        <div class="meta-item">Primary Horizon: <span>Fluid Analytics &amp; Infrastructure</span></div>
+        <div class="meta-item">Core Competency: <span>Thermodynamics, SCADA Systems</span></div>
+        <p style="font-size: 14px; color: var(--text-muted); margin-top: 12px;">Calculates yield matrices for macro wind kinetic collectors, multi-phase hydro arrays, and hyper-efficient grid optimization loops.</p>
+      </div>
+      
+      <div class="career-card">
+        <h4>Deep-Tech Hardware Founder <span class="salary-badge">Equity / Variable</span></h4>
+        <div class="meta-item">Primary Horizon: <span>Venture Incubation</span></div>
+        <div class="meta-item">Core Competency: <span>Rapid Prototyping, IP Strategy</span></div>
+        <p style="font-size: 14px; color: var(--text-muted); margin-top: 12px;">Bridges the divide between lab mechanics and real-world commercialization by patenting custom hardware designs and mechatronic arrays.</p>
       </div>
 
       <div class="career-card">
-        <h3>Aerospace &amp; Propulsion Specialist</h3>
-        <p>Focus on high-velocity fluid dynamics boundaries, structural loading configurations, thermal cycle tracking, and next-gen flight mechanics systems.</p>
-        <div class="salary-box">
-          <div class="salary-row"><span>India Baseline</span><span class="val">₹8L - ₹24L</span></div>
-          <div class="salary-row"><span>UAE Range</span><span class="val">AED 120k - 260k</span></div>
-          <div class="salary-row"><span>Global Hubs</span><span class="val">$92,000 - $160,000</span></div>
-        </div>
-      </div>
-
-      <div class="career-card">
-        <h3>EV Powertrain &amp; Automotive Design</h3>
-        <p>Engineer complex thermal dissipation safety matrices, high-capacity cell deployment arrays, and micro-electromechanical control loops for electric vehicle tracks.</p>
-        <div class="salary-box">
-          <div class="salary-row"><span>India Baseline</span><span class="val">₹7L - ₹22L</span></div>
-          <div class="salary-row"><span>UAE Range</span><span class="val">AED 96k - 240k</span></div>
-          <div class="salary-row"><span>Global Hubs</span><span class="val">$88,000 - $150,000</span></div>
-        </div>
-      </div>
-
-      <div class="career-card">
-        <h3>Renewable Energy Systems Architect</h3>
-        <p>Design thermodynamic cycle pipelines, aerodynamic wind collection grids, and strategic hydro-infrastructure capturing systems for sustainable energy lines.</p>
-        <div class="salary-box">
-          <div class="salary-row"><span>India Baseline</span><span class="val">₹6L - ₹16L</span></div>
-          <div class="salary-row"><span>UAE Range</span><span class="val">AED 84k - 190k</span></div>
-          <div class="salary-row"><span>Global Hubs</span><span class="val">$82,000 - $138,000</span></div>
-        </div>
+        <h4>R&amp;D Simulation Lead <span class="salary-badge">$110k - $165k</span></h4>
+        <div class="meta-item">Primary Horizon: <span>Industrial Engineering Management</span></div>
+        <div class="meta-item">Core Competency: <span>FEA Modeling, SolidWorks, Optimization</span></div>
+        <p style="font-size: 14px; color: var(--text-muted); margin-top: 12px;">Directs predictive structural analysis and mechanical fatigue stress testing across complex commercial pipelines before tooling launch phases.</p>
       </div>
     </div>
   </div>
@@ -810,12 +742,12 @@ footer{
       <h4 style="color:#fff; margin-bottom:8px; font-family:'Plus Jakarta Sans', sans-serif;">Unified Engineering Academic Registry</h4>
       <p style="max-width:550px; font-size:13px; color: var(--text-muted);">Advanced mechanical planning directive framework for student candidates. cross-referenced across modern multi-regional institutional pathways.</p>
     </div>
-    <div class="mono" style="color: var(--border-glow);">[ Matrix Next-Gen Ver 3.0 ]</div>
+    <div class="mono" style="color: var(--border-glow);">[ Matrix Next-Gen Ver 3.5 ]</div>
   </div>
 </footer>
 
 <script>
-// Mobile Layout Navigation Toggle Control
+// Navigation Controls
 const menuToggle = document.getElementById('menuToggle');
 const navLinks = document.getElementById('navLinks');
 menuToggle.addEventListener('click', () => {
@@ -823,7 +755,7 @@ menuToggle.addEventListener('click', () => {
   menuToggle.setAttribute('aria-expanded', isOpen);
 });
 
-// Realtime Scroll Progress Animation Bar
+// Scroll Indicator
 window.addEventListener('scroll', () => {
   const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
   const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -831,7 +763,7 @@ window.addEventListener('scroll', () => {
   document.getElementById('scroll-progress').style.width = scrolled + '%';
 });
 
-// UI Theme Transition Management System
+// Theme Management
 function toggleTheme() {
   const current = document.documentElement.getAttribute('data-theme');
   const btn = document.getElementById('themeBtn');
@@ -844,7 +776,7 @@ function toggleTheme() {
   }
 }
 
-// Tab Switching Mechanics
+// Tab Controls
 function switchTab(evt, id) {
   document.querySelectorAll('.tabpanel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tabbtn').forEach(t => t.classList.remove('active'));
@@ -852,67 +784,67 @@ function switchTab(evt, id) {
   evt.currentTarget.classList.add('active');
 }
 
-// Cards String Filter Engine instead of rows logic
-function filterCards(gridId, query) {
+// Database Filter Mechanics
+function filterTable(tableId, query) {
   const cleanQuery = query.toLowerCase().trim();
-  const cards = document.querySelectorAll(`#${gridId} .college-card`);
-  cards.forEach(card => {
-    const content = card.innerText.toLowerCase();
-    card.style.display = content.includes(cleanQuery) ? '' : 'none';
+  const rows = document.querySelectorAll(`#${tableId} tbody tr`);
+  rows.forEach(row => {
+    const content = row.innerText.toLowerCase();
+    row.style.display = content.includes(cleanQuery) ? '' : 'none';
   });
 }
 
-// Global Cost Matrices Matching Core 44 Registries
+// Budget Registries mapping
 const budgetMatrix = {
   in: [
-    { name: "IIT Bombay", base: 220000, hostel: 40000 },
-    { name: "IIT Delhi", base: 225000, hostel: 40000 },
-    { name: "IIT Madras", base: 215000, hostel: 38000 },
-    { name: "IIT Kharagpur", base: 210000, hostel: 35000 },
-    { name: "IIT Roorkee", base: 230000, hostel: 42000 },
-    { name: "IIT Kanpur", base: 220000, hostel: 39000 },
-    { name: "NIT Trichy", base: 145000, hostel: 35000 },
-    { name: "NIT Surathkal", base: 150000, hostel: 35000 },
-    { name: "NIT Warangal", base: 140000, hostel: 32000 },
-    { name: "VNIT Nagpur", base: 135000, hostel: 30000 },
-    { name: "MNNIT Allahabad", base: 142000, hostel: 34000 },
-    { name: "BITS Pilani (Main Campus)", base: 520000, hostel: 65000 },
-    { name: "BITS Pilani (Goa Campus)", base: 500000, hostel: 60000 },
-    { name: "BITS Pilani (Hyderabad Campus)", base: 500000, hostel: 60000 },
-    { name: "Delhi Technological University (DTU)", base: 210000, hostel: 45000 },
-    { name: "Netaji Subhas Univ of Technology (NSUT)", base: 205000, hostel: 45000 },
-    { name: "COEP Technological University (Pune)", base: 135000, hostel: 28000 },
-    { name: "Jadavpur University (Kolkata)", base: 10000, hostel: 5000 },
-    { name: "VIT University (Vellore Main)", base: 340000, hostel: 80000 },
-    { name: "Manipal Institute of Technology (MIT)", base: 450000, hostel: 85000 }
+    { name: "IIT Bombay", base: 220000, hostel: 40000, type: "JEE Advanced", class: "Premium Public (Tier 1)" },
+    { name: "IIT Delhi", base: 225000, hostel: 40000, type: "JEE Advanced", class: "Premium Public (Tier 1)" },
+    { name: "IIT Madras", base: 215000, hostel: 38000, type: "JEE Advanced", class: "Premium Public (Tier 1)" },
+    { name: "IIT Kharagpur", base: 210000, hostel: 35000, type: "JEE Advanced", class: "Premium Public (Tier 1)" },
+    { name: "IIT Roorkee", base: 230000, hostel: 42000, type: "JEE Advanced", class: "Premium Public (Tier 1)" },
+    { name: "IIT Kanpur", base: 220000, hostel: 39000, type: "JEE Advanced", class: "Premium Public (Tier 1)" },
+    { name: "NIT Trichy", base: 145000, hostel: 35000, type: "JEE Main", class: "National Public (Tier 1)" },
+    { name: "NIT Surathkal", base: 150000, hostel: 35000, type: "JEE Main", class: "National Public (Tier 1)" },
+    { name: "NIT Warangal", base: 140000, hostel: 32000, type: "JEE Main", class: "National Public (Tier 1)" },
+    { name: "VNIT Nagpur", base: 135000, hostel: 30000, type: "JEE Main", class: "National Public (Tier 2)" },
+    { name: "MNNIT Allahabad", base: 142000, hostel: 34000, type: "JEE Main", class: "National Public (Tier 2)" },
+    { name: "BITS Pilani (Main Campus)", base: 520000, hostel: 65000, type: "BITSAT", class: "Elite Private" },
+    { name: "BITS Pilani (Goa Campus)", base: 500000, hostel: 60000, type: "BITSAT", class: "Elite Private" },
+    { name: "BITS Pilani (Hyderabad Campus)", base: 500000, hostel: 60000, type: "BITSAT", class: "Elite Private" },
+    { name: "Delhi Technological University (DTU)", base: 210000, hostel: 45000, type: "JEE Main / JAC", class: "Premier State University" },
+    { name: "Netaji Subhas Univ of Technology (NSUT)", base: 205000, hostel: 45000, type: "JEE Main / JAC", class: "Premier State University" },
+    { name: "COEP Technological University (Pune)", base: 135000, hostel: 28000, type: "MHT-CET / JEE", class: "Top State Government" },
+    { name: "Jadavpur University (Kolkata)", base: 10000, hostel: 5000, type: "WBJEE", class: "Low-Cost State Government" },
+    { name: "VIT University (Vellore Main)", base: 340000, hostel: 80000, type: "VITEEE", class: "High-Scale Private" },
+    { name: "Manipal Institute of Technology (MIT)", base: 450000, hostel: 85000, type: "MET", class: "High-Scale Private" }
   ],
   ae: [
-    { name: "Khalifa University (Abu Dhabi)", base: 76000, hostel: 15000 },
-    { name: "American University of Sharjah (AUS)", base: 98000, hostel: 22000 },
-    { name: "United Arab Emirates University (UAEU)", base: 65000, hostel: 12000 },
-    { name: "University of Sharjah (UOS)", base: 58000, hostel: 11000 },
-    { name: "Heriot-Watt University Dubai", base: 72000, hostel: 15000 },
-    { name: "University of Birmingham Dubai", base: 94000, hostel: 18000 },
-    { name: "BITS Pilani Dubai Campus", base: 48000, hostel: 12000 },
-    { name: "Amity University Dubai", base: 45000, hostel: 10000 },
-    { name: "Manipal Academy of Higher Ed Dubai", base: 42000, hostel: 10000 },
-    { name: "Abu Dhabi University (ADU)", base: 62000, hostel: 13000 },
-    { name: "Rochester Institute of Tech (RIT Dubai)", base: 68000, hostel: 14000 },
-    { name: "Middlesex University Dubai", base: 56000, hostel: 12000 }
+    { name: "Khalifa University (Abu Dhabi)", base: 76000, hostel: 15000, type: "EmSAT + Portfolio", class: "Elite Government Research" },
+    { name: "American University of Sharjah (AUS)", base: 98000, hostel: 22000, type: "GPA + Language", class: "Elite Private American" },
+    { name: "United Arab Emirates University (UAEU)", base: 65000, hostel: 12000, type: "EmSAT Matrix", class: "National Public University" },
+    { name: "University of Sharjah (UOS)", base: 58000, hostel: 11000, type: "High School Score", class: "Major Regional Semi-Public" },
+    { name: "Heriot-Watt University Dubai", base: 72000, hostel: 15000, type: "Academic Portfolio", class: "International UK Branch" },
+    { name: "University of Birmingham Dubai", base: 94000, hostel: 18000, type: "IB / CBSE Portfolio", class: "International UK Branch" },
+    { name: "BITS Pilani Dubai Campus", base: 48000, hostel: 12000, type: "12th Board PCM Marks", class: "Indian Specialized Branch" },
+    { name: "Amity University Dubai", base: 45000, hostel: 10000, type: "School + Interview", class: "Private Career-Focused" },
+    { name: "Manipal Academy of Higher Ed Dubai", base: 42000, hostel: 10000, type: "CBSE/ISC Grades", class: "Private Career-Focused" },
+    { name: "Abu Dhabi University (ADU)", base: 62000, hostel: 13000, type: "GPA Match Assessment", class: "Private Diverse Ecosystem" },
+    { name: "Rochester Institute of Tech (RIT Dubai)", base: 68000, hostel: 14000, type: "US Criteria / SAT", class: "International US Branch" },
+    { name: "Middlesex University Dubai", base: 56000, hostel: 12000, type: "Academic Evaluation", class: "International UK Branch" }
   ],
   intl: [
-    { name: "MIT (Massachusetts Inst of Tech)", base: 62000, hostel: 18000 },
-    { name: "Stanford University", base: 64000, hostel: 18500 },
-    { name: "UC Berkeley", base: 44000, hostel: 16000 },
-    { name: "Purdue University (West Lafayette)", base: 31000, hostel: 12000 },
-    { name: "Georgia Institute of Technology", base: 33000, hostel: 12500 },
-    { name: "University of Michigan (Ann Arbor)", base: 49000, hostel: 14000 },
-    { name: "Imperial College London", base: 39000, hostel: 11000 },
-    { name: "University of Cambridge", base: 44000, hostel: 12000 },
-    { name: "TU Munich (Technical Univ of Munich)", base: 3000, hostel: 10000 },
-    { name: "RWTH Aachen University", base: 0, hostel: 9500 },
-    { name: "National University of Singapore (NUS)", base: 39000, hostel: 8000 },
-    { name: "Nanyang Technological Univ (NTU)", base: 37000, hostel: 7500 }
+    { name: "MIT", base: 62000, hostel: 18000, type: "SAT/ACT + Portfolio", class: "Global Elite Private (US)" },
+    { name: "Stanford University", base: 64000, hostel: 18500, type: "SAT/ACT + Essays", class: "Global Elite Private (US)" },
+    { name: "UC Berkeley", base: 44000, hostel: 16000, type: "UC Application Portal", class: "Premier Public Flagship (US)" },
+    { name: "Purdue University", base: 31000, hostel: 12000, type: "SAT/ACT + High GPA", class: "Elite Engineering Public (US)" },
+    { name: "Georgia Institute of Technology", base: 33000, hostel: 12500, type: "SAT/ACT Alignments", class: "Elite Engineering Public (US)" },
+    { name: "University of Michigan (Ann Arbor)", base: 49000, hostel: 14000, type: "Common App + Grades", class: "High-Scale Public State (US)" },
+    { name: "Imperial College London", base: 39000, hostel: 11000, type: "A-Levels / IB Matrix", class: "Elite STEM Institute (UK)" },
+    { name: "University of Cambridge", base: 44000, hostel: 12000, type: "Advanced Assessment", class: "Historic World Elite (UK)" },
+    { name: "TU Munich", base: 3000, hostel: 10000, type: "TestAS + German Level", class: "Low-Cost Public Elite (DE)" },
+    { name: "RWTH Aachen University", base: 0, hostel: 9500, type: "Certificate Check", class: "Low-Cost Public Elite (DE)" },
+    { name: "National University of Singapore (NUS)", base: 39000, hostel: 8000, type: "Elite Standings", class: "Top Asian Flagship (SG)" },
+    { name: "Nanyang Technological Univ (NTU)", base: 37000, hostel: 7500, type: "Entrance Review", class: "Top Asian Flagship (SG)" }
   ]
 };
 
@@ -922,8 +854,7 @@ function updateEstimatorOptions() {
   selector.innerHTML = '';
   budgetMatrix[reg].forEach((item, idx) => {
     let opt = document.createElement('option');
-    opt.value = idx;
-    opt.innerText = item.name;
+    opt.value = idx; opt.innerText = item.name;
     selector.appendChild(opt);
   });
   calculateProjectedFees();
@@ -951,7 +882,7 @@ function calculateProjectedFees() {
 }
 updateEstimatorOptions();
 
-// Advanced High-Fidelity 5-Step Diagnostic Wizard Logic
+// Wizard System Framework
 let quizData = { region: '', curriculum: '', budgetRange: '', interests: [], milestone: '' };
 let quizCurrentStep = 1;
 const totalQuizSteps = 5;
@@ -962,15 +893,11 @@ function selectSingleQuizOption(step, key, val) {
   if(stepEl) {
     const cards = stepEl.querySelectorAll('.opt-card');
     cards.forEach(c => c.classList.remove('selected'));
-    if(window.event && window.event.currentTarget) {
-      window.event.currentTarget.classList.add('selected');
+    if(event && event.currentTarget) {
+      event.currentTarget.classList.add('selected');
     }
   }
-  
-  if (step === 1) {
-    buildDynamicBudgetOptions(val);
-  }
-  
+  if (step === 1) { buildDynamicBudgetOptions(val); }
   setTimeout(() => { navigateQuiz(1); }, 250);
 }
 
@@ -1039,7 +966,6 @@ function navigateQuiz(dir) {
   if(currentStepEl) currentStepEl.classList.remove('active');
   
   quizCurrentStep += dir;
-  
   if(quizCurrentStep < 1) quizCurrentStep = 1;
   if(quizCurrentStep > totalQuizSteps) quizCurrentStep = totalQuizSteps;
 
@@ -1048,71 +974,75 @@ function navigateQuiz(dir) {
   
   const progressPct = (quizCurrentStep / totalQuizSteps) * 100;
   document.getElementById('quiz-progress').style.width = `${progressPct}%`;
-  
   document.getElementById('quiz-prev-btn').disabled = (quizCurrentStep === 1);
   
   const nextBtn = document.getElementById('quiz-next-btn');
   if(quizCurrentStep === 4) {
-    nextBtn.innerText = "Continue to Step 5 →";
-    nextBtn.style.display = 'inline-flex';
+    nextBtn.innerText = "Continue to Step 5 →"; nextBtn.style.display = 'inline-flex';
   } else if(quizCurrentStep === 5) {
-    nextBtn.innerText = "Compute System Recommendation Model →";
-    nextBtn.style.display = 'inline-flex';
+    nextBtn.innerText = "Compute System Recommendation Model →"; nextBtn.style.display = 'inline-flex';
   } else {
     nextBtn.style.display = 'none';
   }
-  
-  if(dir === -1) {
-    document.getElementById('quiz-result-box').style.display = 'none';
-  }
+  if(dir === -1) { document.getElementById('quiz-result-box').style.display = 'none'; }
 }
 
+// Result Card Rendering System (Replaces the Outdated Tabular Matrix Layout)
 function generateQuizRecommendation() {
   const rBox = document.getElementById('quiz-result-box');
-  const rTxt = document.getElementById('quiz-result-text');
-  const rMeta = document.getElementById('quiz-result-meta');
+  const summaryTxt = document.getElementById('quiz-summary-text');
+  const cardsContainer = document.getElementById('college-cards-container');
   
-  let matchSet = [];
-  if(quizData.region === 'in') {
-    if(quizData.budgetRange === 'low') matchSet = ["Jadavpur University", "COEP Technological University", "VNIT Nagpur", "NIT Warangal", "MNNIT Allahabad"];
-    else if(quizData.budgetRange === 'mid') matchSet = ["IIT Bombay", "IIT Delhi", "IIT Madras", "IIT Kharagpur", "IIT Roorkee", "IIT Kanpur", "NIT Trichy", "NIT Surathkal", "DTU", "NSUT"];
-    else matchSet = ["BITS Pilani (Main Campus)", "BITS Pilani (Goa)", "BITS Pilani (Hyderabad)", "VIT Vellore", "Manipal Institute of Technology (MIT)"];
-  } else if(quizData.region === 'ae') {
-    if(quizData.budgetRange === 'low') matchSet = ["BITS Pilani Dubai Campus", "Amity University Dubai", "Manipal Academy Dubai"];
-    else if(quizData.budgetRange === 'mid') matchSet = ["Khalifa University", "United Arab Emirates University (UAEU)", "University of Sharjah", "Abu Dhabi University", "RIT Dubai", "Middlesex Dubai"];
-    else matchSet = ["American University of Sharjah (AUS)", "University of Birmingham Dubai", "Heriot-Watt University Dubai"];
-  } else {
-    if(quizData.budgetRange === 'low') matchSet = ["TU Munich (Germany)", "RWTH Aachen University (Germany)"];
-    else if(quizData.budgetRange === 'mid') matchSet = ["Purdue University", "Georgia Institute of Technology", "Imperial College London", "National University of Singapore (NUS)", "Nanyang Technological University (NTU)"];
-    else matchSet = ["MIT", "Stanford University", "UC Berkeley", "University of Michigan (Ann Arbor)", "University of Cambridge"];
-  }
-  
-  let trackReport = "";
-  quizData.interests.forEach(interest => {
-    if(interest === 'robotics') trackReport += "\n • Robotics & Autonomous Control Core (Kinematics, Micro-electromechanical platforms)";
-    if(interest === 'aerospace') trackReport += "\n • Aerospace Vectors (Fluid propulsion metrics, structural fatigue models)";
-    if(interest === 'automotive') trackReport += "\n • Next-Gen EV Dynamics (High-output power cells integration, thermodynamics limits)";
-    if(interest === 'energy') trackReport += "\n • Sustainable Fluid Analytics (Aerodynamic capture matrix, thermodynamic cycles)";
+  // Filtering algorithms mapping array parameters
+  let filteredColleges = budgetMatrix[quizData.region].filter(c => {
+    let price = c.base;
+    if(quizData.region === 'in') {
+      if(quizData.budgetRange === 'low') return price <= 150000;
+      if(quizData.budgetRange === 'mid') return price > 150000 && price <= 300000;
+      return price > 300000;
+    } else if(quizData.region === 'ae') {
+      if(quizData.budgetRange === 'low') return price <= 55000;
+      if(quizData.budgetRange === 'mid') return price > 55000 && price <= 80000;
+      return price > 80000;
+    } else {
+      if(quizData.budgetRange === 'low') return price <= 10000;
+      if(quizData.budgetRange === 'mid') return price > 10000 && price <= 40000;
+      return price > 40000;
+    }
   });
 
-  let objectiveStatement = "";
-  if(quizData.milestone === 'research') objectiveStatement = "Advanced Academic Research & Innovation Pathway Grouping (Prepares for laboratory tenure, thesis development, and peer-reviewed outputs).";
-  else if(quizData.industry === 'industry') objectiveStatement = "High-Scale Corporate System Engineering R&D (Prepares for precision commercial pipeline deployment, manufacturing integration, and large-scale industrial program management).";
-  else objectiveStatement = "Deep-Tech Venture Engineering & Hardware Incubation (Prepares for capital-efficient hardware prototyping, technical patenting pathways, and functional startup scaling).";
+  // Fallback structural safety check
+  if(filteredColleges.length === 0) {
+    filteredColleges = budgetMatrix[quizData.region].slice(0, 3);
+  }
 
-  rTxt.innerText = `Matched System Array: [ ${matchSet.join(" | ")} ]`;
+  let currencySymbol = quizData.region === 'in' ? '₹' : (quizData.region === 'ae' ? 'AED' : '$');
   
-  rMeta.innerText = `Engineered Parameter Profile Mapping:
-  • Configured Target Zone: ${quizData.region.toUpperCase()} Infrastructure Grid Setup
-  • Track Input Baseline: ${quizData.curriculum.toUpperCase()} Academic Index Matrix Placement
-  • Operational Spending Constraint: ${quizData.budgetRange.toUpperCase()} Cost Matrix Assignment
+  summaryTxt.innerText = `Based on your chosen criteria: Target Region [${quizData.region.toUpperCase()}], Curriculum Model [${quizData.curriculum.toUpperCase()}], and post-grad milestone focusing on [${quizData.milestone}]. Here are your targeted fits:`;
   
-  Selected Active Technology Specializations:${trackReport}
+  cardsContainer.innerHTML = '';
   
-  Target Strategic Post-Graduation Objective:
-  • ${objectiveStatement}
-  
-  System Suggestion Action Item: Cross-reference your matched target array list within the primary university database records or use the dynamic cost estimator to check customized per-semester logistics parameters.`;
+  filteredColleges.forEach(college => {
+    let pfx = currencySymbol + ' ';
+    if(quizData.region === 'intl') {
+      if(college.name.includes("London") || college.name.includes("Cambridge")) pfx = '£ ';
+      else if(college.name.includes("Munich") || college.name.includes("Aachen")) pfx = '€ ';
+      else if(college.name.includes("Singapore") || college.name.includes("NUS") || college.name.includes("NTU")) pfx = 'S$ ';
+    }
+
+    const card = document.createElement('div');
+    card.className = 'result-card';
+    card.innerHTML = `
+      <h4>${college.name}</h4>
+      <div class="meta-item">Profile Vector: <strong>${college.class}</strong></div>
+      <div class="meta-item">Admission Pathway: <span class="badge" style="margin:0;">${college.type}</span></div>
+      <div class="meta-item">Est. Base Tuition: <strong style="color:var(--cyber-cyan); font-family:'JetBrains Mono';">${pfx}${college.base.toLocaleString()}</strong></div>
+      <p style="font-size:13px; color:var(--text-muted); margin-top:12px; border-top:1px dashed var(--border); padding-top:12px;">
+        Aligned with your preferences in <strong>${quizData.interests.join(', ')}</strong>. Suitable for paths pointing to alternative engineering infrastructure.
+      </p>
+    `;
+    cardsContainer.appendChild(card);
+  });
   
   rBox.style.display = 'block';
   rBox.scrollIntoView({ behavior: 'smooth' });
