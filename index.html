@@ -1164,7 +1164,7 @@ function loadReviews() {
     .then(reviews => {
       renderReviews(reviews);
     })
-    .catch(error => console.error('Error fetching file-based reviews:', error));
+    .catch(error => console.error('Error fetching Vercel KV storage:', error));
 }
 
 function handleReviewSubmit(e) {
@@ -1180,7 +1180,6 @@ function handleReviewSubmit(e) {
     date: new Date().toISOString().split('T')[0]
   };
 
-  // POST data cleanly to your server instead of using local storage
   fetch('/api/reviews', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -1189,15 +1188,12 @@ function handleReviewSubmit(e) {
   .then(response => response.json())
   .then(data => {
     if(data.success) {
-      // Re-render the visual review board with the latest updates from your JSON file
       renderReviews(data.reviews);
-      
-      // Reset Input Forms cleanly
       nameInput.value = '';
       textInput.value = '';
     }
   })
-  .catch(error => console.error('Error saving review to local file matrix:', error));
+  .catch(error => console.error('Error saving review to serverless matrix:', error));
 }
 
 function escapeHTML(str) {
