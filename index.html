@@ -87,15 +87,15 @@ header{
   transition: background 0.3s, border-color 0.3s;
 }
 .nav-wrap{
-  max-width:1200px; margin:0 auto; padding:14px 20px;
-  display:flex; align-items:center; justify-content:space-between;
+  max-width: 1400px; margin: 0 auto; padding: 22px 40px;
+  display: flex; align-items: center; justify-content: space-between;
 }
 .brand{
-  display:flex; align-items:center; gap:12px;
-  color: var(--text-main); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 19px;
+  display:flex; align-items:center; gap:14px;
+  color: var(--text-main); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 20px;
 }
 .brand .gear-container {
-  position: relative; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;
+  position: relative; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center;
 }
 .brand .gear{
   width: 100%; height: 100%; animation: spin 16s linear infinite;
@@ -105,8 +105,8 @@ header{
   background: linear-gradient(135deg, var(--text-main) 60%, var(--cyber-cyan));
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
-.navlinks{display:flex; gap:24px; font-weight: 500; font-size:14px; align-items:center;}
-.navlinks a{color: var(--text-muted); transition: all .2s ease; position: relative; padding: 4px 0;}
+.navlinks{display: flex; gap: 32px; font-weight: 500; font-size: 14px; align-items: center;}
+.navlinks a{color: var(--text-muted); transition: all .2s ease; position: relative; padding: 6px 0;}
 .navlinks a::after {
   content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; 
   background: var(--cyber-cyan); transition: width 0.2s ease;
@@ -114,8 +114,8 @@ header{
 .navlinks a:hover::after { width: 100%; }
 .navlinks a:hover{color: var(--text-main);}
 .navlinks a.cta{
-  background: linear-gradient(135deg, var(--accent), #FF7A45); color: #fff; padding:10px 20px; border-radius:8px;
-  box-shadow: 0 4px 15px rgba(255, 90, 31, 0.25); font-weight: 600;
+  background: linear-gradient(135deg, var(--accent), #FF7A45); color: #fff; padding: 11px 22px; border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(255, 90, 31, 0.25); font-weight: 600; margin-left: 8px;
 }
 .navlinks a.cta::after { display: none; }
 .navlinks a.cta:hover{transform:translateY(-1px); box-shadow: 0 6px 20px rgba(255, 90, 31, 0.4); opacity: 0.95;}
@@ -134,6 +134,7 @@ header{
 .menu-toggle svg{width:24px; height:24px; stroke: var(--text-main);}
 
 @media (max-width:1024px){
+  .nav-wrap{ padding: 16px 24px; }
   .navlinks{
     display:none; position:absolute; top:100%; left:0; right:0;
     background: var(--primary); flex-direction:column; align-items:stretch; gap:0;
@@ -269,7 +270,7 @@ section{padding:90px 20px; position:relative;}
 
 .opt-card {
   background: rgba(var(--primary-rgb), 0.4); border: 2px solid var(--border); padding: 20px; border-radius: 12px; 
-  color: var(--text-main); text-align: left; cursor: pointer; transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--text-main); text-align: left; cursor: pointer; transition: all 0.25 cubic-bezier(0.4, 0, 0.2, 1);
   display: flex; flex-direction: column; position: relative;
 }
 .opt-card:hover { 
