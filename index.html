@@ -1158,6 +1158,15 @@ function renderReviewsList() {
   });
 }
 
+function loadReviews() {
+  fetch('/api/reviews')
+    .then(response => response.json())
+    .then(reviews => {
+      renderReviews(reviews);
+    })
+    .catch(error => console.error('Error fetching file-based reviews:', error));
+}
+
 function handleReviewSubmit(e) {
   e.preventDefault();
   const nameInput = document.getElementById('survey-name');
@@ -1171,16 +1180,24 @@ function handleReviewSubmit(e) {
     date: new Date().toISOString().split('T')[0]
   };
 
-  const currentReviews = JSON.parse(localStorage.getItem('matrix_reviews_v1')) || [];
-  currentReviews.push(newReview);
-  localStorage.setItem('matrix_reviews_v1', JSON.stringify(currentReviews));
-
-  // Reset Input Forms cleanly
-  nameInput.value = '';
-  textInput.value = '';
-  ratingInput.value = '5';
-
-  renderReviewsList();
+  // POST data cleanly to your server instead of using local storage
+  fetch('/api/reviews', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(newReview)
+  })
+  .then(response => response.json())
+  .then(data => {
+    if(data.success) {
+      // Re-render the visual review board with the latest updates from your JSON file
+      renderReviews(data.reviews);
+      
+      // Reset Input Forms cleanly
+      nameInput.value = '';
+      textInput.value = '';
+    }
+  })
+  .catch(error => console.error('Error saving review to local file matrix:', error));
 }
 
 function escapeHTML(str) {
