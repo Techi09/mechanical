@@ -256,7 +256,7 @@ section{padding:90px 20px; position:relative;}
 .tabpanel.active{display:block;}
 
 /* Controls & Inputs */
-.table-filter-bar { display: flex; gap: 14px; margin-bottom: 20px; flex-wrap: wrap; align-items: center; }
+.table-filter-bar { display: flex; gap: 14px; margin-bottom: 24px; flex-wrap: wrap; align-items: center; }
 .search-input {
   flex: 1; min-width: 280px; padding: 14px 18px; border-radius: 10px; border: 1px solid var(--border);
   background: rgba(var(--primary-rgb), 0.5); color: var(--text-main); font-size: 14.5px;
@@ -267,35 +267,112 @@ section{padding:90px 20px; position:relative;}
   box-shadow: 0 0 15px rgba(var(--cyber-cyan-rgb), 0.15);
 }
 
-/* Modernized Tables Architecture */
-.tablewrap { 
-  width: 100%; overflow-x: auto; border: 1px solid var(--border); border-radius: 14px; 
-  background: rgba(var(--primary-rgb), 0.2); backdrop-filter: blur(10px);
+/* Info Cards Grid Architecture Layout */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
 }
-.specsheet{width:100%; border-collapse:collapse; font-size:14.5px; text-align: left; }
-.specsheet th{ 
-  font-weight: 600; font-family: 'Plus Jakarta Sans', sans-serif; color:var(--text-main); 
-  background: rgba(var(--primary-rgb), 0.6); padding:16px 20px; border-bottom: 1px solid var(--border); 
+.college-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
-.specsheet td{padding:16px 20px; border-bottom:1px solid var(--border); vertical-align:middle; transition: background 0.2s;}
-.specsheet tbody tr:hover td { background: rgba(255,255,255,0.02); }
-.specsheet td.figure{font-family:'JetBrains Mono', monospace; color:var(--cyber-cyan); font-weight:600;}
-.uniname { font-weight: 600; color: var(--text-main); font-size: 15px; }
+.college-card:hover {
+  border-color: var(--border-glow);
+  background: var(--bg-card-hover);
+  transform: translateY(-3px);
+  box-shadow: var(--glow);
+}
+.college-card .uniname {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-main);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  line-height: 1.3;
+}
+.college-card .card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px dashed var(--border);
+}
+.college-card .meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13.5px;
+}
+.college-card .meta-label {
+  color: var(--text-muted);
+}
 
-/* Badges */
-.badge {
-  display: inline-block; padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 600;
-  background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--text-muted);
+/* Career Deck Architecture Structure */
+.career-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
 }
-.badge-tier { background: rgba(var(--cyber-cyan-rgb), 0.08); color: var(--cyber-cyan); border-color: rgba(var(--cyber-cyan-rgb), 0.15); }
-
-@media (max-width:850px){
-  .specsheet thead { display: none; }
-  .specsheet, .specsheet tbody, .specsheet tr, .specsheet td { display: block; width: 100%; }
-  .specsheet tr { border-bottom: 2px solid var(--border); padding: 12px 0; }
-  .specsheet td { display: flex; justify-content: space-between; padding: 12px 18px; border-bottom: 1px dashed var(--border); text-align: right; }
-  .specsheet td:last-child { border-bottom: none; }
-  .specsheet td::before { content: attr(data-label); font-weight: 600; color: var(--text-muted); float: left; text-align: left; font-size: 13px; }
+@media (max-width: 480px) {
+  .career-grid { grid-template-columns: 1fr; }
+}
+.career-card {
+  background: linear-gradient(135deg, rgba(20, 30, 54, 0.45), rgba(13, 21, 39, 0.6));
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+.career-card::before {
+  content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--accent); opacity: 0.7;
+}
+.career-card:hover {
+  border-color: rgba(var(--accent-rgb), 0.3);
+  background: rgba(28, 42, 75, 0.55);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+.career-card h3 {
+  font-size: 19px;
+  color: var(--text-main);
+  margin-bottom: 8px;
+}
+.career-card p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+.salary-box {
+  background: rgba(var(--primary-rgb), 0.5);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 16px;
+}
+.salary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+.salary-row:last-child { margin-bottom: 0; }
+.salary-row span.val {
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--cyber-cyan);
+  font-weight: 600;
 }
 
 /* Modular Select Controls */
@@ -317,6 +394,13 @@ section{padding:90px 20px; position:relative;}
 }
 .calc-result div { font-size: 14.5px; font-weight: 500; }
 .calc-result span { font-size: 30px; font-family: 'Plus Jakarta Sans', sans-serif; color: var(--cyber-cyan); font-weight: 800; filter: drop-shadow(0 0 10px rgba(var(--cyber-cyan-rgb), 0.4)); }
+
+/* Badges */
+.badge {
+  display: inline-block; padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 600;
+  background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--text-muted);
+}
+.badge-tier { background: rgba(var(--cyber-cyan-rgb), 0.08); color: var(--cyber-cyan); border-color: rgba(var(--cyber-cyan-rgb), 0.15); }
 
 /* Enterprise Diagnostic Quiz Wizard */
 .quiz-box { margin-top: 40px; position: relative; }
@@ -406,6 +490,7 @@ footer{
       <a href="#institutions">Universities Database</a>
       <a href="#estimator">Cost Estimator</a>
       <a href="#pathfinder">Intelligent Finder Quiz</a>
+      <a href="#careers">Career Tracker</a>
       <div class="theme-btn-container">
         <button class="theme-btn" id="themeBtn" onclick="toggleTheme()">🌙 Dark Mode</button>
       </div>
@@ -443,107 +528,74 @@ footer{
         <button class="tabbtn" onclick="switchTab(event, 'abroad-panel')">International Hubs (12 Colleges)</button>
       </div>
 
+      <!-- India Registry Cards layout -->
       <div id="india-panel" class="tabpanel active">
         <div class="table-filter-bar">
-          <input type="text" class="search-input" id="search-india" placeholder="🔍 Filter India by name, tracking path, or tier..." oninput="filterTable('india-table', this.value)">
+          <input type="text" class="search-input" id="search-india" placeholder="🔍 Filter India by name, tracking path, or tier..." oninput="filterCards('india-grid', this.value)">
         </div>
-        <div class="tablewrap">
-          <table class="specsheet" id="india-table">
-            <thead>
-              <tr>
-                <th>University Name</th>
-                <th>Admission Pathway</th>
-                <th>Avg. Annual Tuition</th>
-                <th>Classification Profile</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td><span class="uniname">IIT Bombay</span></td><td><span class="badge">JEE Advanced</span></td><td class="figure">₹2,20,000</td><td><span class="badge badge-tier">Premium Public (Tier 1)</span></td></tr>
-              <tr><td><span class="uniname">IIT Delhi</span></td><td><span class="badge">JEE Advanced</span></td><td class="figure">₹2,25,000</td><td><span class="badge badge-tier">Premium Public (Tier 1)</span></td></tr>
-              <tr><td><span class="uniname">IIT Madras</span></td><td><span class="badge">JEE Advanced</span></td><td class="figure">₹2,15,000</td><td><span class="badge badge-tier">Premium Public (Tier 1)</span></td></tr>
-              <tr><td><span class="uniname">IIT Kharagpur</span></td><td><span class="badge">JEE Advanced</span></td><td class="figure">₹2,10,000</td><td><span class="badge badge-tier">Premium Public (Tier 1)</span></td></tr>
-              <tr><td><span class="uniname">IIT Roorkee</span></td><td><span class="badge">JEE Advanced</span></td><td class="figure">₹2,30,000</td><td><span class="badge badge-tier">Premium Public (Tier 1)</span></td></tr>
-              <tr><td><span class="uniname">IIT Kanpur</span></td><td><span class="badge">JEE Advanced</span></td><td class="figure">₹2,20,000</td><td><span class="badge badge-tier">Premium Public (Tier 1)</span></td></tr>
-              <tr><td><span class="uniname">NIT Trichy</span></td><td><span class="badge">JEE Main</span></td><td class="figure">₹1,45,000</td><td><span class="badge badge-tier">National Public (Tier 1)</span></td></tr>
-              <tr><td><span class="uniname">NIT Surathkal</span></td><td><span class="badge">JEE Main</span></td><td class="figure">₹1,50,000</td><td><span class="badge badge-tier">National Public (Tier 1)</span></td></tr>
-              <tr><td><span class="uniname">NIT Warangal</span></td><td><span class="badge">JEE Main</span></td><td class="figure">₹1,40,000</td><td><span class="badge badge-tier">National Public (Tier 1)</span></td></tr>
-              <tr><td><span class="uniname">VNIT Nagpur</span></td><td><span class="badge">JEE Main</span></td><td class="figure">₹1,35,000</td><td><span class="badge">National Public (Tier 2)</span></td></tr>
-              <tr><td><span class="uniname">MNNIT Allahabad</span></td><td><span class="badge">JEE Main</span></td><td class="figure">₹1,42,000</td><td><span class="badge">National Public (Tier 2)</span></td></tr>
-              <tr><td><span class="uniname">BITS Pilani (Main Campus)</span></td><td><span class="badge">BITSAT</span></td><td class="figure">₹5,20,000</td><td><span class="badge badge-tier">Elite Private</span></td></tr>
-              <tr><td><span class="uniname">BITS Pilani (Goa Campus)</span></td><td><span class="badge">BITSAT</span></td><td class="figure">₹5,00,000</td><td><span class="badge badge-tier">Elite Private</span></td></tr>
-              <tr><td><span class="uniname">BITS Pilani (Hyderabad Campus)</span></td><td><span class="badge">BITSAT</span></td><td class="figure">₹5,00,000</td><td><span class="badge badge-tier">Elite Private</span></td></tr>
-              <tr><td><span class="uniname">Delhi Technological University (DTU)</span></td><td><span class="badge">JEE Main / JAC</span></td><td class="figure">₹2,10,000</td><td><span class="badge">Premier State University</span></td></tr>
-              <tr><td><span class="uniname">Netaji Subhas Univ of Technology (NSUT)</span></td><td><span class="badge">JEE Main / JAC</span></td><td class="figure">₹2,05,000</td><td><span class="badge">Premier State University</span></td></tr>
-              <tr><td><span class="uniname">COEP Technological University (Pune)</span></td><td><span class="badge">MHT-CET / JEE</span></td><td class="figure">₹1,35,000</td><td><span class="badge">Top State Government</span></td></tr>
-              <tr><td><span class="uniname">Jadavpur University (Kolkata)</span></td><td><span class="badge">WBJEE</span></td><td class="figure">₹10,000</td><td><span class="badge">Low-Cost State Government</span></td></tr>
-              <tr><td><span class="uniname">VIT University (Vellore Main)</span></td><td><span class="badge">VITEEE</span></td><td class="figure">₹3,40,000</td><td><span class="badge">High-Scale Private</span></td></tr>
-              <tr><td><span class="uniname">Manipal Institute of Technology (MIT)</span></td><td><span class="badge">MET</span></td><td class="figure">₹4,50,000</td><td><span class="badge">High-Scale Private</span></td></tr>
-            </tbody>
-          </table>
+        <div class="card-grid" id="india-grid">
+          <div class="college-card"><div><span class="uniname">IIT Bombay</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">JEE Advanced</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">₹2,20,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge badge-tier">Premium Public (Tier 1)</span></div></div></div>
+          <div class="college-card"><div><span class="uniname">IIT Delhi</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">JEE Advanced</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">₹2,25,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge badge-tier">Premium Public (Tier 1)</span></div></div></div>
+          <div class="college-card"><div><span class="uniname">IIT Madras</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">JEE Advanced</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">₹2,15,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge badge-tier">Premium Public (Tier 1)</span></div></div></div>
+          <div class="college-card"><div><span class="uniname">IIT Kharagpur</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">JEE Advanced</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">₹2,10,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge badge-tier">Premium Public (Tier 1)</span></div></div></div>
+          <div class="college-card"><div><span class="uniname">IIT Roorkee</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">JEE Advanced</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">₹2,30,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge badge-tier">Premium Public (Tier 1)</span></div></div></div>
+          <div class="college-card"><div><span class="uniname">IIT Kanpur</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">JEE Advanced</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">₹2,20,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge badge-tier">Premium Public (Tier 1)</span></div></div></div>
+          <div class="college-card"><div><span class="uniname">NIT Trichy</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">JEE Main</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">₹1,45,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge badge-tier">National Public (Tier 1)</span></div></div></div>
+          <div class="college-card"><div><span class="uniname">NIT Surathkal</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">JEE Main</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">₹1,50,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge badge-tier">National Public (Tier 1)</span></div></div></div>
+          <div class="college-card"><div><span class="uniname">NIT Warangal</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">JEE Main</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">₹1,40,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge badge-tier">National Public (Tier 1)</span></div></div></div>
+          <div class="college-card"><div><span class="uniname">VNIT Nagpur</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">JEE Main</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">₹1,35,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">National Public (Tier 2)</span></div></div></div>
+          <div class="college-card"><div><span class="uniname">MNNIT Allahabad</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">JEE Main</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">₹1,42,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">National Public (Tier 2)</span></div></div></div>
+          <div class="college-card"><div><span class="uniname">BITS Pilani (Main Campus)</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">BITSAT</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">₹5,20,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge badge-tier">Elite Private</span></div></div></div>
+          <div class="college-card"><div><span class="uniname">BITS Pilani (Goa Campus)</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">BITSAT</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">₹5,00,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge badge-tier">Elite Private</span></div></div></div>
+          <div class="college-card"><div><span class="uniname">BITS Pilani (Hyderabad Campus)</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">BITSAT</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">₹5,00,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge badge-tier">Elite Private</span></div></div></div>
+          <div class="college-card"><div><span class="uniname">Delhi Technological University (DTU)</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">JEE Main / JAC</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">₹2,10,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">Premier State University</span></div></div></div>
+          <div class="college-card"><div><span class="uniname">Netaji Subhas Univ of Technology (NSUT)</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">JEE Main / JAC</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">₹2,05,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">Premier State University</span></div></div></div>
+          <div class="college-card"><div><span class="uniname">COEP Technological University (Pune)</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">MHT-CET / JEE</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">₹1,35,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">Top State Government</span></div></div></div>
+          <div class="college-card"><div><span class="uniname">Jadavpur University (Kolkata)</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">WBJEE</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">₹10,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">Low-Cost State Government</span></div></div></div>
+          <div class="college-card"><div><span class="uniname">VIT University (Vellore Main)</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">VITEEE</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">₹3,40,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">High-Scale Private</span></div></div></div>
+          <div class="college-card"><div><span class="uniname">Manipal Institute of Technology (MIT)</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">MET</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">₹4,50,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">High-Scale Private</span></div></div></div>
         </div>
       </div>
 
+      <!-- UAE Registry Cards layout -->
       <div id="uae-panel" class="tabpanel">
         <div class="table-filter-bar">
-          <input type="text" class="search-input" id="search-uae" placeholder="🔍 Filter UAE registry..." oninput="filterTable('uae-table', this.value)">
+          <input type="text" class="search-input" id="search-uae" placeholder="🔍 Filter UAE registry..." oninput="filterCards('uae-grid', this.value)">
         </div>
-        <div class="tablewrap">
-          <table class="specsheet" id="uae-table">
-            <thead>
-              <tr>
-                <th>University Name</th>
-                <th>Admission Pathway</th>
-                <th>Avg. Annual Tuition</th>
-                <th>Classification Profile</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td><span class="uniname">Khalifa University (Abu Dhabi)</span></td><td><span class="badge">EmSAT + Portfolio</span></td><td class="figure">AED 76,000</td><td><span class="badge badge-tier">Elite Government Research</span></td></tr>
-              <tr><td><span class="uniname">American University of Sharjah (AUS)</span></td><td><span class="badge">GPA + Language Tier</span></td><td class="figure">AED 98,000</td><td><span class="badge badge-tier">Elite Private American</span></td></tr>
-              <tr><td><span class="uniname">United Arab Emirates University (UAEU)</span></td><td><span class="badge">EmSAT Matrix</span></td><td class="figure">AED 65,000</td><td><span class="badge">National Public University</span></td></tr>
-              <tr><td><span class="uniname">University of Sharjah (UOS)</span></td><td><span class="badge">High School Score</span></td><td class="figure">AED 58,000</td><td><span class="badge">Major Regional Semi-Public</span></td></tr>
-              <tr><td><span class="uniname">Heriot-Watt University Dubai</span></td><td><span class="badge">Academic Portfolio</span></td><td class="figure">AED 72,000</td><td><span class="badge">International UK Branch</span></td></tr>
-              <tr><td><span class="uniname">University of Birmingham Dubai</span></td><td><span class="badge">IB / CBSE Portfolio</span></td><td class="figure">AED 94,000</td><td><span class="badge">International UK Branch</span></td></tr>
-              <tr><td><span class="uniname">BITS Pilani Dubai Campus</span></td><td><span class="badge">12th Board PCM Marks</span></td><td class="figure">AED 48,000</td><td><span class="badge badge-tier">Indian Specialized Branch</span></td></tr>
-              <tr><td><span class="uniname">Amity University Dubai</span></td><td><span class="badge">School Profile + Interview</span></td><td class="figure">AED 45,000</td><td><span class="badge">Private Career-Focused</span></td></tr>
-              <tr><td><span class="uniname">Manipal Academy of Higher Ed Dubai</span></td><td><span class="badge">CBSE/ISC Grades</span></td><td class="figure">AED 42,000</td><td><span class="badge">Private Career-Focused</span></td></tr>
-              <tr><td><span class="uniname">Abu Dhabi University (ADU)</span></td><td><span class="badge">GPA Match Assessment</span></td><td class="figure">AED 62,000</td><td><span class="badge">Private Diverse Ecosystem</span></td></tr>
-              <tr><td><span class="uniname">Rochester Institute of Tech (RIT Dubai)</span></td><td><span class="badge">US Criteria / SAT</span></td><td class="figure">AED 68,000</td><td><span class="badge">International US Branch</span></td></tr>
-              <tr><td><span class="uniname">Middlesex University Dubai</span></td><td><span class="badge">Academic Evaluation</span></td><td class="figure">AED 56,000</td><td><span class="badge">International UK Branch</span></td></tr>
-            </tbody>
-          </table>
+        <div class="card-grid" id="uae-grid">
+          <div class="college-card"><div><span class="uniname">Khalifa University (Abu Dhabi)</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">EmSAT + Portfolio</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">AED 76,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge badge-tier">Elite Government Research</span></div></div></div>
+          <div class="college-card"><div><span class="uniname">American University of Sharjah (AUS)</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">GPA + Language Tier</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">AED 98,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge badge-tier">Elite Private American</span></div></div></div>
+          <div class="college-card"><div><span class="uniname">United Arab Emirates University (UAEU)</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">EmSAT Matrix</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">AED 65,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">National Public University</span></div></div></div>
+          <div class="college-card"><div><span class="uniname">University of Sharjah (UOS)</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">High School Score</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">AED 58,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">Major Regional Semi-Public</span></div></div></div>
+          <div class="college-card"><div><span class="uniname">Heriot-Watt University Dubai</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">Academic Portfolio</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">AED 72,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">International UK Branch</span></div></div></div>
+          <div class="college-card"><div><span class="uniname">University of Birmingham Dubai</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">IB / CBSE Portfolio</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">AED 94,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">International UK Branch</span></div></div></div>
+          <div class="college-card"><div><span class="uniname">BITS Pilani Dubai Campus</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">12th Board PCM Marks</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">AED 48,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge badge-tier">Indian Specialized Branch</span></div></div></div>
+          <div class="college-card"><div><span class="uniname">Amity University Dubai</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">School Profile + Interview</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">AED 45,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">Private Career-Focused</span></div></div></div>
+          <div class="college-card"><div><span class="uniname">Manipal Academy of Higher Ed Dubai</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">CBSE/ISC Grades</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">AED 42,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">Private Career-Focused</span></div></div></div>
+          <div class="college-card"><div><span class="uniname">Abu Dhabi University (ADU)</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">GPA Match Assessment</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">AED 62,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">Private Diverse Ecosystem</span></div></div></div>
+          <div class="college-card"><div><span class="uniname">Rochester Institute of Tech (RIT Dubai)</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">US Criteria / SAT</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">AED 68,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">International US Branch</span></div></div></div>
+          <div class="college-card"><div><span class="uniname">Middlesex University Dubai</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">Academic Evaluation</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">AED 56,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">International UK Branch</span></div></div></div>
         </div>
       </div>
 
+      <!-- Abroad Registry Cards layout -->
       <div id="abroad-panel" class="tabpanel">
         <div class="table-filter-bar">
-          <input type="text" class="search-input" id="search-abroad" placeholder="🔍 Filter international campuses..." oninput="filterTable('abroad-table', this.value)">
+          <input type="text" class="search-input" id="search-abroad" placeholder="🔍 Filter international campuses..." oninput="filterCards('abroad-grid', this.value)">
         </div>
-        <div class="tablewrap">
-          <table class="specsheet" id="abroad-table">
-            <thead>
-              <tr>
-                <th>University Name</th>
-                <th>Admission Pathway</th>
-                <th>Avg. Annual Tuition</th>
-                <th>Classification Profile</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td><span class="uniname">MIT (Massachusetts Inst of Tech)</span></td><td><span class="badge">SAT/ACT + Portfolio</span></td><td class="figure">$62,000</td><td><span class="badge badge-tier">Global Elite Private (US)</span></td></tr>
-              <tr><td><span class="uniname">Stanford University</span></td><td><span class="badge">SAT/ACT + Essays</span></td><td class="figure">$64,000</td><td><span class="badge badge-tier">Global Elite Private (US)</span></td></tr>
-              <tr><td><span class="uniname">UC Berkeley</span></td><td><span class="badge">UC Application Portal</span></td><td class="figure">$44,000</td><td><span class="badge">Premier Public Flagship (US)</span></td></tr>
-              <tr><td><span class="uniname">Purdue University (West Lafayette)</span></td><td><span class="badge">SAT/ACT + High GPA</span></td><td class="figure">$31,000</td><td><span class="badge badge-tier">Elite Engineering Public (US)</span></td></tr>
-              <tr><td><span class="uniname">Georgia Institute of Technology</span></td><td><span class="badge">SAT/ACT Alignments</span></td><td class="figure">$33,000</td><td><span class="badge badge-tier">Elite Engineering Public (US)</span></td></tr>
-              <tr><td><span class="uniname">University of Michigan (Ann Arbor)</span></td><td><span class="badge">Common App + Grades</span></td><td class="figure">$49,000</td><td><span class="badge">High-Scale Public State (US)</span></td></tr>
-              <tr><td><span class="uniname">Imperial College London</span></td><td><span class="badge">A-Levels / IB Matrix</span></td><td class="figure">£39,000</td><td><span class="badge badge-tier">Elite STEM Institute (UK)</span></td></tr>
-              <tr><td><span class="uniname">University of Cambridge</span></td><td><span class="badge">Advanced Assessment</span></td><td class="figure">£44,000</td><td><span class="badge badge-tier">Historic World Elite (UK)</span></td></tr>
-              <tr><td><span class="uniname">TU Munich (Technical Univ of Munich)</span></td><td><span class="badge">TestAS + German Level</span></td><td class="figure">€3,000</td><td><span class="badge">Low-Cost Public Elite (DE)</span></td></tr>
-              <tr><td><span class="uniname">RWTH Aachen University</span></td><td><span class="badge">School Certificate Check</span></td><td class="figure">None / Exempt</td><td><span class="badge">Low-Cost Public Elite (DE)</span></td></tr>
-              <tr><td><span class="uniname">National University of Singapore (NUS)</span></td><td><span class="badge">Elite Academic Standing</span></td><td class="figure">S$39,000</td><td><span class="badge">Top Asian Flagship (SG)</span></td></tr>
-              <tr><td><span class="uniname">Nanyang Technological Univ (NTU)</span></td><td><span class="badge">Entrance Evaluation Review</span></td><td class="figure">S$37,000</td><td><span class="badge">Top Asian Flagship (SG)</span></td></tr>
-            </tbody>
-          </table>
+        <div class="card-grid" id="abroad-grid">
+          <div class="college-card"><div><span class="uniname">MIT (Massachusetts Inst of Tech)</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">SAT/ACT + Portfolio</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">$62,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge badge-tier">Global Elite Private (US)</span></div></div></div>
+          <div class="college-card"><div><span class="uniname">Stanford University</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">SAT/ACT + Essays</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">$64,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge badge-tier">Global Elite Private (US)</span></div></div></div>
+          <div class="college-card"><div><span class="uniname">UC Berkeley</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">UC Application Portal</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">$44,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">Premier Public Flagship (US)</span></div></div></div>
+          <div class="college-card"><div><span class="uniname">Purdue University (West Lafayette)</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">SAT/ACT + High GPA</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">$31,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge badge-tier">Elite Engineering Public (US)</span></div></div></div>
+          <div class="college-card"><div><span class="uniname">Georgia Institute of Technology</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">SAT/ACT Alignments</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">$33,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge badge-tier">Elite Engineering Public (US)</span></div></div></div>
+          <div class="college-card"><div><span class="uniname">University of Michigan (Ann Arbor)</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">Common App + Grades</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">$49,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">High-Scale Public State (US)</span></div></div></div>
+          <div class="college-card"><div><span class="uniname">Imperial College London</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">A-Levels / IB Matrix</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">£39,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge badge-tier">Elite STEM Institute (UK)</span></div></div></div>
+          <div class="college-card"><div><span class="uniname">University of Cambridge</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">Advanced Assessment</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">£44,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge badge-tier">Historic World Elite (UK)</span></div></div></div>
+          <div class="college-card"><div><span class="uniname">TU Munich (Technical Univ of Munich)</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">TestAS + German Level</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">€3,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">Low-Cost Public Elite (DE)</span></div></div></div>
+          <div class="college-card"><div><span class="uniname">RWTH Aachen University</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">School Certificate Check</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">None / Exempt</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">Low-Cost Public Elite (DE)</span></div></div></div>
+          <div class="college-card"><div><span class="uniname">National University of Singapore (NUS)</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">Elite Academic Standing</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">S$39,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">Top Asian Flagship (SG)</span></div></div></div>
+          <div class="college-card"><div><span class="uniname">Nanyang Technological Univ (NTU)</span></div><div class="card-meta"><div class="meta-row"><span class="meta-label">Pathway</span><span class="badge">Entrance Evaluation Review</span></div><div class="meta-row"><span class="meta-label">Tuition</span><span class="figure">S$37,000</span></div><div class="meta-row"><span class="meta-label">Profile</span><span class="badge">Top Asian Flagship (SG)</span></div></div></div>
         </div>
       </div>
     </div>
@@ -553,7 +605,7 @@ footer{
         <span style="width:8px; height:8px; background:var(--accent); border-radius:50%"></span>
         Dynamic Parameterized Budgeting Estimator
       </h3>
-      <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 24px;">Compute estimated base pricing parameters mapping verified institutional data synchronized directly from our primary global tables.</p>
+      <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 24px;">Compute estimated base pricing parameters mapping verified institutional data synchronized directly from our primary global vectors.</p>
       
       <div class="calc-field">
         <label for="calc-region">1. Target Region Infrastructure Focus</label>
@@ -636,8 +688,7 @@ footer{
       <div class="quiz-step" id="q-step-3">
         <h3 class="mono" style="color: var(--cyber-cyan); font-size: 13px; margin-bottom: 8px; text-transform: uppercase;">Step 03 / 05</h3>
         <h3>Identify Your Annual Tuition Budget Threshold</h3>
-        <div class="options-list" id="budget-options-container">
-          </div>
+        <div class="options-list" id="budget-options-container"></div>
       </div>
 
       <div class="quiz-step" id="q-step-4">
@@ -688,7 +739,7 @@ footer{
 
       <div class="quiz-footer">
         <button class="btn btn-ghost" id="quiz-prev-btn" onclick="navigateQuiz(-1)" disabled>Back</button>
-        <button class="btn btn-primary" id="quiz-next-btn" onclick="processQuizStepFour()" style="display:none;">Compute Targeted Matrix Match →</button>
+        <button class="btn btn-primary" id="quiz-next-btn" onclick="processQuizStepFour()" style="display:none;">Continue to Step 5 →</button>
       </div>
 
       <div class="quiz-result-view" id="quiz-result-box">
@@ -697,6 +748,58 @@ footer{
         <div id="quiz-result-meta" style="font-size:14.5px; color: var(--text-muted); line-height: 1.6; white-space: pre-line;"></div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- Career Profiles Section -->
+<section id="careers">
+  <div class="section-inner">
+    <div class="section-head">
+      <h2>Mechanical Specialization Career Vectors</h2>
+      <p>Analyze high-impact industry career paths mapping expected foundational entry benchmarks up to premium global system engineering milestones.</p>
+    </div>
+    
+    <div class="career-grid">
+      <div class="career-card">
+        <h3>Robotics &amp; Automation Engineer</h3>
+        <p>Develop autonomous kinematic tracking setups, mechatronic layouts, and software integration loops for advanced automated manufacturing hubs.</p>
+        <div class="salary-box">
+          <div class="salary-row"><span>India Baseline</span><span class="val">₹6.5L - ₹18L</span></div>
+          <div class="salary-row"><span>UAE Range</span><span class="val">AED 90k - 210k</span></div>
+          <div class="salary-row"><span>Global Hubs</span><span class="val">$85,000 - $145,000</span></div>
+        </div>
+      </div>
+
+      <div class="career-card">
+        <h3>Aerospace &amp; Propulsion Specialist</h3>
+        <p>Focus on high-velocity fluid dynamics boundaries, structural loading configurations, thermal cycle tracking, and next-gen flight mechanics systems.</p>
+        <div class="salary-box">
+          <div class="salary-row"><span>India Baseline</span><span class="val">₹8L - ₹24L</span></div>
+          <div class="salary-row"><span>UAE Range</span><span class="val">AED 120k - 260k</span></div>
+          <div class="salary-row"><span>Global Hubs</span><span class="val">$92,000 - $160,000</span></div>
+        </div>
+      </div>
+
+      <div class="career-card">
+        <h3>EV Powertrain &amp; Automotive Design</h3>
+        <p>Engineer complex thermal dissipation safety matrices, high-capacity cell deployment arrays, and micro-electromechanical control loops for electric vehicle tracks.</p>
+        <div class="salary-box">
+          <div class="salary-row"><span>India Baseline</span><span class="val">₹7L - ₹22L</span></div>
+          <div class="salary-row"><span>UAE Range</span><span class="val">AED 96k - 240k</span></div>
+          <div class="salary-row"><span>Global Hubs</span><span class="val">$88,000 - $150,000</span></div>
+        </div>
+      </div>
+
+      <div class="career-card">
+        <h3>Renewable Energy Systems Architect</h3>
+        <p>Design thermodynamic cycle pipelines, aerodynamic wind collection grids, and strategic hydro-infrastructure capturing systems for sustainable energy lines.</p>
+        <div class="salary-box">
+          <div class="salary-row"><span>India Baseline</span><span class="val">₹6L - ₹16L</span></div>
+          <div class="salary-row"><span>UAE Range</span><span class="val">AED 84k - 190k</span></div>
+          <div class="salary-row"><span>Global Hubs</span><span class="val">$82,000 - $138,000</span></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -749,13 +852,13 @@ function switchTab(evt, id) {
   evt.currentTarget.classList.add('active');
 }
 
-// Fast Institutional Data String Filter Function
-function filterTable(tableId, query) {
+// Cards String Filter Engine instead of rows logic
+function filterCards(gridId, query) {
   const cleanQuery = query.toLowerCase().trim();
-  const rows = document.querySelectorAll(`#${tableId} tbody tr`);
-  rows.forEach(row => {
-    const content = row.innerText.toLowerCase();
-    row.style.display = content.includes(cleanQuery) ? '' : 'none';
+  const cards = document.querySelectorAll(`#${gridId} .college-card`);
+  cards.forEach(card => {
+    const content = card.innerText.toLowerCase();
+    card.style.display = content.includes(cleanQuery) ? '' : 'none';
   });
 }
 
@@ -859,8 +962,8 @@ function selectSingleQuizOption(step, key, val) {
   if(stepEl) {
     const cards = stepEl.querySelectorAll('.opt-card');
     cards.forEach(c => c.classList.remove('selected'));
-    if(event && event.currentTarget) {
-      event.currentTarget.classList.add('selected');
+    if(window.event && window.event.currentTarget) {
+      window.event.currentTarget.classList.add('selected');
     }
   }
   
@@ -868,7 +971,6 @@ function selectSingleQuizOption(step, key, val) {
     buildDynamicBudgetOptions(val);
   }
   
-  // Self-advancing smooth loop delay for linear radio-style selections
   setTimeout(() => { navigateQuiz(1); }, 250);
 }
 
@@ -938,18 +1040,15 @@ function navigateQuiz(dir) {
   
   quizCurrentStep += dir;
   
-  // Guard loops boundaries
   if(quizCurrentStep < 1) quizCurrentStep = 1;
   if(quizCurrentStep > totalQuizSteps) quizCurrentStep = totalQuizSteps;
 
   const nextStepEl = document.getElementById(`q-step-${quizCurrentStep}`);
   if(nextStepEl) nextStepEl.classList.add('active');
   
-  // Progress Indicator update tracking
   const progressPct = (quizCurrentStep / totalQuizSteps) * 100;
   document.getElementById('quiz-progress').style.width = `${progressPct}%`;
   
-  // Navigation button states adjustments
   document.getElementById('quiz-prev-btn').disabled = (quizCurrentStep === 1);
   
   const nextBtn = document.getElementById('quiz-next-btn');
@@ -991,14 +1090,14 @@ function generateQuizRecommendation() {
   let trackReport = "";
   quizData.interests.forEach(interest => {
     if(interest === 'robotics') trackReport += "\n • Robotics & Autonomous Control Core (Kinematics, Micro-electromechanical platforms)";
-    if(interest === 'aerospace') trackReport += "\n • Aerospace Aerospace Vectors (Fluid propulsion metrics, structural fatigue models)";
+    if(interest === 'aerospace') trackReport += "\n • Aerospace Vectors (Fluid propulsion metrics, structural fatigue models)";
     if(interest === 'automotive') trackReport += "\n • Next-Gen EV Dynamics (High-output power cells integration, thermodynamics limits)";
     if(interest === 'energy') trackReport += "\n • Sustainable Fluid Analytics (Aerodynamic capture matrix, thermodynamic cycles)";
   });
 
   let objectiveStatement = "";
   if(quizData.milestone === 'research') objectiveStatement = "Advanced Academic Research & Innovation Pathway Grouping (Prepares for laboratory tenure, thesis development, and peer-reviewed outputs).";
-  else if(quizData.milestone === 'industry') objectiveStatement = "High-Scale Corporate System Engineering R&D (Prepares for precision commercial pipeline deployment, manufacturing integration, and large-scale industrial program management).";
+  else if(quizData.industry === 'industry') objectiveStatement = "High-Scale Corporate System Engineering R&D (Prepares for precision commercial pipeline deployment, manufacturing integration, and large-scale industrial program management).";
   else objectiveStatement = "Deep-Tech Venture Engineering & Hardware Incubation (Prepares for capital-efficient hardware prototyping, technical patenting pathways, and functional startup scaling).";
 
   rTxt.innerText = `Matched System Array: [ ${matchSet.join(" | ")} ]`;
